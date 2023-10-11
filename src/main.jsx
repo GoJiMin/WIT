@@ -11,6 +11,7 @@ import BookDetail from "./pages/BookDetail.jsx";
 import About from "./pages/About.jsx";
 import Conatct from "./pages/Conatct.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Recommend from "./pages/Recommend";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "search/:id", element: <BookDetail /> },
       { path: "about", element: <About /> },
       { path: "contact", element: <Conatct /> },
+      { path: "recommend", element: <Recommend /> },
     ],
   },
 ]);

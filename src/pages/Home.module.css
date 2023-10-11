@@ -1,5 +1,5 @@
 .section {
-  margin-top: 8rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,21 +7,27 @@
   position: relative;
 }
 
+.title {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  border-bottom: 2px solid var(--font-base-color);
+  padding: 2rem 4rem;
+}
+
 .textBox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
 }
 
 .description {
-  font-size: var(--font-regular);
+  font-size: var(--font-md);
   margin: 7px 0;
 }
 
 img {
   width: 350px;
   position: absolute;
-  top: 8rem;
-  left: 2rem;
+  top: 12rem;
+  left: -1rem;
 }

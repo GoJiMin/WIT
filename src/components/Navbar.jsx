@@ -8,13 +8,16 @@ export default function Navbar() {
     <header className={styles.header}>
       <h1 className={styles.title}>
         <Link to='/'>
-          <span>WIT</span>
+          <span className={styles.title__text}>WIT</span>
           <span className={styles.icon}>
             <PiBookOpenBold />
           </span>
         </Link>
       </h1>
       <div className={styles.list}>
+        <Link to='/recommend' className={styles.element}>
+          Recommend
+        </Link>
         <Link to='/about' className={styles.element}>
           About
         </Link>

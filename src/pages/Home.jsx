@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <section className={styles.section}>
-      <h1 className={styles.title}>오늘 뭐 읽지?</h1>
+      <p className={styles.title}>오늘 뭐 읽지?</p>
       <div className={styles.textBox}>
         <p className={styles.description}>
           태그를 선택해 오늘 읽을 책을 추천 받아보세요.
