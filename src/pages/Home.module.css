@@ -4,4 +4,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.description {
+  font-size: var(--font-regular);
+  margin: 7px 0;
+}
+
+img {
+  width: 350px;
+  position: absolute;
+  top: 8rem;
+  left: 2rem;
 }
