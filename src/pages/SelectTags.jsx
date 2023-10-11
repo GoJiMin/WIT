@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function SelectTags() {
-  return <div></div>;
+  return <div>SelectTags</div>;
 }
