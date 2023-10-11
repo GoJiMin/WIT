@@ -1,14 +1,17 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import styles from "./App.module.css";
 
 function App() {
   return (
-    <>
-      <header>
+    <section className={styles.main}>
+      <header className={styles.header}>
         <Navbar />
-        <Outlet />
       </header>
-    </>
+      <section className={styles.App__body}>
+        <Outlet />
+      </section>
+    </section>
   );
 }
 
