@@ -1,6 +1,5 @@
 .button {
   padding: 0.5rem 2.5rem;
-  margin-top: 3rem;
   border-radius: var(--size-border-radius);
   color: var(--font-base-color);
   border: 3px solid var(--font-base-color);
