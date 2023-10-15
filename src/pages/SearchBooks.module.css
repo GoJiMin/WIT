@@ -1,0 +1,10 @@
+.section {
+  padding: 2rem 5rem;
+}
+
+.bookList {
+  height: 35rem;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
