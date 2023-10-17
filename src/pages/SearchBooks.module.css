@@ -1,9 +1,9 @@
 .section {
-  padding: 2rem 5rem;
+  padding: 1rem 5rem;
 }
 
 .bookList {
-  height: 35rem;
+  height: var(--bookList-height);
   overflow: auto;
   margin: 0;
   padding: 0;

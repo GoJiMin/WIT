@@ -39,6 +39,11 @@ export default function SelectTags() {
           ))}
         </ul>
       )}
+      <img
+        className={styles.logo}
+        src='src\assets\image\bookLogo2.png'
+        alt='bookLogo2'
+      />
     </section>
   );
 }

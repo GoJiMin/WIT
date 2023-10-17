@@ -26,9 +26,9 @@
   margin: 7px 0;
 }
 
-img {
+.image {
   width: 350px;
   position: absolute;
-  top: 12rem;
+  top: 15rem;
   left: -1rem;
 }

@@ -4,6 +4,9 @@ const aladinClient = axios.create({
   params: {
     ttbkey: "ttbgojimin30952008001",
     QueryType: "Bestseller",
+    Year: 2023,
+    Month: 3,
+    Week: 2,
     Version: 20131101,
     MaxResults: 10,
     Output: "JS",

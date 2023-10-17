@@ -1,7 +1,20 @@
 import React from "react";
 import styles from "./Book.module.css";
 
-export default function Book({ data: { title, description, author, cover } }) {
+export default function Book({
+  data: {
+    title,
+    description,
+    author,
+    cover,
+    isbn13,
+    setIsbn,
+    setRegion,
+    setClicked,
+  },
+}) {
+  const handleClick = () => {};
+
   return (
     <section className={styles.book}>
       <div className={styles.imgBox}>
@@ -13,6 +26,11 @@ export default function Book({ data: { title, description, author, cover } }) {
           <p className={styles.author}>{author}</p>
         </div>
         <p className={styles.description}>{description}</p>
+        <div className={styles.linkList}>
+          <button className={styles.linkList}>소장 도서관</button>
+          <button className={styles.linkList}>알라딘 중고 보유 매장</button>
+          <button className={styles.linkList}>구매하러 가기</button>
+        </div>
       </div>
     </section>
   );
