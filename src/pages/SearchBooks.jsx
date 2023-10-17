@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { searchToTag } from "../services/aladin";
 import Book from "../components/Book";
 import styles from "./SearchBooks.module.css";
+import Region from "../components/Region";
 
 export default function SearchBooks() {
   const { categoryId } = useParams();
@@ -32,6 +33,7 @@ export default function SearchBooks() {
             </li>
           ))}
       </ul>
+      <Region />
     </section>
   );
 }
