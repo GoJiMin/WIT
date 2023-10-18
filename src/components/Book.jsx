@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Book.module.css";
+import Modal from "./Modal";
+import Region from "./Region";
 
 export default function Book({
   data: {
@@ -26,11 +28,12 @@ export default function Book({
           <p className={styles.author}>{author}</p>
         </div>
         <p className={styles.description}>{description}</p>
-        <div className={styles.linkList}>
-          <button className={styles.linkList}>소장 도서관</button>
-          <button className={styles.linkList}>알라딘 중고 보유 매장</button>
-          <button className={styles.linkList}>구매하러 가기</button>
-        </div>
+        <div className={styles.linkList}></div>
+        <Modal
+          text={"소장 도서관 위치"}
+          title={"위치 선택"}
+          component={<Region />}
+        />
       </div>
     </section>
   );

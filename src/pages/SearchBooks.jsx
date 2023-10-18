@@ -33,7 +33,6 @@ export default function SearchBooks() {
             </li>
           ))}
       </ul>
-      <Region />
     </section>
   );
 }

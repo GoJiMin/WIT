@@ -11,10 +11,14 @@ export default function Region() {
   };
 
   return (
-    <section>
-      <ul>
+    <section className={styles.section}>
+      <ul className={styles.region}>
         {REGION_LIST.map(({ idx, region }) => (
-          <li className={styles.region} key={idx} onClick={handleClick}>
+          <li
+            className={styles.region__element}
+            key={idx}
+            onClick={handleClick}
+          >
             <Button text={region} id={idx} />
           </li>
         ))}
