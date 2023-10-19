@@ -2,17 +2,18 @@
   /* padding: 0.5rem 2.5rem; */
   /* padding: 0.5rem 1rem; */
   /* border-radius: var(--size-border-radius); */
+  /* border: 3px solid var(--font-base-color); */
   margin: 0.5rem;
   text-align: center;
   line-height: 20px;
   white-space: nowrap;
   color: var(--font-base-color);
-  /* border: 3px solid var(--font-base-color); */
   font-size: var(--font-sm);
   transition: all var(--animation-duration) ease;
   font-weight: var(--weight-bold);
   font-family: "GmarketSansMedium";
 }
+
 /* 
 .button:hover {
   background-color: var(--font-base-color);

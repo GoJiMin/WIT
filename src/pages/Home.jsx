@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Home.module.css";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import Confirm from "../components/Confirm";
 
 export default function Home() {
   return (
@@ -22,7 +21,6 @@ export default function Home() {
         src='src/assets/image/bookLogo.png'
         alt='logo'
       />
-      {/* <Confirm /> */}
     </section>
   );
 }

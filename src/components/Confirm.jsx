@@ -21,7 +21,6 @@ export default function Confirm({ title, content, close, confirm }) {
             className={styles.confirmBtn}
             onClick={() => {
               confirm && confirm();
-              close && close();
             }}
           >
             confirm

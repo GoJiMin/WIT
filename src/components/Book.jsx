@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styles from "./Book.module.css";
 import Modal from "./Modal";
 import Region from "./Region";
+import { libraryLocation } from "../services/library";
 
 export default function Book({
-  data: {
-    title,
-    description,
-    author,
-    cover,
-    isbn13,
-    setIsbn,
-    setRegion,
-    setClicked,
-  },
+  data: { title, description, author, cover, isbn13 },
 }) {
-  const handleClick = () => {};
+  const region = useRef();
+  const [library, setLibrary] = useState([]);
+
+  const handleRegionCheck = (e) => {
+    region.current = e.target.id;
+  };
+
+  const handleConfirm = () => {
+    libraryLocation({ isbn: isbn13, region: region.current }).then((res) =>
+      setLibrary(res.data.response)
+    );
+  };
+
+  console.log(library);
 
   return (
     <section className={styles.book}>
@@ -32,7 +37,15 @@ export default function Book({
         <Modal
           text={"소장 도서관 위치"}
           title={"위치 선택"}
-          component={<Region />}
+          library={library}
+          handleConfirm={handleConfirm}
+          component={
+            <Region
+              region={region}
+              setRegion={handleRegionCheck}
+              library={library}
+            />
+          }
         />
       </div>
     </section>

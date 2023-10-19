@@ -2,7 +2,7 @@ import axios from "axios";
 
 const aladinClient = axios.create({
   params: {
-    ttbkey: "ttbgojimin30952008001",
+    ttbkey: import.meta.env.VITE_ALADIN_API_KEY,
     QueryType: "Bestseller",
     Year: 2023,
     Month: 3,

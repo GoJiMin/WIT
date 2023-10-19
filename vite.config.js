@@ -11,6 +11,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
+      "/book": {
+        target: "http://data4library.kr/api",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/book/, ""),
+      },
     },
   },
 });

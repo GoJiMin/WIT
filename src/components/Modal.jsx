@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Modal.module.css";
 import Confirm from "./Confirm";
 
-export default function Modal({ title, text, component }) {
+export default function Modal({ title, text, component, handleConfirm }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const open = () => {
@@ -14,8 +14,7 @@ export default function Modal({ title, text, component }) {
   };
 
   const confirm = () => {
-    console.log("confirm!");
-    setIsOpen(false);
+    handleConfirm();
   };
 
   return (
