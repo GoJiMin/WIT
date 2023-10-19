@@ -13,7 +13,7 @@ export default function Home() {
         </p>
         <p className={styles.description}>버튼을 눌러 시작해보세요!</p>
       </div>
-      <Link to='/select'>
+      <Link className={styles.button} to='/select'>
         <Button text={"시작하기"} />
       </Link>
       <img

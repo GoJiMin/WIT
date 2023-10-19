@@ -32,3 +32,19 @@
   top: 15rem;
   left: -1rem;
 }
+
+.button button {
+  font-family: "NeoDunggeunmoPro-Regular";
+  background-color: var(--font-base-color);
+  color: var(--background-color);
+  padding: 1rem 3rem;
+  border-radius: var(--size-border-radius);
+  border: 2px solid var(--font-base-color);
+  font-size: var(--font-md);
+}
+
+.button button:hover {
+  border: 2px solid var(--font-base-color);
+  background-color: var(--background-color);
+  color: var(--font-base-color-color);
+}

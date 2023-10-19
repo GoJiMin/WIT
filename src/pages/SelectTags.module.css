@@ -1,8 +1,9 @@
 .section {
   display: flex;
-  flex-direction: column;
+  align-items: baseline;
   width: 100%;
   height: 100%;
+  padding: 0 1rem;
 }
 
 .logo {
@@ -15,77 +16,34 @@
 .tag button {
   font-family: "GmarketSansMedium";
   border: none;
+  font-size: var(--font-md);
+  font-weight: var(--weight-bold);
+}
+
+.tag {
+  margin-bottom: 2rem;
 }
 
 .tagList {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 3rem;
 }
 
 .detailList {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+  height: 400px;
+}
+
+.tag__sub {
+  margin-right: 3rem;
+  margin-bottom: 1rem;
 }
 
 .tag__sub button {
   border: none;
   font-family: "GmarketSansMedium";
 }
-
-/* .tagList {
-  padding-right: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.line {
-  border: 1px solid var(--font-base-color);
-  margin-top: 3rem;
-  height: 35rem;
-}
-
-.detailList {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  height: 20rem;
-  width: 40%;
-}
-
-.detailList {
-  display: grid;
-  margin: auto;
-  margin-top: 5rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-}
-
-.tag button {
-  font-size: var(--font-tg);
-  margin: 1rem 1rem;
-  width: 11rem;
-  padding: 1rem 1.5rem;
-  text-align: center;
-  border: none;
-  transition: all var(--animation-duration) ease-in-out;
-}
-
-.tag__sub button {
-  font-size: 1.3rem;
-  margin: 0.5rem 1rem;
-  padding: 1rem 2.3rem;
-  border: none;
-  font-weight: 300;
-  transition: all var(--animation-duration) ease-in;
-}
-
-.logo {
-  position: absolute;
-  width: 350px;
-  bottom: 0;
-  right: 0;
-} */
