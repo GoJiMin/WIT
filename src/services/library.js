@@ -22,7 +22,7 @@ export async function libraryLocation({ isbn, region }) {
 
 export async function libraryLocationMock() {
   return await axios
-    .get("src/data/libraryMock.json")
+    .get("/public/libraryMock.json")
     .then((res) => res.data)
     .catch((error) => console.log(error));
 }

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { DETAIL_LIST, TAG_LIST } from "../data/tagData";
 import Button from "../components/Button";
 import styles from "./SelectTags.module.css";
@@ -8,8 +8,10 @@ import { useNavigate } from "react-router-dom";
 export default function SelectTags() {
   const navigate = useNavigate();
   const [tag, setTag] = useState();
+  const clicked = useRef();
   const handleClick = (e) => {
     setTag(e.target.id);
+    clicked.current = e.target.id;
   };
 
   const handleSearch = (categoryId) => {
@@ -20,8 +22,15 @@ export default function SelectTags() {
     <section className={styles.section}>
       <ul className={styles.tagList}>
         {TAG_LIST.map(({ id, tagName }) => (
-          <li className={styles.tag} key={id} onClick={handleClick}>
-            <Button text={tagName} id={id} />
+          <li
+            className={
+              clicked.current / 1 === id / 1
+                ? `${styles.tag} ${styles.clicked}`
+                : `${styles.tag}`
+            }
+            key={id}
+          >
+            <Button text={tagName} id={id} handleFunction={handleClick} />
           </li>
         ))}
       </ul>

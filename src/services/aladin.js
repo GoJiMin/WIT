@@ -23,3 +23,10 @@ export async function searchToTag(CategoryId) {
     .then((res) => res.data)
     .catch((error) => console.log(error));
 }
+
+export async function serchToTagMock() {
+  return await axios
+    .get("/public/bookDataMock.json")
+    .then((res) => res.data)
+    .catch((error) => console.log(error));
+}

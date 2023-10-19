@@ -2,16 +2,6 @@
   display: flex;
 }
 
-.library {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.libName {
-  font-size: 1rem;
-}
-
 .region {
   padding: 0rem 1.5rem;
   gap: 8px;
@@ -23,16 +13,17 @@
   margin-right: 30px;
 }
 
-.notClicked {
+.notClicked button {
   opacity: 0.7;
 }
 
-.clicked button {
+.notClicked button:hover {
+  opacity: 1;
   transform: scale(130%);
   color: #374a3a;
 }
 
-.regionList {
+.depth2_list {
   height: 400px;
   display: flex;
   align-items: start;
@@ -41,18 +32,21 @@
   gap: 10px;
 }
 
-.depth_2_clicked button {
-  transform: scale(130%);
+.depth2_btn button {
   margin-right: 40px;
-  color: #374a3a;
-}
-
-.region_depth {
   opacity: 0.7;
 }
 
-.region_depth button {
-  margin-right: 40px;
+.depth2_btn button:hover {
+  opacity: 1;
+  transform: scale(130%);
+  color: #374a3a;
+}
+
+.clicked button {
+  transform: scale(130%);
+  color: #374a3a;
+  opacity: 1;
 }
 
 /* Chrome, Edge, and Safari */

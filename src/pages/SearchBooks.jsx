@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { searchToTag } from "../services/aladin";
+import { searchToTag, serchToTagMock } from "../services/aladin";
 import Book from "../components/Book";
 import styles from "./SearchBooks.module.css";
 
 export default function SearchBooks() {
   const { categoryId } = useParams();
-  const {
-    isLoading,
-    error,
-    data: books,
-  } = useQuery(["books"], () => searchToTag(categoryId));
+  // const {
+  //   isLoading,
+  //   error,
+  //   data: books,
+  // } = useQuery(["books"], () => searchToTag(categoryId));
+
+  const { data: books } = useQuery(["books"], serchToTagMock);
 
   return (
     <section className={styles.section}>

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import styles from "./Book.module.css";
 import Modal from "./Modal";
 import Region from "./Region";
-import { libraryLocation } from "../services/library";
+import { libraryLocation, libraryLocationMock } from "../services/library";
 
 export default function Book({
   data: { title, description, author, cover, isbn13 },
@@ -14,10 +14,13 @@ export default function Book({
     region.current = e.target.id;
   };
 
+  // const handleConfirm = () => {
+  //   libraryLocation({ isbn: isbn13, region: region.current }).then((res) =>
+  //     setLibrary(res.data.response)
+  //   );
+  // };
   const handleConfirm = () => {
-    libraryLocation({ isbn: isbn13, region: region.current }).then((res) =>
-      setLibrary(res.data.response)
-    );
+    libraryLocationMock().then((res) => setLibrary(res.response));
   };
 
   console.log(library);
@@ -44,6 +47,7 @@ export default function Book({
               region={region}
               setRegion={handleRegionCheck}
               library={library}
+              setLibrary={setLibrary}
             />
           }
         />
