@@ -4,19 +4,27 @@ const aladinClient = axios.create({
   params: {
     ttbkey: import.meta.env.VITE_ALADIN_API_KEY,
     QueryType: "Bestseller",
-    Year: 2023,
-    Month: 3,
-    Week: 2,
     Version: 20131101,
-    MaxResults: 10,
+    MaxResults: 15,
     Output: "JS",
   },
 });
 
+const randomDate = () => {
+  const year = 2020 + Math.random() * 3;
+  const month = Math.random() * 9 + 1;
+  const week = Math.random() * 4 + 1;
+  return [year, month, week];
+};
+
 export async function searchToTag(CategoryId) {
+  const date = randomDate();
   return await aladinClient
     .get("/api/ItemList.aspx", {
       params: {
+        year: date[0],
+        month: date[1],
+        week: date[2],
         CategoryId,
       },
     })

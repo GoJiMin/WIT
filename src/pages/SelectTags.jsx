@@ -1,8 +1,7 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { DETAIL_LIST, TAG_LIST } from "../data/tagData";
 import Button from "../components/Button";
 import styles from "./SelectTags.module.css";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function SelectTags() {

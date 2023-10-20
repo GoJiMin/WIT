@@ -1,4 +1,5 @@
 .section {
+  position: relative;
   padding: 1rem 5rem;
 }
 
@@ -7,4 +8,10 @@
   overflow: auto;
   margin: 0;
   padding: 0;
+}
+
+.search {
+  position: absolute;
+  bottom: -30px;
+  right: 100px;
 }
