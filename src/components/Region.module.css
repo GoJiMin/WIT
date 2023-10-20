@@ -51,7 +51,7 @@
 
 /* Chrome, Edge, and Safari */
 .region::-webkit-scrollbar {
-  width: 1.5px;
+  width: 2px;
   height: 0px;
 }
 

@@ -4,7 +4,7 @@ import Button from "./Button";
 import styles from "./Region.module.css";
 import Libraries from "./Libraries";
 
-export default function Region({ setRegion, library, setLibrary }) {
+export default function Region({ setRegion, library, setLibrary, resultNum }) {
   const [depth, setDepth] = useState("");
   const clicked = useRef();
   const [depth2, setDepth2] = useState("");
@@ -14,6 +14,8 @@ export default function Region({ setRegion, library, setLibrary }) {
     setRegion(e);
     clicked.current = e.target.id;
   };
+
+  console.log(library);
 
   return (
     <>
@@ -57,7 +59,9 @@ export default function Region({ setRegion, library, setLibrary }) {
           )}
         </section>
       )}
-      {library && <Libraries library={library} setLibrary={setLibrary} />}
+      {library.length !== 0 && (
+        <Libraries library={library} setLibrary={setLibrary} />
+      )}
     </>
   );
 }

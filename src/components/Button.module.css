@@ -11,7 +11,18 @@
   font-size: var(--font-sm);
   transition: all var(--animation-duration) ease;
   font-weight: var(--weight-bold);
+  opacity: 0.7;
   font-family: "GmarketSansMedium";
+}
+
+.button:hover {
+  transform: scale(130%);
+  opacity: 1;
+}
+
+.clicked {
+  transform: scale(130%);
+  opacity: 1;
 }
 
 /* 
