@@ -15,15 +15,15 @@ export default function Book({
     region.current = e.target.id;
   };
 
-  // const handleConfirm = () => {
-  //   libraryLocation({ isbn: isbn13, region: region.current }).then((res) =>
-  //     setLibrary(res.data.response)
-  //   );
-  // };
-
   const handleConfirm = () => {
-    libraryLocationMock().then((res) => setLibrary(res.response));
+    libraryLocation({ isbn: isbn13, region: region.current }).then((res) =>
+      setLibrary(res.data.response)
+    );
   };
+
+  // const handleConfirm = () => {
+  //   libraryLocationMock().then((res) => setLibrary(res.response));
+  // };
 
   const unescapeTitle = unescapeHtml(title);
   const unescapeDes = unescapeHtml(description);

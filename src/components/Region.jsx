@@ -10,6 +10,7 @@ export default function Region({ setRegion, library, setLibrary, resultNum }) {
   const [depth2, setDepth2] = useState("");
 
   const handleClick = (e) => {
+    setDepth2(null);
     setDepth(e.target.parentElement.id);
     setRegion(e);
     clicked.current = e.target.id;
