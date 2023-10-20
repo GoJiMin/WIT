@@ -21,7 +21,6 @@ export default function Book({
   // };
   const handleConfirm = () => {
     libraryLocationMock().then((res) => setLibrary(res.response));
-    // setLibrary([]);
   };
 
   return (
