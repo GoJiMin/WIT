@@ -3,6 +3,7 @@ import styles from "./Book.module.css";
 import Modal from "./Modal";
 import Region from "./Region";
 import { libraryLocation, libraryLocationMock } from "../services/library";
+import { unescapeHtml } from "./../services/unescape";
 
 export default function Book({
   data: { title, description, author, cover, isbn13 },
@@ -19,9 +20,13 @@ export default function Book({
   //     setLibrary(res.data.response)
   //   );
   // };
+
   const handleConfirm = () => {
     libraryLocationMock().then((res) => setLibrary(res.response));
   };
+
+  const unescapeTitle = unescapeHtml(title);
+  const unescapeDes = unescapeHtml(description);
 
   return (
     <section className={styles.book}>
@@ -30,10 +35,10 @@ export default function Book({
       </div>
       <div className={styles.textBox}>
         <div className={styles.titleBox}>
-          <p className={styles.title}>{title}</p>
+          <p className={styles.title}>{unescapeTitle}</p>
           <p className={styles.author}>{author}</p>
         </div>
-        <p className={styles.description}>{description}</p>
+        <p className={styles.description}>{unescapeDes}</p>
         <div className={styles.linkList}></div>
         <Modal
           text={"소장 도서관 위치"}
