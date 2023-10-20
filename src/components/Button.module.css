@@ -1,8 +1,5 @@
-.button {
-  /* padding: 0.5rem 2.5rem; */
-  /* padding: 0.5rem 1rem; */
-  /* border-radius: var(--size-border-radius); */
-  /* border: 3px solid var(--font-base-color); */
+/* .button {
+
   margin: 0.5rem;
   text-align: center;
   line-height: 20px;
@@ -23,10 +20,4 @@
 .clicked {
   transform: scale(130%);
   opacity: 1;
-}
-
-/* 
-.button:hover {
-  background-color: var(--font-base-color);
-  color: var(--background-color);
 } */

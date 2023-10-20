@@ -10,10 +10,12 @@
   --color-dark-grey: #4d4d4d;
   --color-grey: #616161;
   --color-light-grey: #7c7979;
-  --color-blue: #73aace;
+  --color-blue: #313daa;
+  --color-light-blue: #0079ff;
   --color-yellow: #fff7d1;
   --color-ornage: #feb546;
   --color-black: #000000;
+  --color-border: #d9d9d9;
 
   /* SearchBooks.jsx section height */
   --bookList-height: 650px;
@@ -37,8 +39,8 @@
   --animation-duration: 300ms;
 
   /* System Color */
-  --font-base-color: #445d48;
-  --background-color: #ebe4d1;
+  --font-base-color: #232327;
+  --background-color: #ffffff;
   --screen-color: #454545;
 }
 
@@ -76,21 +78,17 @@
 html {
   width: 100%;
   height: 100%;
-  padding: 2.5rem 4rem;
-  padding-top: 1.5rem;
   background-color: var(--screen-color);
 }
 
 body {
   width: 100%;
   height: 100%;
-  padding: 1rem 2rem;
   margin: 0;
   cursor: default;
-  font-family: "NeoDunggeunmoPro-Regular";
-  color: var(--font-base-color);
+  font-family: "GmarketSansMedium";
+  border-radius: var(--size-border-radius);
   background-color: var(--background-color);
-  border: 5px solid var(--font-base-color);
   border-radius: var(--size-border-radius);
 }
 
@@ -109,19 +107,10 @@ li {
 
 button {
   background-color: transparent;
-  font-family: "NeoDunggeunmoPro-Regular";
   cursor: pointer;
   border: none;
   outline: none;
   padding: 0;
-}
-
-@font-face {
-  font-family: "NeoDunggeunmoPro-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face {
@@ -165,4 +154,12 @@ button {
   :root {
     --bookList-height: 200px;
   }
+}
+
+@font-face {
+  font-family: "LOTTERIACHAB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIACHAB.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }

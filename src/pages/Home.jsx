@@ -16,11 +16,11 @@ export default function Home() {
       <Link className={styles.button} to='/select'>
         <Button text={"시작하기"} />
       </Link>
-      <img
+      {/* <img
         className={styles.image}
         src='src/assets/image/bookLogo.png'
         alt='logo'
-      />
+      /> */}
     </section>
   );
 }

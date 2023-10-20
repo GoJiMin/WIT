@@ -1,4 +1,4 @@
-.section {
+/* .section {
   display: flex;
 }
 
@@ -50,7 +50,7 @@
 }
 
 /* Chrome, Edge, and Safari */
-.region::-webkit-scrollbar {
+/* .region::-webkit-scrollbar {
   width: 2px;
   height: 0px;
 }
@@ -63,4 +63,4 @@
   background-color: #445d48;
   background-color: var(--background-color);
   border-radius: 10px;
-}
+} */

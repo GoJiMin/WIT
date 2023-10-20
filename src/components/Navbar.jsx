@@ -6,14 +6,12 @@ import { PiBookOpenBold } from "react-icons/pi";
 export default function Navbar() {
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>
-        <Link to='/'>
+      <div className={styles.titleBox}>
+        <Link to='/' className={styles.title}>
+          <img className={styles.logo} src='src/assets/image/Logo.png' alt='' />
           <span className={styles.title__text}>WIT</span>
-          <span className={styles.icon}>
-            <PiBookOpenBold />
-          </span>
         </Link>
-      </h1>
+      </div>
       <div className={styles.list}>
         <Link to='/recommend' className={styles.element}>
           Recommend

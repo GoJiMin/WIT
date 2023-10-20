@@ -1,4 +1,4 @@
-.section {
+/* .section {
   display: flex;
 }
 
@@ -21,7 +21,6 @@
   left: 120px;
 }
 
-/* Chrome, Edge, and Safari */
 .libList::-webkit-scrollbar {
   width: 2px;
   height: 0px;
@@ -43,4 +42,4 @@
   text-align: center;
   margin: auto;
   padding-bottom: 60px;
-}
+} */

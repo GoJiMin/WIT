@@ -1,4 +1,4 @@
-.section {
+/* .section {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,6 @@
 .title {
   font-size: var(--font-lg);
   font-weight: var(--weight-bold);
-  /* border-bottom: 2px solid var(--font-base-color); */
   padding: 2rem 4rem;
 }
 
@@ -49,4 +48,31 @@
   background-color: var(--background-color);
   color: var(--font-base-color-color);
   transform: none;
+} */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: var(--weight-bold);
+  font-size: 6rem;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@font-face {
+  font-family: "Binggrae";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }

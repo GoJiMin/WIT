@@ -1,10 +1,9 @@
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 0.5rem;
   margin-top: 0.5rem;
-  /* border-bottom: 2px solid var(--font-base-color);  */
 }
 
 .title {
@@ -22,7 +21,6 @@
 .list {
   display: flex;
   justify-content: space-between;
-  /* background-color: var(--font-base-color); */
 }
 
 .element {
@@ -33,12 +31,40 @@
   padding-top: 1.5rem;
   text-align: center;
   font-size: var(--font-md);
-  /* border-radius: 10px; */
   transition: all var(--animation-duration) ease;
+} */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
-/* .element:hover {
-  color: var(--font-base-color);
-  border: 2px solid var(--font-base-color);
-  background-color: var(--background-color);
-} */
+.title {
+  display: flex;
+  align-items: center;
+  font-family: "LOTTERIACHAB";
+  color: var(--color-light-blue);
+}
+
+.title__text {
+  font-size: var(--font-tg);
+  font-weight: var(--weight-bold);
+}
+
+.logo {
+  width: 40px;
+  margin-right: 5px;
+}
+
+.list {
+  display: flex;
+  gap: 3rem;
+}
+
+.element {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-bold);
+}
