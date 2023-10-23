@@ -12,7 +12,7 @@ export default function Navbar() {
           <span className={styles.title__text}>WIT</span>
         </Link>
       </div>
-      <div className={styles.list}>
+      <div className={styles.list__middle}>
         <Link to='/recommend' className={styles.element}>
           Recommend
         </Link>
@@ -22,6 +22,10 @@ export default function Navbar() {
         <Link to='/contact' className={styles.element}>
           Contact
         </Link>
+      </div>
+      <div className={styles.list}>
+        <p className={styles.element}>library</p>
+        <p className={styles.element}>Login</p>
       </div>
     </header>
   );
