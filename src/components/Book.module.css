@@ -2,7 +2,7 @@
   display: flex;
   margin-bottom: 1.5rem;
   margin-right: 5rem;
-  padding-right: 15rem;
+  padding-right: 12rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
   font-family: "GmarketSansMedium";
@@ -32,12 +32,14 @@
   font-size: 1.3rem;
   font-weight: var(--weight-bold);
   margin: 0;
+  opacity: 0.7;
   margin-right: 1rem;
   color: var(--color-light-blue);
 }
 
 .author {
   font-size: 0.8rem;
+  transform: translateY(-40%);
 }
 
 .description {
