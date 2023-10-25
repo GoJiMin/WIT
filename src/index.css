@@ -55,21 +55,20 @@
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 5px;
-  height: 2px;
+  width: 2px;
 }
 
 *::-webkit-scrollbar-track {
   /* background: #ffffff;
    */
-  background: var(--font-base-color);
+  background: var(--background-color);
+  border: 1px solid var(--color-border);
 }
 
 *::-webkit-scrollbar-thumb {
-  /* background-color: #445d48; */
-  background-color: var(--background-color);
-  border: 1px solid var(--font-base-color);
-  border-radius: 10px;
+  background-color: var(--color-light-blue);
+  border: 2px solid var(--color-light-blue);
+  border-radius: 20px;
 }
 
 /* Universal tags */

@@ -24,8 +24,8 @@ export default function Navbar() {
         </Link>
       </div>
       <div className={styles.list}>
-        <p className={styles.element}>library</p>
-        <p className={styles.element}>Login</p>
+        <p className={styles.element}>서재</p>
+        <p className={styles.element}>로그인</p>
       </div>
     </header>
   );

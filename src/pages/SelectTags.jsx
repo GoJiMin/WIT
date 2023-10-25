@@ -16,11 +16,9 @@ export default function SelectTags() {
     clicked.current = e.target.id;
   };
 
-  const handleSearch = (categoryId) => {
-    navigate(`/search/${categoryId}`);
+  const handleSearch = () => {
+    navigate(`/search/${category?.categoryId}`);
   };
-
-  console.log(category);
 
   return (
     <section className={styles.section}>
@@ -29,7 +27,7 @@ export default function SelectTags() {
           <p className={styles.text}>통합검색</p>
           <p className={styles.text}>{category?.text}</p>
         </div>
-        <p className={styles.search}>
+        <p className={styles.search} onClick={handleSearch}>
           <MdSearch />
         </p>
       </div>

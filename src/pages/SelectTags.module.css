@@ -106,6 +106,7 @@
 }
 
 .search {
+  cursor: pointer;
   display: flex;
   margin-left: 0.5rem;
   border-radius: var(--size-border-radius);
