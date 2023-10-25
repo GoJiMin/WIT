@@ -3,13 +3,16 @@ import { DETAIL_LIST, TAG_LIST } from "../data/tagData";
 import Button from "../components/Button";
 import styles from "./SelectTags.module.css";
 import { useNavigate } from "react-router-dom";
+import { MdSearch } from "react-icons/md";
 
 export default function SelectTags() {
   const navigate = useNavigate();
   const [tag, setTag] = useState();
+  const [category, setCategory] = useState({ categoryId: "", text: "" });
   const clicked = useRef();
   const handleClick = (e) => {
     setTag(e.target.id);
+    setCategory(null);
     clicked.current = e.target.id;
   };
 
@@ -17,41 +20,52 @@ export default function SelectTags() {
     navigate(`/search/${categoryId}`);
   };
 
+  console.log(category);
+
   return (
     <section className={styles.section}>
-      <ul className={styles.tagList}>
-        {TAG_LIST.map(({ id, tagName }) => (
-          <li
-            className={
-              clicked.current / 1 === id / 1
-                ? `${styles.tag} ${styles.clicked}`
-                : `${styles.tag}`
-            }
-            key={id}
-          >
-            <Button text={tagName} id={id} handleFunction={handleClick} />
-          </li>
-        ))}
-      </ul>
-      <div className={styles.line}></div>
-      {tag && (
-        <ul className={styles.detailList}>
-          {DETAIL_LIST[tag].map(({ id, tagName }) => (
-            <li
-              className={styles.tag__sub}
-              key={id}
-              onClick={() => handleSearch(id)}
-            >
-              <Button text={tagName} id={id} />
+      <div className={styles.searchBox}>
+        <div className={styles.input}>
+          <p className={styles.text}>통합검색</p>
+          <p className={styles.text}>{category?.text}</p>
+        </div>
+        <p className={styles.search}>
+          <MdSearch />
+        </p>
+      </div>
+      <article className={styles.tagBox}>
+        <ul className={styles.tagList}>
+          {TAG_LIST.map(({ id, tagName }) => (
+            <li key={id} className={styles.tag}>
+              <Button
+                text={tagName}
+                id={id}
+                handleFunction={handleClick}
+                active={clicked.current / 1 === id / 1 ? true : false}
+              />
             </li>
           ))}
         </ul>
-      )}
-      <img
-        className={styles.logo}
-        src='src\assets\image\bookLogo2.png'
-        alt='bookLogo2'
-      />
+        <ul key={tag} className={styles.detailList}>
+          {tag &&
+            DETAIL_LIST[tag].map(({ id, tagName }) => (
+              <li className={styles.tag__sub} key={id}>
+                <Button
+                  text={tagName}
+                  id={id}
+                  active={id / 1 === category?.categoryId / 1 ? true : false}
+                  handleFunction={() =>
+                    setCategory({
+                      categoryId: id,
+                      text: tagName,
+                    })
+                  }
+                />
+              </li>
+            ))}
+          {}
+        </ul>
+      </article>
     </section>
   );
 }

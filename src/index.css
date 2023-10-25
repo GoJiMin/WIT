@@ -22,7 +22,7 @@
   --font-lg: 2.5rem;
   --font-tg: 2rem;
   --font-md: 1.3rem;
-  --font-sm: 1rem;
+  --font-sm: 1.1rem;
 
   /* Font Weight */
   --weight-bold: 700;
@@ -39,6 +39,11 @@
   --font-base-color: #232327;
   --background-color: #ffffff;
   --screen-color: #454545;
+
+  /* searchBox height */
+  --searchBox-height: 2.5rem;
+  --searchIcon-size: 3rem;
+  --searchBox-width: 50rem;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -104,6 +109,7 @@ li {
 
 button {
   background-color: transparent;
+  font-family: "GmarketSansMedium";
   cursor: pointer;
   border: none;
   outline: none;
