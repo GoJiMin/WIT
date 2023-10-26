@@ -1,7 +1,7 @@
 .button {
   font-size: var(--font-md);
-  opacity: 0.5;
-  transition: all var(--animation-duration) ease;
+  opacity: 0.6;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 .button:hover {

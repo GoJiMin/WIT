@@ -34,7 +34,7 @@
   margin: 0;
   opacity: 0.7;
   margin-right: 1rem;
-  color: var(--color-light-blue);
+  /* color: var(--color-light-blue); */
 }
 
 .author {
