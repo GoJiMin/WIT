@@ -8,22 +8,19 @@ import { unescapeHtml } from "./../services/unescape";
 export default function Book({
   data: { title, description, author, cover, isbn13 },
 }) {
-  const region = useRef();
+  const regionCode = useRef({ region: null, dtl_region: null });
   const [library, setLibrary] = useState([]);
 
-  const handleRegionCheck = (e) => {
-    region.current = e.target.id;
-  };
-
   const handleConfirm = () => {
-    libraryLocation({ isbn: isbn13, region: region.current }).then((res) =>
-      setLibrary(res.data.response)
-    );
+    if (regionCode.current.region === null) {
+      return;
+    }
+    libraryLocation({
+      isbn: isbn13,
+      region: regionCode?.current?.region,
+      dtl_region: regionCode?.current?.dtl_region,
+    }).then((res) => setLibrary(res.data.response));
   };
-
-  // const handleConfirm = () => {
-  //   libraryLocationMock().then((res) => setLibrary(res.response));
-  // };
 
   const unescapeTitle = unescapeHtml(title);
   const unescapeDes = unescapeHtml(description);
@@ -41,14 +38,14 @@ export default function Book({
         <p className={styles.description}>{unescapeDes}</p>
         <div className={styles.linkList}></div>
         <Modal
-          text={"소장 도서관 위치"}
+          text={"소장 도서관"}
           title={"위치 선택"}
           library={library}
           handleConfirm={handleConfirm}
+          region={regionCode.current}
           component={
             <Region
-              region={region}
-              setRegion={handleRegionCheck}
+              regionCode={regionCode.current}
               library={library}
               setLibrary={setLibrary}
             />

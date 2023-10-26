@@ -1,7 +1,12 @@
+.section {
+  flex: 1;
+  width: 100%;
+}
+
 .map {
-  width: 720px;
+  width: 95%;
   height: 400px;
-  margin-left: 10px;
-  border: 1px solid var(--font-base-color);
+  border: 1px solid var(--color-border);
   border-radius: var(--size-border-radius);
+  margin-left: 1.7rem;
 }

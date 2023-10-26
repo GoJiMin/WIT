@@ -1,4 +1,11 @@
 .openButton {
   font-family: "GmarketSansMedium";
-  color: var(--font-base-color);
+  opacity: 0.7;
+  transition: all var(--animation-duration) ease-out;
+}
+
+.openButton:hover {
+  color: var(--color-light-blue);
+  transform: scale(115%);
+  opacity: 1;
 }
