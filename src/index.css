@@ -10,20 +10,19 @@
   --color-dark-grey: #4d4d4d;
   --color-grey: #616161;
   --color-light-grey: #7c7979;
-  --color-blue: #73aace;
+  --color-blue: #313daa;
+  --color-light-blue: #0079ff;
   --color-yellow: #fff7d1;
   --color-ornage: #feb546;
   --color-black: #000000;
-
-  /* SearchBooks.jsx section height */
-  --bookList-height: 650px;
+  --color-border: #d9d9d9;
 
   /* Font Size */
   --font-xl: 3rem;
   --font-lg: 2.5rem;
   --font-tg: 2rem;
   --font-md: 1.3rem;
-  --font-sm: 1rem;
+  --font-sm: 1.1rem;
 
   /* Font Weight */
   --weight-bold: 700;
@@ -34,12 +33,17 @@
   --size-border-radius: 10px;
 
   /* Animation */
-  --animation-duration: 300ms;
+  --animation-duration: 250ms;
 
   /* System Color */
-  --font-base-color: #445d48;
-  --background-color: #ebe4d1;
+  --font-base-color: #232327;
+  --background-color: #ffffff;
   --screen-color: #454545;
+
+  /* searchBox height */
+  --searchBox-height: 2.5rem;
+  --searchIcon-size: 3rem;
+  --searchBox-width: 50rem;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -51,21 +55,21 @@
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 5px;
-  height: 2px;
+  width: 7px;
 }
 
 *::-webkit-scrollbar-track {
   /* background: #ffffff;
    */
-  background: var(--font-base-color);
+  background: var(--background-color);
+  border: 1px solid var(--color-border);
+  border-radius: 40px;
 }
 
 *::-webkit-scrollbar-thumb {
-  /* background-color: #445d48; */
-  background-color: var(--background-color);
-  border: 1px solid var(--font-base-color);
-  border-radius: 10px;
+  background-color: var(--color-light-blue);
+  border: 2px solid var(--color-light-blue);
+  border-radius: 40px;
 }
 
 /* Universal tags */
@@ -76,21 +80,17 @@
 html {
   width: 100%;
   height: 100%;
-  padding: 2.5rem 4rem;
-  padding-top: 1.5rem;
   background-color: var(--screen-color);
 }
 
 body {
   width: 100%;
   height: 100%;
-  padding: 1rem 2rem;
   margin: 0;
   cursor: default;
-  font-family: "NeoDunggeunmoPro-Regular";
-  color: var(--font-base-color);
+  font-family: "GmarketSansMedium";
+  border-radius: var(--size-border-radius);
   background-color: var(--background-color);
-  border: 5px solid var(--font-base-color);
   border-radius: var(--size-border-radius);
 }
 
@@ -109,19 +109,11 @@ li {
 
 button {
   background-color: transparent;
-  font-family: "NeoDunggeunmoPro-Regular";
+  font-family: "GmarketSansMedium";
   cursor: pointer;
   border: none;
   outline: none;
   padding: 0;
-}
-
-@font-face {
-  font-family: "NeoDunggeunmoPro-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face {
@@ -135,34 +127,37 @@ button {
 /* 고해상도 노트북 (해상도 ~1480px)*/
 @media all and (max-width: 1480px) {
   :root {
-    --bookList-height: 500px;
   }
 }
 
 /* 노트북 & 테블릿 가로 (해상도 1024px ~ 1279px)*/
 @media all and (min-width: 1024px) and (max-width: 1279px) {
   :root {
-    --bookList-height: 400px;
   }
 }
 
 /* 테블릿 가로 (해상도 768px ~ 1023px)*/
 @media all and (min-width: 768px) and (max-width: 1023px) {
   :root {
-    --bookList-height: 350px;
   }
 }
 
 /* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/
 @media all and (min-width: 480px) and (max-width: 767px) {
   :root {
-    --bookList-height: 300px;
   }
 }
 
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   :root {
-    --bookList-height: 200px;
   }
+}
+
+@font-face {
+  font-family: "LOTTERIACHAB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIACHAB.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }

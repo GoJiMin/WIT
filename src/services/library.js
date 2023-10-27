@@ -8,12 +8,13 @@ const client = axios.create({
   },
 });
 
-export async function libraryLocation({ isbn, region }) {
+export async function libraryLocation({ isbn, region, dtl_region }) {
   return await client
     .get("/book/libSrchByBook", {
       params: {
         isbn,
         region,
+        dtl_region,
       },
     })
     .then((res) => res)

@@ -15,7 +15,7 @@
   top: 50%;
   left: 50%;
   padding: 16px;
-  border: 2px solid var(--font-base-color);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   background-color: var(--background-color);
   transform: translate(-50%, -50%);
@@ -37,15 +37,7 @@
 .title {
   margin-left: 26px;
   font-weight: var(--weight-bold);
-}
-
-.closeBtn {
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  font-size: 30px;
-  text-align: center;
-  cursor: pointer;
+  /* color: var(--color-light-blue); */
 }
 
 .btnContainer {
@@ -57,8 +49,8 @@
   flex: 1;
   height: 30px;
   text-align: center;
-  border: 1px solid var(--font-base-color);
-  color: var(--font-base-color);
+  border: 1px solid var(--color-light-blue);
+  color: var(--color-light-blue);
   border-radius: 4px;
   cursor: pointer;
 }
@@ -68,7 +60,12 @@
   height: 30px;
   text-align: center;
   color: var(--background-color);
-  background-color: var(--font-base-color);
+  background-color: var(--color-light-blue);
   border-radius: 4px;
   cursor: pointer;
+  transition: all var(--animation-duration) ease;
+}
+
+.confirmBtn:hover {
+  background-color: var(--color-blue);
 }

@@ -1,8 +1,8 @@
-.section {
+.region {
   display: flex;
 }
 
-.region {
+.region__depth1 {
   padding: 0rem 1.5rem;
   gap: 8px;
   display: flex;
@@ -13,53 +13,42 @@
   margin-right: 30px;
 }
 
-.notClicked button {
-  opacity: 0.7;
+.region__depth1 li {
+  margin-bottom: 1rem;
+  margin-right: 0.5rem;
 }
 
-.notClicked button:hover {
-  opacity: 1;
-  transform: scale(130%);
-  color: #374a3a;
+.region__depth1 button {
+  font-size: 1.1rem;
 }
 
-.depth2_list {
+.region__depth2 {
   height: 400px;
   display: flex;
   align-items: start;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
 }
 
-.depth2_btn button {
-  margin-right: 40px;
-  opacity: 0.7;
-}
-
-.depth2_btn button:hover {
-  opacity: 1;
-  transform: scale(130%);
-  color: #374a3a;
-}
-
-.clicked button {
-  transform: scale(130%);
-  color: #374a3a;
-  opacity: 1;
+.region__depth2 button {
+  font-size: 1.1rem;
+  line-height: 1px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Chrome, Edge, and Safari */
-.region::-webkit-scrollbar {
+.region__depth1::-webkit-scrollbar {
   width: 2px;
-  height: 0px;
+  height: 2px;
 }
 
-.region::-webkit-scrollbar-track {
+.region__depth1::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.region::-webkit-scrollbar-thumb {
+.region__depth1::-webkit-scrollbar-thumb {
   background-color: #445d48;
   background-color: var(--background-color);
   border-radius: 10px;

@@ -14,7 +14,11 @@ export default function Libraries({ library, setLibrary }) {
 
   return (
     <section className={styles.section}>
-      <ul className={styles.libList}>
+      <ul
+        className={
+          library.resultNum > 0 ? `${styles.libList}` : `${styles.nothing}`
+        }
+      >
         {library?.libs?.map(({ lib }, idx) => (
           <li key={idx}>
             <Library
@@ -29,10 +33,12 @@ export default function Libraries({ library, setLibrary }) {
           <Button text={"초기화"} handleFunction={handleReset} />
         </div>
       </ul>
+      <div className={styles.mapContainer}>
+        {location.length > 0 && library.resultNum > 0 && (
+          <KakaoMap location={location} />
+        )}
+      </div>
 
-      {location.length > 0 && library.resultNum > 0 && (
-        <KakaoMap location={location} />
-      )}
       {library.resultNum === 0 && (
         <div className={styles.fail}>소장 중인 도서관이 없습니다. 😥</div>
       )}

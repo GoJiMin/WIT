@@ -4,24 +4,36 @@
 
 .libList {
   position: relative;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1rem;
+  padding-right: 1.5rem;
   gap: 8px;
   display: flex;
   flex-direction: column;
   align-items: start;
-  overflow: auto;
+  overflow: scroll;
   height: 400px;
-  margin-right: 20px;
+}
+
+.mapContainer {
+  flex: 1;
+}
+
+.libList button {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  white-space: nowrap;
 }
 
 .reset {
   position: fixed;
-
-  top: 27.5px;
+  top: 34.5px;
   left: 120px;
 }
 
-/* Chrome, Edge, and Safari */
+.reset button {
+  font-size: 1.1rem;
+}
+
 .libList::-webkit-scrollbar {
   width: 2px;
   height: 0px;
@@ -40,7 +52,8 @@
 .fail {
   font-size: var(--font-tg);
   font-weight: var(--weight-bold);
-  text-align: center;
-  margin: auto;
-  padding-bottom: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
