@@ -9,6 +9,7 @@ export default function SelectTags() {
   const navigate = useNavigate();
   const [tag, setTag] = useState();
   const [category, setCategory] = useState({ categoryId: null, text: "" });
+
   const clicked = useRef();
   const handleClick = (e) => {
     setTag(e.target.id);
