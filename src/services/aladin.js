@@ -11,7 +11,7 @@ const aladinClient = axios.create({
 });
 
 const randomDate = () => {
-  const year = 2020 + Math.random() * 3;
+  const year = 2019 + Math.random() * 4;
   const month = Math.random() * 9 + 1;
   const week = Math.random() * 4 + 1;
   return [year, month, week];

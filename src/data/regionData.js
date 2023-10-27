@@ -117,27 +117,22 @@ export const REGION_DEPTH_LIST = [
   [{ id: 29010, depth_2: "세종시" }],
   // 경기도
   [
-    { id: 31010, depth_2: "수원시" },
     { id: 31011, depth_2: "수원시 장안구" },
     { id: 31012, depth_2: "수원시 권선구" },
     { id: 31013, depth_2: "수원시 팔달구" },
     { id: 31014, depth_2: "수원시 영통구" },
-    { id: 31020, depth_2: "성남시" },
     { id: 31021, depth_2: "성남시 수정구" },
     { id: 31022, depth_2: "성남시 중원구" },
     { id: 31023, depth_2: "성남시 분당구" },
     { id: 31030, depth_2: "의정부시" },
-    { id: 31040, depth_2: "안양시" },
     { id: 31041, depth_2: "안양시 만안구" },
     { id: 31042, depth_2: "안양시 동안구" },
     { id: 31050, depth_2: "부천시" },
     { id: 31060, depth_2: "광명시" },
     { id: 31070, depth_2: "평택시" },
     { id: 31080, depth_2: "동두천시" },
-    { id: 31090, depth_2: "안산시" },
     { id: 31091, depth_2: "안산시 상록구" },
     { id: 31092, depth_2: "안산시 단원구" },
-    { id: 31100, depth_2: "고양시" },
     { id: 31101, depth_2: "고양시 덕양구" },
     { id: 31103, depth_2: "고양시 일산동구" },
     { id: 31104, depth_2: "고양시 일산서구" },
@@ -149,7 +144,6 @@ export const REGION_DEPTH_LIST = [
     { id: 31160, depth_2: "군포시" },
     { id: 31170, depth_2: "의왕시" },
     { id: 31180, depth_2: "하남시" },
-    { id: 31190, depth_2: "용인시" },
     { id: 31191, depth_2: "용인시 처인구" },
     { id: 31192, depth_2: "용인시 기흥구" },
     { id: 31193, depth_2: "용인시 수지구" },
@@ -191,7 +185,6 @@ export const REGION_DEPTH_LIST = [
   [
     { id: 33020, depth_2: "충주시" },
     { id: 33030, depth_2: "제천시" },
-    { id: 33040, depth_2: "청주시" },
     { id: 33041, depth_2: "청주시 상당구" },
     { id: 33042, depth_2: "청주시 서원구" },
     { id: 33043, depth_2: "청주시 흥덕구" },
@@ -207,7 +200,6 @@ export const REGION_DEPTH_LIST = [
   ],
   // 충청남도
   [
-    { id: 34010, depth_2: "천안시" },
     { id: 34011, depth_2: "천안시 동남구" },
     { id: 34012, depth_2: "천안시 서북구" },
     { id: 34020, depth_2: "공주시" },
@@ -227,7 +219,6 @@ export const REGION_DEPTH_LIST = [
   ],
   // 전라북도
   [
-    { id: 35010, depth_2: "전주시" },
     { id: 35011, depth_2: "전주시 완산구" },
     { id: 35012, depth_2: "전주시 덕진구" },
     { id: 35020, depth_2: "군산시" },
@@ -271,7 +262,6 @@ export const REGION_DEPTH_LIST = [
   ],
   // 경상북도
   [
-    { id: 37010, depth_2: "포항시" },
     { id: 37011, depth_2: "포항시 남구" },
     { id: 37012, depth_2: "포항시 북구" },
     { id: 37020, depth_2: "경주시" },
@@ -306,7 +296,6 @@ export const REGION_DEPTH_LIST = [
     { id: 38080, depth_2: "밀양시" },
     { id: 38090, depth_2: "거제시" },
     { id: 38100, depth_2: "양산시" },
-    { id: 38110, depth_2: "창원시" },
     { id: 38111, depth_2: "창원시 의창구" },
     { id: 38112, depth_2: "창원시 성산구" },
     { id: 38113, depth_2: "창원시 마산합포구" },

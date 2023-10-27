@@ -8,7 +8,8 @@ import { MdSearch } from "react-icons/md";
 export default function SelectTags() {
   const navigate = useNavigate();
   const [tag, setTag] = useState();
-  const [category, setCategory] = useState({ categoryId: "", text: "" });
+  const [category, setCategory] = useState({ categoryId: null, text: "" });
+
   const clicked = useRef();
   const handleClick = (e) => {
     setTag(e.target.id);
@@ -17,6 +18,10 @@ export default function SelectTags() {
   };
 
   const handleSearch = () => {
+    if (category.categoryId === null) {
+      setCategory((prev) => ({ ...prev, text: "먼저 태그를 선택해주세요!" }));
+      return;
+    }
     navigate(`/search/${category?.categoryId}`);
   };
 
