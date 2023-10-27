@@ -1,3 +1,4 @@
+/*global kakao*/
 import React, { useEffect, useRef } from "react";
 import styles from "./KakaoMap.module.css";
 
