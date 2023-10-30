@@ -64,14 +64,6 @@
   margin-bottom: 3rem;
 }
 
-@font-face {
-  font-family: "ONE-Mobile-Title";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
 .searchBox {
   display: flex;
   justify-content: space-between;
@@ -96,7 +88,6 @@
   height: var(--searchBox-height);
   line-height: 2.6rem;
   padding: 0 1.5rem;
-  opacity: 0.7;
 }
 
 .textBox {
@@ -120,20 +111,6 @@
 .search:hover {
   background-color: var(--color-blue);
 }
-
-/* .thing {
-  display: flex;
-  justify-content: space-between;
-  width: 45rem;
-  margin-top: 3rem;
-}
-
-.round {
-  width: 6rem;
-  height: 6rem;
-  background-color: var(--color-light-blue);
-  border-radius: var(--size-border-radius);
-} */
 
 @font-face {
   font-family: "Binggrae";

@@ -19,7 +19,8 @@
 }
 
 .region__depth1 button {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: var(--weight-semi-bold);
 }
 
 .region__depth2 {

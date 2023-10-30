@@ -5,13 +5,13 @@
 }
 
 .button:hover {
-  opacity: 1;
   transform: scale(115%);
+  opacity: 1;
   color: var(--color-light-blue);
 }
 
 .clicked {
-  opacity: 1;
   transform: scale(115%);
   color: var(--color-light-blue);
+  opacity: 1;
 }

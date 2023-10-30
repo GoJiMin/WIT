@@ -25,9 +25,9 @@
   --font-sm: 1.1rem;
 
   /* Font Weight */
-  --weight-bold: 700;
-  --weight-semi-bold: 600;
   --weight-regular: 400;
+  --weight-semi-bold: 600;
+  --weight-bold: 700;
 
   /* Size */
   --size-border-radius: 10px;
@@ -44,6 +44,56 @@
   --searchBox-height: 2.5rem;
   --searchIcon-size: 3rem;
   --searchBox-width: 50rem;
+}
+
+/* System Fonts */
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.ttf")
+      format("truetype");
+  font-display: swap;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -88,7 +138,7 @@ body {
   height: 100%;
   margin: 0;
   cursor: default;
-  font-family: "GmarketSansMedium";
+  font-family: "Pretendard";
   border-radius: var(--size-border-radius);
   background-color: var(--background-color);
   border-radius: var(--size-border-radius);
@@ -109,7 +159,7 @@ li {
 
 button {
   background-color: transparent;
-  font-family: "GmarketSansMedium";
+  font-family: "Pretendard";
   cursor: pointer;
   border: none;
   outline: none;
