@@ -45,6 +45,10 @@
   gap: 8px;
 }
 
+.btnContainer button {
+  font-size: 16px;
+}
+
 .cancelBtn {
   flex: 1;
   height: 30px;

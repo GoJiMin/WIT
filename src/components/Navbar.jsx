@@ -30,8 +30,10 @@ export default function Navbar() {
       </div>
 
       <div className={styles.list}>
-        <p className={styles.element}>건의하기</p>
-        <p className={styles.element}>서재</p>
+        <Link to='/recommend'>
+          <p className={styles.element}>건의하기</p>
+        </Link>
+        {user && <p className={styles.element}>서재</p>}
         {!user && (
           <button className={styles.element} onClick={handleLogin}>
             로그인

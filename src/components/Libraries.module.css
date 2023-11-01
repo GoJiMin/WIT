@@ -50,9 +50,10 @@
 }
 
 .fail {
-  font-size: var(--font-tg);
-  font-weight: var(--weight-bold);
+  font-size: var(--font-md);
+  font-weight: var(--weight-semi-bold);
   position: absolute;
+  opacity: 0.8;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

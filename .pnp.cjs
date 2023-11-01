@@ -43,6 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["firebase", "npm:10.5.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:18.2.0"],\
+            ["react-hook-form", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:7.47.0"],\
             ["react-icons", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:4.11.0"],\
             ["react-router-dom", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:6.16.0"],\
             ["vite", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:4.4.10"]\
@@ -4833,6 +4834,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-hook-form", [\
+        ["npm:7.47.0", {\
+          "packageLocation": "./.yarn/cache/react-hook-form-npm-7.47.0-58fe62ab6d-dec192fec9.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "npm:7.47.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:7.47.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-hook-form-virtual-65ba2a2f58/0/cache/react-hook-form-npm-7.47.0-58fe62ab6d-dec192fec9.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:7.47.0"],\
+            ["@types/react", "npm:18.2.25"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-icons", [\
         ["npm:4.11.0", {\
           "packageLocation": "./.yarn/cache/react-icons-npm-4.11.0-08184d1639-7b8b80bbe2.zip/node_modules/react-icons/",\
@@ -5780,6 +5803,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["firebase", "npm:10.5.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:18.2.0"],\
+            ["react-hook-form", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:7.47.0"],\
             ["react-icons", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:4.11.0"],\
             ["react-router-dom", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:6.16.0"],\
             ["vite", "virtual:c0cc75e2ee153290cf36cc1888e513f8c034a1a380055ba1aec8f6576d031f4b003d34316258a71fb6650bc91c5eb4e5728b4a13ffd14211552f08a40f60a5fb#npm:4.4.10"]\

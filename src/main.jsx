@@ -7,9 +7,6 @@ import { RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import SelectTags from "./pages/SelectTags.jsx";
 import SearchBooks from "./pages/SearchBooks.jsx";
-import BookDetail from "./pages/BookDetail.jsx";
-import About from "./pages/About.jsx";
-import Conatct from "./pages/Conatct.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Recommend from "./pages/Recommend";
 
@@ -22,9 +19,6 @@ const router = createBrowserRouter([
       { index: true, path: "/", element: <Home /> },
       { path: "select", element: <SelectTags /> },
       { path: "search/:categoryId", element: <SearchBooks /> },
-      { path: "detail/:id", element: <BookDetail /> },
-      { path: "about", element: <About /> },
-      { path: "contact", element: <Conatct /> },
       { path: "recommend", element: <Recommend /> },
     ],
   },

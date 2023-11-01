@@ -12,7 +12,7 @@ export default function Confirm({ title, content, close, confirm }) {
         <div className={styles.content}>{content}</div>
         <div className={styles.btnContainer}>
           <button className={styles.cancelBtn} onClick={close}>
-            cancel
+            취소
           </button>
           <button
             className={styles.confirmBtn}
@@ -20,7 +20,7 @@ export default function Confirm({ title, content, close, confirm }) {
               confirm && confirm();
             }}
           >
-            confirm
+            검색
           </button>
         </div>
       </div>

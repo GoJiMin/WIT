@@ -1,6 +1,6 @@
 .button {
   font-size: var(--font-md);
-  opacity: 0.6;
+  opacity: 0.8;
   transition: all var(--animation-duration) ease-in-out;
 }
 
