@@ -1,21 +1,30 @@
 .form {
   display: flex;
-  flex: 1;
   flex-direction: column;
-  padding: 2rem 3rem;
-  color: var(--navbar-background-color);
-  height: 500px;
+  padding: 1rem 2rem;
+  width: 500px;
+  height: 600px;
+  background-color: var(--background-color);
+  border-radius: var(--size-border-radius);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-light-blue);
+  margin-bottom: 1.5rem;
 }
 
 .inputBox {
   display: flex;
   flex-direction: column;
-  height: 200px;
-  margin-bottom: 1rem;
+  height: 150px;
 }
 
 .label {
-  font-size: 1rem;
+  font-size: 1.1rem;
+  opacity: 0.8;
 }
 
 .input {
@@ -26,10 +35,35 @@
 }
 
 .inputText {
-  border: 1px solid var(--color-border);
-  height: 150px;
+  padding: 0.7rem;
+  height: 300px;
   resize: none;
-  border-radius: 5px;
   overflow: hidden;
   font-size: var(--font-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+}
+
+.submit {
+  margin-top: 1rem;
+  padding: 0.7rem 0;
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semi-bold);
+  color: var(--background-color);
+  background-color: var(--color-light-blue);
+  border-radius: var(--size-border-radius);
+  transition: all var(--animation-duration) ease;
+}
+
+.submit:hover {
+  background-color: var(--color-blue);
+}
+
+.disabled {
+  background-color: var(--color-blue);
+}
+
+small {
+  /* font-size: 13px; */
+  /* margin: 5px 0; */
 }

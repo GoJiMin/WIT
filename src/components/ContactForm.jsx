@@ -5,13 +5,13 @@ import axios from "axios";
 
 export default function ContactForm() {
   const onSubmit = async (data) => {
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((r) => setTimeout(r, 2000));
     axios({
       url: import.meta.env.VITE_EMAIL_URL,
       method: "post",
       headers: { "Content-Type": "multipart/form-data" },
       data: data,
-    });
+    }).then();
   };
 
   const {
@@ -22,6 +22,7 @@ export default function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <p className={styles.title}>Contact</p>
       <div className={styles.inputBox}>
         <label className={styles.label} htmlFor='email'>
           이메일
@@ -82,7 +83,7 @@ export default function ContactForm() {
       </div>
       <div className={styles.inputBox}>
         <label className={styles.label} htmlFor='text'>
-          건의사항을 적어주세요!
+          메세지
         </label>
         <textarea
           className={styles.inputText}
@@ -98,9 +99,16 @@ export default function ContactForm() {
         />
         {errors.text && <small role='alert'>{errors.text.message}</small>}
       </div>
-
-      <button type='submit' disabled={isSubmitting}>
-        제출하기
+      <button
+        className={
+          isSubmitting
+            ? `${styles.submit} ${styles.disabled}`
+            : `${styles.submit}`
+        }
+        type='submit'
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "전송에 성공했어요!" : "제출하기"}
       </button>
     </form>
   );

@@ -19,16 +19,10 @@ export default function Home() {
         </Link>
       </div>
       <div className={styles.textBox}>
-        {/* <p className={styles.description}>뭘 읽어야 좋을지 고민되는 당신!</p> */}
         <p className={styles.description}>
           태그를 선택해 오늘 읽을 책을 추천 받아보세요.
         </p>
         <p className={styles.description}>검색 버튼을 눌러 시작해보세요!</p>
-      </div>
-      <div className={styles.thing}>
-        <div className={styles.round}></div>
-        <div className={styles.round}></div>
-        <div className={styles.round}></div>
       </div>
     </section>
   );
