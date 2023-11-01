@@ -1,4 +1,25 @@
-.form {
+.section {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 10rem;
+}
+
+.textBox {
+  color: var(--background-color);
+  width: 650px;
+  height: 500px;
+  padding: 1rem 1.5rem;
+  border-radius: var(--size-border-radius) 0 0 var(--size-border-radius);
+  background-color: var(--color-light-blue);
+}
+
+.title {
+  font-size: var(--font-tg);
+  font-weight: var(--weight-semi-bold);
+}
+
+.description {
+  font-size: var(--font-sm);
+  opacity: 0.8;
 }
