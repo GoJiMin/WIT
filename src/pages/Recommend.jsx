@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Recommend.module.css";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/ContactForm.jsx";
 import { FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Recommend() {

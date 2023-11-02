@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
-import { searchToTag, serchToTagMock } from "../services/aladin";
-import Book from "../components/Book";
+import { useParams, useNavigate } from "react-router-dom";
+import { searchToTag } from "../services/aladin";
+import Book from "../components/Book.jsx";
 import styles from "./SearchBooks.module.css";
-import Button from "../components/Button";
+import Button from "../components/Button.jsx";
 import { HiArrowUp } from "react-icons/hi2";
-import { useNavigate } from "react-router-dom";
 
 export default function SearchBooks() {
   const [books, setBooks] = useState("");

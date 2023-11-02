@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import styles from "./Book.module.css";
-import Modal from "./Modal";
-import Region from "./Region";
-import { libraryLocation, libraryLocationMock } from "../services/library";
+import Modal from "./Modal.jsx";
+import { libraryLocation } from "../services/library";
 import { unescapeHtml } from "./../services/unescape";
+import Region from "./Region.jsx";
 
 export default function Book({
   data: { title, description, author, cover, isbn13 },

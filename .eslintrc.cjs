@@ -5,13 +5,10 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    "airbnb",
     "eslint:recommended",
-    "plugin:react/recommended",
     "plugin:react/jsx-runtime",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
   ],
   overrides: [
     {
@@ -29,11 +26,12 @@ module.exports = {
     sourceType: "module",
   },
   settings: { react: { version: "18.2" } },
-  plugins: ["react-refresh", "react-hooks"],
+  plugins: ["react", "react-refresh", "react-hooks"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
     ],
+    "react/prop-types": "off",
   },
 };

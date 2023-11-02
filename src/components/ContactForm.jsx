@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ContactForm.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Modal from "./Modal";
-import PersonalInformation from "./PersonalInformation";
+import Modal from "./Modal.jsx";
+import PersonalInformation from "./PersonalInformation.jsx";
 
 export default function ContactForm() {
   const [check, setChecked] = useState(false);
@@ -44,7 +44,7 @@ export default function ContactForm() {
           className={styles.input}
           id='email'
           type='text'
-          autocomplete='off'
+          autoComplete='off'
           aria-invalid={
             isSubmitted ? (errors.email ? "true" : "false") : undefined
           }
@@ -66,7 +66,7 @@ export default function ContactForm() {
           className={styles.input}
           id='id'
           type='id'
-          autocomplete='off'
+          autoComplete='off'
           aria-invalid={
             isSubmitted ? (errors.id ? "true" : "false") : undefined
           }
@@ -84,7 +84,7 @@ export default function ContactForm() {
           className={styles.input}
           id='subject'
           type='subject'
-          autocomplete='off'
+          autoComplete='off'
           aria-invalid={
             isSubmitted ? (errors.subject ? "true" : "false") : undefined
           }
@@ -102,7 +102,7 @@ export default function ContactForm() {
           className={styles.inputText}
           id='text'
           type='text'
-          autocomplete='off'
+          autoComplete='off'
           aria-invalid={
             isSubmitted ? (errors.text ? "true" : "false") : undefined
           }

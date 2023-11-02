@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { DETAIL_LIST, TAG_LIST } from "../data/tagData";
-import Button from "../components/Button";
+import Button from "../components/Button.jsx";
 import styles from "./SelectTags.module.css";
 import { useNavigate } from "react-router-dom";
 import { MdSearch } from "react-icons/md";

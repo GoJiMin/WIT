@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { REGION_DEPTH_LIST, REGION_LIST } from "./../data/regionData";
-import Button from "./Button";
+import Button from "./Button.jsx";
 import styles from "./Region.module.css";
-import Libraries from "./Libraries";
+import Libraries from "./Libraries.jsx";
 
 export default function Region({ regionCode, library, setLibrary }) {
   const [depth, setDepth] = useState(null);

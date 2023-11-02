@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import Library from "./Library";
+import React, { useRef, useState } from "react";
+import Library from "./Library.jsx";
 import styles from "./Libraries.module.css";
-import KakaoMap from "./KakaoMap";
-import Button from "./Button";
+import KakaoMap from "./KakaoMap.jsx";
+import Button from "./Button.jsx";
 
 export default function Libraries({ library, setLibrary }) {
   const clicked = useRef();

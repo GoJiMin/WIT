@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Modal.module.css";
-import Confirm from "./Confirm";
-import Alert from "./Alert";
+import Confirm from "./Confirm.jsx";
+import Alert from "./Alert.jsx";
 
 export default function Modal({
   title,
