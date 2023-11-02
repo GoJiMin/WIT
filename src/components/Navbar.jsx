@@ -12,14 +12,6 @@ export default function Navbar() {
     });
   }, []);
 
-  const handleLogin = () => {
-    login().then(setUser);
-  };
-
-  const handleLogout = () => {
-    logout().then(setUser);
-  };
-
   return (
     <header className={styles.header}>
       <div className={styles.titleBox}>
@@ -35,12 +27,12 @@ export default function Navbar() {
         </Link>
         {user && <p className={styles.element}>서재</p>}
         {!user && (
-          <button className={styles.element} onClick={handleLogin}>
+          <button className={styles.element} onClick={login}>
             로그인
           </button>
         )}
         {user && (
-          <button className={styles.element} onClick={handleLogout}>
+          <button className={styles.element} onClick={logout}>
             로그아웃
           </button>
         )}
