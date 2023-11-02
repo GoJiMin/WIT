@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import { login, logout, onUserStateChange } from "../services/firebase";
+import { useAuthContext } from "./context/AuthContext";
 
 export default function Navbar() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    onUserStateChange((user) => {
-      setUser(user);
-    });
-  }, []);
-
+  const { user, login, logout } = useAuthContext();
   return (
     <header className={styles.header}>
       <div className={styles.titleBox}>
@@ -25,7 +18,12 @@ export default function Navbar() {
         <Link to='/recommend'>
           <p className={styles.element}>건의하기</p>
         </Link>
-        {user && <p className={styles.element}>서재</p>}
+        {user && (
+          <Link to='/library'>
+            <p className={styles.element}>서재</p>
+          </Link>
+        )}
+        {user && <p className={styles.element}>{user.displayName}</p>}
         {!user && (
           <button className={styles.element} onClick={login}>
             로그인

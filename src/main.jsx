@@ -9,6 +9,8 @@ import SelectTags from "./pages/SelectTags.jsx";
 import SearchBooks from "./pages/SearchBooks.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Recommend from "./pages/Recommend";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import MyLibrary from "./pages/MyLibrary.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
       { path: "select", element: <SelectTags /> },
       { path: "search/:categoryId", element: <SearchBooks /> },
       { path: "recommend", element: <Recommend /> },
+      {
+        path: "library",
+        element: (
+          <ProtectedRoute>
+            <MyLibrary />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);
