@@ -40,7 +40,7 @@
 
 /* Chrome, Edge, and Safari */
 .region__depth1::-webkit-scrollbar {
-  width: 2px;
+  width: 1.5px;
   height: 2px;
 }
 

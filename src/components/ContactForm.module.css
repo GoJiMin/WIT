@@ -4,7 +4,7 @@
   padding: 1rem 2rem;
   width: 500px;
   height: 550px;
-  margin-top: 2rem;
+  margin-top: 3rem;
   background-color: var(--background-color);
   border-radius: var(--size-border-radius);
 }
@@ -37,7 +37,7 @@
 
 .input {
   border: none;
-  border: 2px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: 5px;
   font-size: var(--font-sm);
   padding: 0.7rem;
@@ -49,7 +49,7 @@
   resize: none;
   overflow: hidden;
   font-size: var(--font-sm);
-  border: 2px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: 5px;
 }
 
@@ -70,10 +70,12 @@
 
 .post {
   background-color: var(--color-blue);
+  cursor: default;
 }
 
 .disabled {
   background-color: var(--color-border);
+  cursor: default;
 }
 
 .disabled:hover {

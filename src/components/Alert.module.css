@@ -15,8 +15,8 @@
   top: 50%;
   left: 50%;
   padding: 10px 16px;
-  width: 450px;
-  height: 500px;
+  width: 400px;
+  height: 550px;
   border-radius: 12px;
   overflow: hidden;
   background-color: white;
@@ -36,7 +36,6 @@
   text-align: center;
   color: var(--background-color);
   background-color: var(--color-light-blue);
-
   border-radius: var(--size-border-radius);
   transition: all var(--animation-duration) ease;
 }
