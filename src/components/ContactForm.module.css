@@ -3,7 +3,8 @@
   flex-direction: column;
   padding: 1rem 2rem;
   width: 500px;
-  height: 600px;
+  height: 550px;
+  margin-top: 2rem;
   background-color: var(--background-color);
   border-radius: var(--size-border-radius);
 }
@@ -12,7 +13,7 @@
   margin: 0;
   font-size: var(--font-lg);
   font-weight: var(--weight-bold);
-  color: var(--color-light-blue);
+  /* color: var(--color-light-blue); */
   margin-bottom: 1.5rem;
 }
 

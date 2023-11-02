@@ -35,7 +35,7 @@ export default function ContactForm() {
   }, [isSubmitSuccessful, reset]);
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <p className={styles.title}>Contact</p>
+      {/* <p className={styles.title}>Contact</p> */}
       <div className={styles.inputBox}>
         <label className={styles.label} htmlFor='email'>
           이메일

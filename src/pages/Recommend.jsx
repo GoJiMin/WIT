@@ -6,10 +6,9 @@ import { FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 export default function Recommend() {
   return (
     <section className={styles.section}>
-      <ContactForm />
       <article>
         <div className={styles.textBox}>
-          <p className={styles.title}>About</p>
+          <p className={styles.title}>About & Contact</p>
           <p className={styles.description}>
             우리 사이트는 사용자에게 책과 더 가까워질 수 있도록 특정 키워드를
             기반으로 도서를 추천하고, 지역 도서관 활성화를 위해 도서관 소장
@@ -37,6 +36,7 @@ export default function Recommend() {
           </div>
         </div>
       </article>
+      <ContactForm />
     </section>
   );
 }

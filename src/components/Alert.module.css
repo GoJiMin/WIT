@@ -36,6 +36,7 @@
   text-align: center;
   color: var(--background-color);
   background-color: var(--color-light-blue);
+
   border-radius: var(--size-border-radius);
   transition: all var(--animation-duration) ease;
 }
