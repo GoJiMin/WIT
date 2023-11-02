@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import styles from "./Modal.module.css";
 import Confirm from "./Confirm";
+import Alert from "./Alert";
 
 export default function Modal({
   title,
   text,
+  type,
   component,
   handleConfirm,
   region,
+  btnText,
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,8 +20,10 @@ export default function Modal({
 
   const close = () => {
     setIsOpen(false);
-    region.region = null;
-    region.dtl_region = null;
+    if (region) {
+      region.region = null;
+      region.dtl_region = null;
+    }
   };
 
   const confirm = () => {
@@ -27,15 +32,24 @@ export default function Modal({
 
   return (
     <section className={styles.section}>
-      <button className={styles.openButton} onClick={open}>
+      <button type='button' className={styles.openButton} onClick={open}>
         {text}
       </button>
-      {isOpen && (
+      {isOpen && type === "confirm" && (
         <Confirm
           title={title}
           content={component}
           close={close}
           confirm={confirm}
+        />
+      )}
+      {isOpen && type === "alert" && (
+        <Alert
+          title={title}
+          content={component}
+          close={close}
+          confirm={confirm}
+          btnText={btnText}
         />
       )}
     </section>

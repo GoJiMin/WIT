@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./KakaoMap.module.css";
 
+const { kakao } = window;
+
 export default function KakaoMap({ location }) {
   const mapContainer = useRef();
   const map = useRef();

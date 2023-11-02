@@ -1,9 +1,16 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./ContactForm.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Modal from "./Modal";
+import PersonalInformation from "./PersonalInformation";
 
 export default function ContactForm() {
+  const [check, setChecked] = useState(false);
+  const handleCheck = () => {
+    setChecked(true);
+  };
+
   const onSubmit = async (data) => {
     await new Promise((r) => setTimeout(r, 2000));
     axios({
@@ -11,15 +18,21 @@ export default function ContactForm() {
       method: "post",
       headers: { "Content-Type": "multipart/form-data" },
       data: data,
-    }).then();
+    });
   };
 
   const {
+    reset,
     register,
     handleSubmit,
-    formState: { isSubmitting, isSubmitted, errors },
+    formState: { isSubmitting, isSubmitted, errors, isSubmitSuccessful },
   } = useForm();
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({ email: "", id: "", subject: "", text: "" });
+    }
+  }, [isSubmitSuccessful, reset]);
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <p className={styles.title}>Contact</p>
@@ -99,14 +112,30 @@ export default function ContactForm() {
         />
         {errors.text && <small role='alert'>{errors.text.message}</small>}
       </div>
+      <div className={styles.checkbox}>
+        <input
+          type='checkbox'
+          onChange={() => setChecked(false)}
+          checked={check}
+        />
+        <Modal
+          type={"alert"}
+          text={"개인 정보 수집 및 이용동의"}
+          handleConfirm={handleCheck}
+          btnText={"개인정보 보호를 위한 이용자 동의사항에 동의합니다."}
+          component={<PersonalInformation />}
+        />
+      </div>
       <button
         className={
-          isSubmitting
-            ? `${styles.submit} ${styles.disabled}`
-            : `${styles.submit}`
+          check
+            ? isSubmitting
+              ? `${styles.submit} ${styles.post}`
+              : `${styles.submit}`
+            : `${styles.submit} ${styles.disabled}`
         }
         type='submit'
-        disabled={isSubmitting}
+        disabled={isSubmitting || !check}
       >
         {isSubmitting ? "전송에 성공했어요!" : "제출하기"}
       </button>

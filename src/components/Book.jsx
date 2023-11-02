@@ -38,6 +38,7 @@ export default function Book({
         <p className={styles.description}>{unescapeDes}</p>
         <div className={styles.linkList}></div>
         <Modal
+          type='confirm'
           text={"소장 도서관"}
           title={"위치 선택"}
           library={library}

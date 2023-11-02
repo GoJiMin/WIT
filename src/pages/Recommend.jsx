@@ -6,6 +6,7 @@ import { FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 export default function Recommend() {
   return (
     <section className={styles.section}>
+      <ContactForm />
       <article>
         <div className={styles.textBox}>
           <p className={styles.title}>About</p>
@@ -36,7 +37,6 @@ export default function Recommend() {
           </div>
         </div>
       </article>
-      <ContactForm />
     </section>
   );
 }
