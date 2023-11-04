@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import styles from "./App.module.css";
 import { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { AuthContextProvier } from "./components/context/AuthContext";
+import { AuthContextProvier } from "./context/AuthContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {

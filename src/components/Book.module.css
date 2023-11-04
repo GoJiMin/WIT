@@ -35,6 +35,15 @@
   margin-right: 1rem;
 }
 
+.header {
+  display: flex;
+}
+
+.favor {
+  font-size: 25px;
+  color: var(--color-light-blue);
+}
+
 .author {
   font-size: 0.8rem;
   opacity: 0.8;
