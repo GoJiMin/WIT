@@ -5,13 +5,20 @@ import Book from "../components/Book.jsx";
 import styles from "./SearchBooks.module.css";
 import Button from "../components/Button.jsx";
 import { HiArrowUp } from "react-icons/hi2";
+import { useQuery } from "@tanstack/react-query";
+import { useAuthContext } from "../context/AuthContext";
+import { getBookMarks } from "../services/firebase";
 
 export default function SearchBooks() {
+  const { uid } = useAuthContext();
   const [books, setBooks] = useState("");
   const listBox = useRef();
   const { categoryId } = useParams();
   const navigate = useNavigate();
 
+  const { data } = useQuery(["bookMarks"], () => getBookMarks(uid));
+
+  console.log(data);
   const handleSearch = () => {
     searchToTag(categoryId).then((res) => setBooks(res));
     scrollToTop();
@@ -37,7 +44,7 @@ export default function SearchBooks() {
             {books &&
               books.item.map((book) => (
                 <li key={book.isbn13}>
-                  <Book data={book} />
+                  <Book data={book} type={"add"} />
                 </li>
               ))}
           </ul>

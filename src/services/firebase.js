@@ -43,8 +43,17 @@ export async function getLibrary(userId) {
     });
 }
 
+export async function getBookMarks(userId) {
+  return get(ref(database, `bookmarks/${userId}`)) //
+    .then((snapshot) => {
+      const bookMakrs = snapshot.val() || {};
+      return Object.values(bookMakrs);
+    });
+}
+
 export async function addUpdateToLibrary(userId, book) {
-  return set(ref(database, `libraries/${userId}/${book.isbn13}`), book);
+  set(ref(database, `libraries/${userId}/${book.isbn13}`), book);
+  set(ref(database, `bookmarks/${userId}/${book.isbn13}`), book.isbn13);
 }
 
 export async function removeFromLibrary(userId, isbn13) {

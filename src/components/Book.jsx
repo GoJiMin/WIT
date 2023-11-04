@@ -6,10 +6,11 @@ import { unescapeHtml } from "./../services/unescape";
 import Region from "./Region.jsx";
 import { AiFillHeart } from "react-icons/ai";
 import { useAuthContext } from "../context/AuthContext";
-import { addUpdateToLibrary } from "../services/firebase";
+import { addUpdateToLibrary, removeFromLibrary } from "../services/firebase";
 
 export default function Book({
   data: { title, description, author, cover, isbn13 },
+  type,
 }) {
   const regionCode = useRef({ region: null, dtl_region: null });
   const [library, setLibrary] = useState([]);
@@ -26,12 +27,14 @@ export default function Book({
     }).then((res) => setLibrary(res.data.response));
   };
 
-  const handleClick = () => {
-    const book = { unescapeTitle, unescapeDes, author, cover, isbn13 };
+  const handleAdd = () => {
+    const book = { title, description, author, cover, isbn13 };
     addUpdateToLibrary(uid, book);
   };
 
-  console.log(uid);
+  const handleDelete = () => {
+    removeFromLibrary(uid, isbn13);
+  };
 
   const unescapeTitle = unescapeHtml(title);
   const unescapeDes = unescapeHtml(description);
@@ -45,9 +48,16 @@ export default function Book({
         <div className={styles.titleBox}>
           <div className={styles.header}>
             <span className={styles.title}>{unescapeTitle}</span>
-            <button className={styles.favor} onClick={handleClick}>
-              <AiFillHeart />
-            </button>
+            {type === "add" && (
+              <button className={styles.favor} onClick={handleAdd}>
+                <AiFillHeart />
+              </button>
+            )}
+            {type === "delete" && (
+              <button className={styles.favor} onClick={handleDelete}>
+                X
+              </button>
+            )}
           </div>
           <p className={styles.author}>{author}</p>
         </div>
