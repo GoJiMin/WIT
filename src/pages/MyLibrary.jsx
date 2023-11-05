@@ -3,6 +3,10 @@ import { useAuthContext } from "../context/AuthContext";
 import { useQuery } from "@tanstack/react-query";
 import { getLibrary } from "../services/firebase";
 import Book from "./../components/Book.jsx";
+import { useEffect } from "react";
+import { useState } from "react";
+import Pagination from "react-js-pagination";
+import "./pagination.css";
 
 export default function MyLibrary() {
   const { uid } = useAuthContext();
@@ -12,6 +16,26 @@ export default function MyLibrary() {
     error,
     data: books,
   } = useQuery(["books"], () => getLibrary(uid));
+
+  const [bookMarkList, setBookMarkList] = useState([]); // 받아온 북마크 데이터
+  const [currentPage, setCurrentPage] = useState(bookMarkList); // 목록에 보여줄 게시글
+  const [page, setPage] = useState(1); // 현재 페이지 번호
+
+  const postPerPage = 5; // 페이지 당 게시글 개수
+  const indexOfLastPage = page * postPerPage;
+  const indexOfFirstPage = indexOfLastPage - postPerPage;
+
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
+
+  useEffect(() => {
+    books && setBookMarkList(books);
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage(bookMarkList.slice(indexOfFirstPage, indexOfLastPage));
+  }, [bookMarkList, page]);
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>error!</p>;
@@ -25,8 +49,8 @@ export default function MyLibrary() {
       {hasBooks && (
         <>
           <ul>
-            {books &&
-              books.map((book) => (
+            {currentPage &&
+              currentPage.map((book) => (
                 <Book
                   key={book.isbn13}
                   data={book}
@@ -35,6 +59,15 @@ export default function MyLibrary() {
                 />
               ))}
           </ul>
+          <Pagination
+            activePage={page}
+            itemsCountPerPage={postPerPage}
+            totalItemsCount={bookMarkList.length}
+            pageRangeDisplayed={5}
+            prevPageText={"‹"}
+            nextPageText={"›"}
+            onChange={handlePageChange}
+          />
         </>
       )}
     </section>
