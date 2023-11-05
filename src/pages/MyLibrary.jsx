@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Pagination from "react-js-pagination";
 import "./pagination.css";
+import styles from "./MyLibrary.module.css";
 
 export default function MyLibrary() {
   const { uid } = useAuthContext();
@@ -17,8 +18,7 @@ export default function MyLibrary() {
     data: books,
   } = useQuery(["books"], () => getLibrary(uid));
 
-  const [bookMarkList, setBookMarkList] = useState([]); // 받아온 북마크 데이터
-  const [currentPage, setCurrentPage] = useState(bookMarkList); // 목록에 보여줄 게시글
+  const [currentPage, setCurrentPage] = useState(books); // 목록에 보여줄 게시글
   const [page, setPage] = useState(1); // 현재 페이지 번호
 
   const postPerPage = 5; // 페이지 당 게시글 개수
@@ -30,12 +30,8 @@ export default function MyLibrary() {
   };
 
   useEffect(() => {
-    books && setBookMarkList(books);
-  }, []);
-
-  useEffect(() => {
-    setCurrentPage(bookMarkList.slice(indexOfFirstPage, indexOfLastPage));
-  }, [bookMarkList, page]);
+    setCurrentPage(books.slice(indexOfFirstPage, indexOfLastPage));
+  }, [books, page]);
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>error!</p>;
@@ -43,12 +39,12 @@ export default function MyLibrary() {
   const hasBooks = books && books.length > 0;
 
   return (
-    <section>
+    <section className={styles.section}>
       <p>나의 서재</p>
       {!hasBooks && <p>서재에 추가된 책이 없습니다.</p>}
       {hasBooks && (
-        <>
-          <ul>
+        <section className={styles.bookMarkSection}>
+          <ul className={styles.bookMarkList}>
             {currentPage &&
               currentPage.map((book) => (
                 <Book
@@ -62,13 +58,13 @@ export default function MyLibrary() {
           <Pagination
             activePage={page}
             itemsCountPerPage={postPerPage}
-            totalItemsCount={bookMarkList.length}
+            totalItemsCount={books?.length}
             pageRangeDisplayed={5}
             prevPageText={"‹"}
             nextPageText={"›"}
             onChange={handlePageChange}
           />
-        </>
+        </section>
       )}
     </section>
   );

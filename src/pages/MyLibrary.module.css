@@ -1,0 +1,5 @@
+.bookMarkList {
+  padding: 0 2rem;
+  height: 33rem;
+  overflow: auto;
+}
