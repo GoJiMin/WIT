@@ -27,7 +27,12 @@ export default function MyLibrary() {
           <ul>
             {books &&
               books.map((book) => (
-                <Book key={book.isbn13} data={book} type={"delete"} />
+                <Book
+                  key={book.isbn13}
+                  data={book}
+                  hasBookMark={true}
+                  animation={false}
+                />
               ))}
           </ul>
         </>

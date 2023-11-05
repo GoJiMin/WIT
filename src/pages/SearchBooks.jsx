@@ -16,9 +16,8 @@ export default function SearchBooks() {
   const { categoryId } = useParams();
   const navigate = useNavigate();
 
-  const { data } = useQuery(["bookMarks"], () => getBookMarks(uid));
+  const { data: bookMarks } = useQuery(["bookMarks"], () => getBookMarks(uid));
 
-  console.log(data);
   const handleSearch = () => {
     searchToTag(categoryId).then((res) => setBooks(res));
     scrollToTop();
@@ -44,7 +43,12 @@ export default function SearchBooks() {
             {books &&
               books.item.map((book) => (
                 <li key={book.isbn13}>
-                  <Book data={book} type={"add"} />
+                  <Book
+                    data={book}
+                    type={"add"}
+                    animation={true}
+                    hasBookMark={bookMarks?.includes(book.isbn13)}
+                  />
                 </li>
               ))}
           </ul>

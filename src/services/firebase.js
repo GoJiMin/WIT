@@ -57,5 +57,6 @@ export async function addUpdateToLibrary(userId, book) {
 }
 
 export async function removeFromLibrary(userId, isbn13) {
-  return remove(ref(database, `libraries/${userId}/${isbn13}`));
+  remove(ref(database, `libraries/${userId}/${isbn13}`));
+  remove(ref(database, `bookmarks/${userId}/${isbn13}`));
 }

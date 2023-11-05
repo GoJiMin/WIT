@@ -4,14 +4,17 @@ import Modal from "./Modal.jsx";
 import { libraryLocation } from "../services/library";
 import { unescapeHtml } from "./../services/unescape";
 import Region from "./Region.jsx";
-import { AiFillHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useAuthContext } from "../context/AuthContext";
 import { addUpdateToLibrary, removeFromLibrary } from "../services/firebase";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export default function Book({
   data: { title, description, author, cover, isbn13 },
-  type,
+  animation,
+  hasBookMark,
 }) {
+  const queryClient = useQueryClient();
   const regionCode = useRef({ region: null, dtl_region: null });
   const [library, setLibrary] = useState([]);
   const { uid } = useAuthContext();
@@ -27,13 +30,33 @@ export default function Book({
     }).then((res) => setLibrary(res.data.response));
   };
 
+  const addToUpdate = useMutation(
+    ({ uid, book }) => addUpdateToLibrary(uid, book),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["books"]);
+        queryClient.invalidateQueries(["bookMarks"]);
+      },
+    }
+  );
+
+  const removeBookMark = useMutation(
+    ({ uid, isbn13 }) => removeFromLibrary(uid, isbn13),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["books"]);
+        queryClient.invalidateQueries(["bookMarks"]);
+      },
+    }
+  );
+
   const handleAdd = () => {
     const book = { title, description, author, cover, isbn13 };
-    addUpdateToLibrary(uid, book);
+    addToUpdate.mutate({ uid, book });
   };
 
   const handleDelete = () => {
-    removeFromLibrary(uid, isbn13);
+    removeBookMark.mutate({ uid, isbn13 });
   };
 
   const unescapeTitle = unescapeHtml(title);
@@ -48,14 +71,19 @@ export default function Book({
         <div className={styles.titleBox}>
           <div className={styles.header}>
             <span className={styles.title}>{unescapeTitle}</span>
-            {type === "add" && (
-              <button className={styles.favor} onClick={handleAdd}>
-                <AiFillHeart />
+            {!hasBookMark && (
+              <button className={styles.addFavor} onClick={handleAdd}>
+                <AiOutlineHeart />
               </button>
             )}
-            {type === "delete" && (
-              <button className={styles.favor} onClick={handleDelete}>
-                X
+            {hasBookMark && (
+              <button
+                className={
+                  animation ? `${styles.delFavor}` : `${styles.delFavor__non}`
+                }
+                onClick={handleDelete}
+              >
+                <AiFillHeart />
               </button>
             )}
           </div>

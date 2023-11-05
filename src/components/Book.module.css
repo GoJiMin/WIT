@@ -39,7 +39,27 @@
   display: flex;
 }
 
-.favor {
+.addFavor {
+  font-size: 25px;
+  color: var(--color-light-blue);
+}
+
+@keyframes addBookMark {
+  from {
+    transform: scale(85%);
+  }
+  to {
+    transform: scale(115%);
+  }
+}
+
+.delFavor {
+  font-size: 25px;
+  color: var(--color-light-blue);
+  animation: addBookMark var(--animation-duration) ease;
+}
+
+.delFavor__non {
   font-size: 25px;
   color: var(--color-light-blue);
 }
