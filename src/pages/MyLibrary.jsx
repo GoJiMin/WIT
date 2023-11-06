@@ -14,7 +14,7 @@ export default function MyLibrary() {
   console.log(uid);
   const {
     isLoading,
-    error,
+    isFetching,
     data: books,
   } = useQuery(["books"], () => getLibrary(uid));
 
@@ -34,15 +34,15 @@ export default function MyLibrary() {
   }, [books, page]);
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>error!</p>;
+  if (isFetching) return <p>Loading...</p>;
 
   const hasBooks = books && books.length > 0;
 
   return (
     <section className={styles.section}>
-      <p>나의 서재</p>
+      {/* <p>나의 서재</p> */}
       {!hasBooks && <p>서재에 추가된 책이 없습니다.</p>}
-      {hasBooks && (
+      {currentPage && (
         <section className={styles.bookMarkSection}>
           <ul className={styles.bookMarkList}>
             {currentPage &&

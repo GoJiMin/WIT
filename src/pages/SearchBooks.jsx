@@ -8,18 +8,26 @@ import { HiArrowUp } from "react-icons/hi2";
 import { useQuery } from "@tanstack/react-query";
 import { useAuthContext } from "../context/AuthContext";
 import { getBookMarks } from "../services/firebase";
+import { Suspense } from "react";
 
 export default function SearchBooks() {
   const { uid } = useAuthContext();
-  const [books, setBooks] = useState("");
   const listBox = useRef();
   const { categoryId } = useParams();
   const navigate = useNavigate();
 
+  const {
+    isLoading,
+    isFetching,
+    data: books,
+    refetch,
+  } = useQuery(["bookData", categoryId], () => searchToTag(categoryId), {
+    suspense: true,
+  });
   const { data: bookMarks } = useQuery(["bookMarks"], () => getBookMarks(uid));
 
   const handleSearch = () => {
-    searchToTag(categoryId).then((res) => setBooks(res));
+    refetch();
     scrollToTop();
   };
 
@@ -31,39 +39,45 @@ export default function SearchBooks() {
     navigate(-1);
   };
 
-  useEffect(() => {
-    handleSearch();
-  }, []);
+  console.log(isLoading);
+
+  // if (isLoading) return <p>Loading...</p>;
+  // if (isFetching) return <p>Loading...</p>;
 
   return (
-    <>
-      {books && (
-        <section className={styles.section}>
-          <ul className={styles.bookList} ref={listBox}>
-            {books &&
-              books.item.map((book) => (
-                <li key={book.isbn13}>
-                  <Book
-                    data={book}
-                    type={"add"}
-                    animation={true}
-                    hasBookMark={bookMarks?.includes(book.isbn13)}
-                  />
-                </li>
-              ))}
-          </ul>
-          <div className={styles.search}>
-            <Button text={"다시 선택할래요. 🔍"} handleFunction={handleClick} />
-            <Button
-              text={"다시 추천 받을래요. 🤔"}
-              handleFunction={handleSearch}
-            />
-          </div>
-          <button className={styles.up} onClick={scrollToTop}>
-            <HiArrowUp />
-          </button>
-        </section>
-      )}
-    </>
+    <Suspense fallback={<p>Loading...</p>}>
+      <>
+        {books && (
+          <section className={styles.section}>
+            <ul className={styles.bookList} ref={listBox}>
+              {books &&
+                books.item.map((book) => (
+                  <li key={book.isbn13}>
+                    <Book
+                      data={book}
+                      type={"add"}
+                      animation={true}
+                      hasBookMark={bookMarks?.includes(book.isbn13)}
+                    />
+                  </li>
+                ))}
+            </ul>
+            <div className={styles.search}>
+              <Button
+                text={"다시 선택할래요. 🔍"}
+                handleFunction={handleClick}
+              />
+              <Button
+                text={"다시 추천 받을래요. 🤔"}
+                handleFunction={handleSearch}
+              />
+            </div>
+            <button className={styles.up} onClick={scrollToTop}>
+              <HiArrowUp />
+            </button>
+          </section>
+        )}
+      </>
+    </Suspense>
   );
 }
