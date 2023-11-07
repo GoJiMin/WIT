@@ -1,0 +1,65 @@
+@keyframes skeleton-gradient {
+  0% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+  50% {
+    background-color: rgba(165, 165, 165, 0.3);
+  }
+  100% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+}
+
+.book {
+  display: flex;
+  margin-bottom: 1.5rem;
+  margin-right: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  height: 16rem;
+}
+
+.img {
+  width: 10rem;
+  margin-right: 2rem;
+  border-radius: var(--size-border-radius);
+  background-color: var(--color-border);
+  animation: skeleton-gradient 1.5s infinite ease-in-out;
+}
+
+.textBox {
+  display: flex;
+  width: 80rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+
+.title {
+  width: 35rem;
+  height: 1.4rem;
+  border-radius: var(--size-border-radius);
+  animation: skeleton-gradient 1.5s infinite ease-in-out;
+}
+
+.author {
+  width: 9rem;
+  height: 1rem;
+  border-radius: var(--size-border-radius);
+  transform: translateY(-90%);
+  animation: skeleton-gradient 1.5s infinite ease-in-out;
+}
+
+.description {
+  border-radius: var(--size-border-radius);
+  height: 5.5rem;
+  animation: skeleton-gradient 1.5s infinite ease-in-out;
+}
+
+.library {
+  width: 6rem;
+  height: 1rem;
+  border-radius: var(--size-border-radius);
+  animation: skeleton-gradient 1.5s infinite ease-in-out;
+}

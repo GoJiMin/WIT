@@ -8,6 +8,7 @@ import { HiArrowUp } from "react-icons/hi2";
 import { useQueries } from "@tanstack/react-query";
 import { useAuthContext } from "../context/AuthContext";
 import { getBookMarks } from "../services/firebase";
+import BookSkeleton from "../components/BookSkeleton";
 
 export default function SearchBooks() {
   const { uid } = useAuthContext();
@@ -15,18 +16,19 @@ export default function SearchBooks() {
   const { categoryId } = useParams();
   const navigate = useNavigate();
 
-  const [{ data: books, refetch }, { data: bookMarks }] = useQueries({
-    queries: [
-      {
-        queryKey: ["bookData", categoryId],
-        queryFn: () => searchToTag(categoryId),
-      },
-      {
-        queryKey: ["bookMarks"],
-        queryFn: () => getBookMarks(uid),
-      },
-    ],
-  });
+  const [{ data: books, refetch, isFetching }, { data: bookMarks }] =
+    useQueries({
+      queries: [
+        {
+          queryKey: ["bookData", categoryId],
+          queryFn: () => searchToTag(categoryId),
+        },
+        {
+          queryKey: ["bookMarks"],
+          queryFn: () => getBookMarks(uid),
+        },
+      ],
+    });
 
   const handleSearch = () => {
     refetch();
@@ -41,8 +43,18 @@ export default function SearchBooks() {
     navigate(-1);
   };
 
-  // if (isLoading) return <p>Loading...</p>;
-  // if (isFetching) return <p>Loading...</p>;
+  if (isFetching)
+    return (
+      <section className={styles.section}>
+        <ul className={styles.bookList}>
+          {[1, 2, 3, 4, 5].map((n) => (
+            <li key={n}>
+              <BookSkeleton />
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
 
   return (
     <>

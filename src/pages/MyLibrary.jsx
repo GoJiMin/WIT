@@ -8,6 +8,7 @@ import { useState } from "react";
 import Pagination from "react-js-pagination";
 import "./pagination.css";
 import styles from "./MyLibrary.module.css";
+import BookSkeleton from "./../components/BookSkeleton";
 
 export default function MyLibrary() {
   const { uid } = useAuthContext();
@@ -33,8 +34,18 @@ export default function MyLibrary() {
     setCurrentPage(books.slice(indexOfFirstPage, indexOfLastPage));
   }, [books, page]);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isFetching) return <p>Loading...</p>;
+  if (isFetching)
+    return (
+      <section className={styles.bookMarkSection}>
+        <ul className={styles.bookMarkList}>
+          {[1, 2, 3, 4, 5].map((n) => (
+            <li key={n}>
+              <BookSkeleton />
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
 
   const hasBooks = books && books.length > 0;
 
