@@ -81,3 +81,75 @@
   margin-right: 4rem;
   padding-bottom: 0.5rem;
 }
+
+/* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/
+@media all and (min-width: 480px) and (max-width: 767px) {
+}
+
+/* 모바일 세로 (해상도 ~ 479px)*/
+@media all and (max-width: 479px) {
+  .book {
+    margin-bottom: 2rem;
+    margin-right: 1.5rem;
+    padding-right: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+  }
+
+  .img {
+    width: 8rem;
+    margin-right: 1rem;
+  }
+
+  .textBox {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    opacity: 1;
+  }
+
+  .addFavor {
+    font-size: 17px;
+    color: var(--color-light-blue);
+    position: absolute;
+    right: 0px;
+  }
+
+  .delFavor {
+    font-size: 17px;
+    color: var(--color-light-blue);
+    position: absolute;
+    right: 0px;
+    animation: addBookMark var(--animation-duration) ease;
+  }
+
+  .delFavor__non {
+    font-size: 17px;
+    position: absolute;
+    right: 0px;
+    color: var(--color-light-blue);
+  }
+
+  .author {
+    font-size: 1rem;
+    opacity: 1;
+    transform: translateY(-20%);
+  }
+
+  .description {
+    display: none;
+    font-size: 17px;
+    flex: 1;
+    opacity: 0.8;
+  }
+
+  .linkList {
+    display: flex;
+    margin-right: 4rem;
+    padding-bottom: 0.5rem;
+  }
+}

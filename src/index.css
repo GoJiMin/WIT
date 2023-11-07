@@ -221,6 +221,11 @@ button {
   body {
     font-size: 65%;
   }
+
+  *::-webkit-scrollbar {
+    width: 2px;
+    height: 1.5px;
+  }
 }
 
 @font-face {
