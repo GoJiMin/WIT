@@ -210,6 +210,15 @@ button {
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   :root {
+    /* searchBox height */
+    --searchBox-height: 2.5rem;
+    --searchIcon-size: 2.5rem;
+    --searchBox-width: 32rem;
+  }
+
+  html,
+  body {
+    font-size: 70%;
   }
 }
 

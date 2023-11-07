@@ -13,11 +13,9 @@ import BookSkeleton from "./../components/BookSkeleton";
 export default function MyLibrary() {
   const { uid } = useAuthContext();
   console.log(uid);
-  const {
-    isLoading,
-    isFetching,
-    data: books,
-  } = useQuery(["books"], () => getLibrary(uid));
+  const { isFetching, data: books } = useQuery(["books"], () =>
+    getLibrary(uid)
+  );
 
   const [currentPage, setCurrentPage] = useState(books); // 목록에 보여줄 게시글
   const [page, setPage] = useState(1); // 현재 페이지 번호
