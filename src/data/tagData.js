@@ -1,93 +1,89 @@
 export const TAG_LIST = [
   {
     id: 0,
-    tagName: "만화",
-  },
-  {
-    id: 1,
     tagName: "소설",
   },
   {
-    id: 2,
+    id: 1,
     tagName: "자기계발",
   },
   {
-    id: 3,
+    id: 2,
     tagName: "경제",
   },
   {
-    id: 4,
+    id: 3,
     tagName: "과학",
   },
   {
-    id: 5,
+    id: 4,
     tagName: "역사",
   },
   {
-    id: 6,
+    id: 5,
     tagName: "사회과학",
   },
   {
-    id: 7,
+    id: 6,
     tagName: "고전",
   },
 ];
 
 export const DETAIL_LIST = [
-  [
-    {
-      id: 2551,
-      tagName: "#만화(전체)",
-    },
-    {
-      id: 3727,
-      tagName: "#소년만화",
-    },
-    {
-      id: 2558,
-      tagName: "#무협",
-    },
-    {
-      id: 3724,
-      tagName: "#액션",
-    },
-    {
-      id: 2554,
-      tagName: "#학원물",
-    },
-    {
-      id: 3741,
-      tagName: "#순정만화",
-    },
-    {
-      id: 2561,
-      tagName: "#스포츠",
-    },
-    {
-      id: 7443,
-      tagName: "#인터넷 연재",
-    },
-    {
-      id: 4132,
-      tagName: "#판타지",
-    },
-    {
-      id: 2556,
-      tagName: "#추리/미스터리",
-    },
-    {
-      id: 3723,
-      tagName: "#호러/스릴러",
-    },
-    {
-      id: 2553,
-      tagName: "#SF",
-    },
-    {
-      id: 3750,
-      tagName: "#요리",
-    },
-  ],
+  // [
+  //   {
+  //     id: 2551,
+  //     tagName: "#만화(전체)",
+  //   },
+  //   {
+  //     id: 3727,
+  //     tagName: "#소년만화",
+  //   },
+  //   {
+  //     id: 2558,
+  //     tagName: "#무협",
+  //   },
+  //   {
+  //     id: 3724,
+  //     tagName: "#액션",
+  //   },
+  //   {
+  //     id: 2554,
+  //     tagName: "#학원물",
+  //   },
+  //   {
+  //     id: 3741,
+  //     tagName: "#순정만화",
+  //   },
+  //   {
+  //     id: 2561,
+  //     tagName: "#스포츠",
+  //   },
+  //   {
+  //     id: 7443,
+  //     tagName: "#인터넷 연재",
+  //   },
+  //   {
+  //     id: 4132,
+  //     tagName: "#판타지",
+  //   },
+  //   {
+  //     id: 2556,
+  //     tagName: "#추리/미스터리",
+  //   },
+  //   {
+  //     id: 3723,
+  //     tagName: "#호러/스릴러",
+  //   },
+  //   {
+  //     id: 2553,
+  //     tagName: "#SF",
+  //   },
+  //   {
+  //     id: 3750,
+  //     tagName: "#요리",
+  //   },
+  // ],
   [
     { id: 50930, tagName: "#과학소설(SF)" },
     { id: 89481, tagName: "#외국 과학소설" },
