@@ -103,23 +103,23 @@ export default function Book({
           </p>
         </div>
         <p className={styles.description}>{unescapeDes}</p>
-        <div className={styles.linkList}></div>
-
-        <Modal
-          type='confirm'
-          text={"소장 도서관"}
-          title={"위치 선택"}
-          library={library}
-          handleConfirm={handleConfirm}
-          region={regionCode.current}
-          component={
-            <Region
-              regionCode={regionCode.current}
-              library={library}
-              setLibrary={setLibrary}
-            />
-          }
-        />
+        <div className={styles.libraryLocation}>
+          <Modal
+            type='confirm'
+            text={"소장 도서관"}
+            title={"위치 선택"}
+            library={library}
+            handleConfirm={handleConfirm}
+            region={regionCode.current}
+            component={
+              <Region
+                regionCode={regionCode.current}
+                library={library}
+                setLibrary={setLibrary}
+              />
+            }
+          />
+        </div>
       </div>
     </section>
   );

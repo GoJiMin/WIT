@@ -6,7 +6,7 @@ export default function Description({ title, content, author, close }) {
     <section>
       <div className={styles.overlay} onClick={close} />
 
-      <article className={styles.content}>
+      <section className={styles.content}>
         <div className={styles.header}>
           <span className={styles.title}>{title}</span>
           <span className={styles.author}>{author}</span>
@@ -15,7 +15,7 @@ export default function Description({ title, content, author, close }) {
         <button type='button' onClick={close} className={styles.confirmBtn}>
           닫기
         </button>
-      </article>
+      </section>
     </section>
   );
 }
