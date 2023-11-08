@@ -16,7 +16,8 @@
   left: 50%;
   padding: 20px 13px 10px 13px;
   width: 280px;
-  height: 280px;
+  min-height: 280px;
+  max-height: 350px;
   border-radius: 12px;
   overflow: hidden;
   background-color: white;
