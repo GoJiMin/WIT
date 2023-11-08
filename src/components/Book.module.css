@@ -70,6 +70,10 @@
   transform: translateY(-40%);
 }
 
+.showDes {
+  display: none;
+}
+
 .description {
   font-size: 17px;
   flex: 1;
@@ -110,6 +114,10 @@
   .title {
     font-size: 1.3rem;
     opacity: 1;
+  }
+
+  .showDes {
+    display: block;
   }
 
   .showDes button {
