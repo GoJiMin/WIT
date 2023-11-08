@@ -29,7 +29,7 @@ export default function MyLibrary() {
   };
 
   useEffect(() => {
-    setCurrentPage(books.slice(indexOfFirstPage, indexOfLastPage));
+    setCurrentPage(books?.slice(indexOfFirstPage, indexOfLastPage));
   }, [books, page]);
 
   if (isFetching)

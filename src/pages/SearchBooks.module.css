@@ -9,7 +9,7 @@
 }
 
 .bookList {
-  height: 45rem;
+  height: 35rem;
   overflow: auto;
   margin: 0;
   padding: 0;
@@ -52,7 +52,7 @@
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .section {
-    padding: 2rem 0.5rem 1rem 1.5rem;
+    padding: 2rem 0.1rem 1rem 1rem;
   }
 
   .bookList {
@@ -62,5 +62,10 @@
   .up {
     width: 35px;
     height: 35px;
+    right: 15px;
+  }
+
+  .search {
+    right: 18px;
   }
 }

@@ -4,7 +4,11 @@ import Modal from "./Modal.jsx";
 import { libraryLocation } from "../services/library";
 import { unescapeHtml } from "./../services/unescape";
 import Region from "./Region.jsx";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import {
+  AiFillHeart,
+  AiOutlineHeart,
+  AiOutlineQuestionCircle,
+} from "react-icons/ai";
 import { useAuthContext } from "../context/AuthContext";
 import { addUpdateToLibrary, removeFromLibrary } from "../services/firebase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -88,9 +92,19 @@ export default function Book({
             )}
           </div>
           <p className={styles.author}>{author}</p>
+          <p className={styles.showDes}>
+            <Modal
+              text={<AiOutlineQuestionCircle />}
+              type={"description"}
+              title={unescapeTitle}
+              author={author}
+              content={unescapeDes}
+            />
+          </p>
         </div>
         <p className={styles.description}>{unescapeDes}</p>
         <div className={styles.linkList}></div>
+
         <Modal
           type='confirm'
           text={"소장 도서관"}
