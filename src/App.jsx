@@ -4,7 +4,6 @@ import styles from "./App.module.css";
 import { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { AuthContextProvier } from "./context/AuthContext";
-import { useRef } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
