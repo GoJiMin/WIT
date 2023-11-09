@@ -149,7 +149,7 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--font-base-color);
+  color: var(--color-black);
 }
 
 ul {
@@ -173,6 +173,7 @@ button {
   border: none;
   outline: none;
   padding: 0;
+  color: var(--color-black);
 }
 
 @font-face {

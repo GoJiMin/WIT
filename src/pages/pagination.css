@@ -1,4 +1,4 @@
-/* .pagination {
+.pagination {
   display: flex;
   justify-content: center;
   margin-top: 8px;
@@ -52,4 +52,4 @@ ul.pagination li.active {
   width: 48px;
   height: 30px;
   color: var(--color-light-blue);
-} */
+}
