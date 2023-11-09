@@ -10,7 +10,7 @@ const client = axios.create({
 
 export async function libraryLocation({ isbn, region, dtl_region }) {
   return await client
-    .get("/book/libSrchByBook", {
+    .get("http://data4library.kr/api/libSrchByBook", {
       params: {
         isbn,
         region,
@@ -18,12 +18,5 @@ export async function libraryLocation({ isbn, region, dtl_region }) {
       },
     })
     .then((res) => res)
-    .catch((error) => console.log(error));
-}
-
-export async function libraryLocationMock() {
-  return await axios
-    .get("/public/libraryMock.json")
-    .then((res) => res.data)
     .catch((error) => console.log(error));
 }

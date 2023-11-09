@@ -20,7 +20,7 @@ const randomDate = () => {
 export async function searchToTag(CategoryId) {
   const date = randomDate();
   return await aladinClient
-    .get("/api/ItemList.aspx", {
+    .get("http://www.aladin.co.kr/ttb/api/ItemList.aspx", {
       params: {
         year: date[0],
         month: date[1],
@@ -28,13 +28,6 @@ export async function searchToTag(CategoryId) {
         CategoryId,
       },
     })
-    .then((res) => res.data)
-    .catch((error) => console.log(error));
-}
-
-export async function serchToTagMock() {
-  return await axios
-    .get("/public/bookDataMock.json")
     .then((res) => res.data)
     .catch((error) => console.log(error));
 }
