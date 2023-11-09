@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 1rem 11rem;
+  justify-content: center;
 }
 
 .textBox {
@@ -30,7 +30,7 @@
 }
 
 .nameBox {
-  margin-top: 1rem;
+  margin-top: 3rem;
   transform: translateY(135%);
 }
 
@@ -79,6 +79,7 @@
   .section {
     display: flex;
     flex-direction: column;
+    justify-content: start;
     padding: 0;
   }
 

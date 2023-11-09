@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 0 4rem;
   --searchBox-width-select: calc(var(--searchBox-width) + 5rem);
 }
 
@@ -77,14 +77,14 @@
 
 .tagBox {
   display: flex;
-  padding: 0 4rem;
-  transform: translateY(-5%);
+  padding: 0 5rem;
+  transform: translateY(0%);
 }
 
 .tagList {
   display: flex;
   flex-direction: column;
-  gap: 2.2rem;
+  gap: 3.5rem;
   margin-right: 5rem;
   padding-right: 2rem;
   border-right: 2px solid var(--color-border);
@@ -100,18 +100,32 @@
   flex-direction: column;
   flex-wrap: wrap;
   height: 27rem;
-  gap: 0.5rem;
+  gap: 1.5rem;
   animation: dropDown 600ms ease;
 }
 
 .tag__sub {
   margin-bottom: 2.5rem;
-  margin-right: 3.5rem;
+  margin-right: 4rem;
 }
 
 .tag__sub button {
   font-size: var(--font-sm);
   line-height: 1px;
+}
+
+/* 고해상도 (해상도 ~1480px)*/
+@media all and (max-width: 1480px) {
+  .section {
+    padding: 0 1rem;
+  }
+  .tagList {
+    gap: 2.5rem;
+  }
+  .tag__sub {
+    margin-bottom: 2rem;
+    margin-right: 3rem;
+  }
 }
 
 /* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/

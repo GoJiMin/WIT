@@ -5,6 +5,12 @@ import { getLibrary } from "../services/firebase";
 import Book from "./../components/Book.jsx";
 import { useEffect } from "react";
 import { useState } from "react";
+import {
+  MdFirstPage,
+  MdLastPage,
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 import Pagination from "react-js-pagination";
 import "./pagination.css";
 import styles from "./MyLibrary.module.css";
@@ -20,7 +26,7 @@ export default function MyLibrary() {
   const [currentPage, setCurrentPage] = useState(books); // 목록에 보여줄 게시글
   const [page, setPage] = useState(1); // 현재 페이지 번호
 
-  const postPerPage = 8; // 페이지 당 게시글 개수
+  const postPerPage = 5; // 페이지 당 게시글 개수
   const indexOfLastPage = page * postPerPage;
   const indexOfFirstPage = indexOfLastPage - postPerPage;
 
@@ -69,8 +75,10 @@ export default function MyLibrary() {
             itemsCountPerPage={postPerPage}
             totalItemsCount={books?.length}
             pageRangeDisplayed={5}
-            prevPageText={"‹"}
-            nextPageText={"›"}
+            prevPageText={<MdOutlineKeyboardArrowLeft />}
+            firstPageText={<MdFirstPage />}
+            nextPageText={<MdOutlineKeyboardArrowRight />}
+            lastPageText={<MdLastPage />}
             onChange={handlePageChange}
           />
         </section>

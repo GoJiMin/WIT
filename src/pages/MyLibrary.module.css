@@ -1,6 +1,6 @@
 .bookMarkList {
   padding: 1rem;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 170px);
   overflow: auto;
 }
 
@@ -10,4 +10,7 @@
 
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
+  .bookMarkList {
+    height: calc(100vh - 110px);
+  }
 }

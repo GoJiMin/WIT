@@ -74,12 +74,14 @@
 @media all and (max-width: 479px) {
   .region__depth1 {
     height: 300px;
+    margin-right: 20px;
   }
 
   .region__depth2 {
     width: 240px;
     height: 300px;
     overflow: auto;
+    gap: 20px;
     padding-top: 2px;
   }
 
@@ -90,10 +92,12 @@
 
   .region__depth2 button {
     font-size: 1.3rem;
+    padding-left: 4px;
+    margin-right: 1.2rem;
   }
   @media all and (max-height: 670px) {
     .region__depth1 {
-      margin-right: 15px;
+      margin-right: 10px;
     }
 
     .region__depth2 {
