@@ -20,8 +20,6 @@ export default function Region({ regionCode, library, setLibrary }) {
     regionCode.dtl_region = e.target.id;
   };
 
-  console.log(regionCode);
-
   return (
     <>
       {library.length === 0 && (
