@@ -19,10 +19,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
+
       - name: build
         run: |
           pnpm install
-          pnpm build
+          pnpm run build
 
       - name: build to S3
         run: aws s3 sync build/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read
