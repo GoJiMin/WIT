@@ -33,6 +33,7 @@ export default function Libraries({ library, setLibrary }) {
           <Button text={"초기화"} handleFunction={handleReset} />
         </div>
       </ul>
+      <p className={styles.text}>도서관을 선택해주세요 📚</p>
       <div className={styles.mapContainer}>
         {location.length > 0 && library.resultNum > 0 && (
           <KakaoMap location={location} />

@@ -81,7 +81,20 @@
 @media all and (max-width: 479px) {
   .content {
     width: 330px;
-    height: 550px;
+    height: 380px;
     overflow: auto;
+  }
+
+  .contentBox {
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-left: 7px;
+  }
+
+  .btnContainer button {
+    font-size: 14px;
   }
 }

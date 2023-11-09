@@ -1,4 +1,3 @@
-/*global kakao*/
 import React, { useEffect, useRef } from "react";
 import styles from "./KakaoMap.module.css";
 
@@ -37,7 +36,6 @@ export default function KakaoMap({ location }) {
 
   return (
     <section>
-      {location.length === 0 && <div className={styles.loading}></div>}
       <div className={styles.map} ref={mapContainer}></div>
     </section>
   );
