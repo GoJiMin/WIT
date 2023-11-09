@@ -170,6 +170,7 @@
   .section {
     --searchBox-width-select: calc(var(--searchBox-width) + 5rem);
     --searchIcon-size: 3rem;
+    padding-top: 2rem;
   }
 
   .text {
@@ -185,6 +186,7 @@
   .tagList {
     flex-direction: row;
     width: 100%;
+    gap: 1rem;
     justify-content: space-between;
     border: none;
     white-space: nowrap;
@@ -196,6 +198,14 @@
 
   .tag button {
     font-weight: var(--weight-semi-bold);
+  }
+  .detailSection {
+    height: 55vh;
+    overflow: auto;
+  }
+
+  .detailSection::-webkit-scrollbar {
+    width: 0px;
   }
 
   .detailList {
