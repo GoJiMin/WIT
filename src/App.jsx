@@ -15,24 +15,15 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const outlet = useRef();
-
-  const scrollToTop = () => {
-    outlet?.current.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <AuthContextProvier>
       <section className={styles.main}>
         <header className={styles.header}>
           <Navbar />
         </header>
-        <section className={styles.App__body} ref={outlet}>
+        <section className={styles.App__body}>
           <QueryClientProvider client={queryClient}>
-            <Outlet context={{ scrollToTop }} />
+            <Outlet />
           </QueryClientProvider>
         </section>
       </section>

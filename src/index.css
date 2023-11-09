@@ -134,16 +134,13 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--screen-color);
 }
 
 body {
   padding-right: 0.3rem;
   cursor: default;
   font-family: "Pretendard";
-  border-radius: var(--size-border-radius);
   background-color: var(--background-color);
-  border-radius: var(--size-border-radius);
 }
 
 #root {
