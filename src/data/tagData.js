@@ -254,10 +254,6 @@ export const DETAIL_LIST = [
       tagName: "#토목/건축공학",
     },
     {
-      id: 51361,
-      tagName: "#화학공학",
-    },
-    {
       id: 51005,
       tagName: "#과학의이해",
     },
@@ -337,10 +333,8 @@ export const DETAIL_LIST = [
   [
     { id: 78, tagName: "#고고학" },
     { id: 1628, tagName: "#동양사일반" },
-    { id: 2177, tagName: "#문화/역사기행" },
     { id: 147, tagName: "#북한사" },
     { id: 5242, tagName: "#서양사" },
-    { id: 169, tagName: "#세계사 일반" },
     { id: 5029, tagName: "#아메리카사" },
     { id: 160, tagName: "#미국/캐나다사" },
     { id: 161, tagName: "#중남미사" },
@@ -359,7 +353,6 @@ export const DETAIL_LIST = [
     { id: 1960, tagName: "#중국고대사(선사시대~진한시대)" },
     { id: 3826, tagName: "#중국근세사(원~ 아편전쟁)" },
     { id: 1961, tagName: "#중국근현대사(아편전쟁 이후)" },
-    { id: 1962, tagName: "#중국사 일반" },
   ],
   [
     { id: 50999, tagName: "#교육학" },

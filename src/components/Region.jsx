@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { REGION_DEPTH_LIST, REGION_LIST } from "./../data/regionData";
 import Button from "./Button.jsx";
 import styles from "./Region.module.css";
@@ -39,7 +39,7 @@ export default function Region({ regionCode, library, setLibrary }) {
             ))}
           </ul>
           {depth && (
-            <ul className={styles.region__depth2}>
+            <ul key={depth} className={styles.region__depth2}>
               {REGION_DEPTH_LIST[depth].map(({ id, depth_2 }) => (
                 <li key={id}>
                   <Button

@@ -7,6 +7,7 @@ import { MdSearch } from "react-icons/md";
 
 export default function SelectTags() {
   const navigate = useNavigate();
+  const tagList = useRef();
   const [tag, setTag] = useState();
   const [category, setCategory] = useState({ categoryId: null, text: "" });
 
@@ -15,6 +16,9 @@ export default function SelectTags() {
     setTag(e.target.id);
     setCategory(null);
     clicked.current = e.target.id;
+    tagList?.current.scrollTo({
+      top: 0,
+    });
   };
 
   const handleSearch = () => {
@@ -49,25 +53,26 @@ export default function SelectTags() {
             </li>
           ))}
         </ul>
-        <ul key={tag} className={styles.detailList}>
-          {tag &&
-            DETAIL_LIST[tag].map(({ id, tagName }) => (
-              <li className={styles.tag__sub} key={id}>
-                <Button
-                  text={tagName}
-                  id={id}
-                  active={id / 1 === category?.categoryId / 1 ? true : false}
-                  handleFunction={() =>
-                    setCategory({
-                      categoryId: id,
-                      text: tagName,
-                    })
-                  }
-                />
-              </li>
-            ))}
-          {}
-        </ul>
+        <section className={styles.detailSection} ref={tagList}>
+          <ul key={tag} className={styles.detailList}>
+            {tag &&
+              DETAIL_LIST[tag].map(({ id, tagName }) => (
+                <li className={styles.tag__sub} key={id}>
+                  <Button
+                    text={tagName}
+                    id={id}
+                    active={id / 1 === category?.categoryId / 1 ? true : false}
+                    handleFunction={() =>
+                      setCategory({
+                        categoryId: id,
+                        text: tagName,
+                      })
+                    }
+                  />
+                </li>
+              ))}
+          </ul>
+        </section>
       </article>
     </section>
   );

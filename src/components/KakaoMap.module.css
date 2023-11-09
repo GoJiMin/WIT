@@ -17,9 +17,9 @@
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .map {
-    height: 290px;
+    height: 230px;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-left: 0;
   }
 }

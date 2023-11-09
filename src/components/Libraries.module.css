@@ -87,8 +87,8 @@
   }
 
   .reset {
-    top: 30px;
-    left: 85px;
+    top: 13px;
+    left: 300px;
   }
 
   .text {
@@ -97,5 +97,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  @media all and (max-height: 800px) {
+    .reset {
+      top: 14px;
+      left: 275px;
+    }
   }
 }

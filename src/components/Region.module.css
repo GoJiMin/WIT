@@ -1,3 +1,14 @@
+@keyframes dropDown {
+  from {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .region {
   display: flex;
 }
@@ -29,6 +40,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
+  animation: dropDown 350ms ease;
 }
 
 .region__depth2 button {
@@ -61,23 +73,42 @@
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .region__depth1 {
-    height: 380px;
+    height: 300px;
   }
 
   .region__depth2 {
     width: 240px;
-    height: 380px;
+    height: 300px;
     overflow: auto;
     padding-top: 2px;
   }
 
   .region__depth1 button {
     font-size: 1.4rem;
-    font-weight: var(--weight-semi-bold);
     white-space: nowrap;
   }
 
   .region__depth2 button {
     font-size: 1.3rem;
+  }
+  @media all and (max-height: 670px) {
+    .region__depth1 {
+      margin-right: 15px;
+    }
+
+    .region__depth2 {
+      overflow: auto;
+      padding-top: 2px;
+    }
+
+    .region__depth1 button {
+      font-size: 1.3rem;
+      white-space: nowrap;
+    }
+
+    .region__depth2 button {
+      font-size: 1.2rem;
+      margin-right: 0.2rem;
+    }
   }
 }

@@ -43,7 +43,11 @@
 
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
-  .section {
-    --font-title: 2rem;
+  .logo {
+    width: 30px;
+    margin-right: 5px;
+  }
+  .list {
+    gap: 1.3rem;
   }
 }

@@ -4,6 +4,7 @@ import styles from "./App.module.css";
 import { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { AuthContextProvier } from "./context/AuthContext";
+import { useRef } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,15 +15,24 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  const outlet = useRef();
+
+  const scrollToTop = () => {
+    outlet?.current.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <AuthContextProvier>
       <section className={styles.main}>
         <header className={styles.header}>
           <Navbar />
         </header>
-        <section className={styles.App__body}>
+        <section className={styles.App__body} ref={outlet}>
           <QueryClientProvider client={queryClient}>
-            <Outlet />
+            <Outlet context={{ scrollToTop }} />
           </QueryClientProvider>
         </section>
       </section>

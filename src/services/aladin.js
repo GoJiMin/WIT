@@ -11,9 +11,9 @@ const aladinClient = axios.create({
 });
 
 const randomDate = () => {
-  const year = 2019 + Math.random() * 4;
-  const month = Math.random() * 9 + 1;
-  const week = Math.random() * 4 + 1;
+  const year = 2019 + Math.floor(Math.random() * (4 - 1) + 1);
+  const month = Math.floor(Math.random() * (11 - 1) + 1);
+  const week = Math.floor(Math.random() * (4 - 1) + 1);
   return [year, month, week];
 };
 

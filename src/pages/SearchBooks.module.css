@@ -1,17 +1,13 @@
 .section {
   position: relative;
-  padding: 2rem 3.5rem;
+  padding: 1rem 3.5rem;
   padding-right: 0;
-}
-
-.loading {
-  font-size: 20rem;
+  height: 100%;
 }
 
 .bookList {
-  height: 35rem;
+  height: calc(100vh - 170px);
   overflow: auto;
-  margin: 0;
   padding: 0;
 }
 
@@ -19,16 +15,16 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: -15px;
-  right: 30px;
-  padding-left: 4rem;
+  position: fixed;
+  bottom: 10px;
+  right: 0px;
+  padding: 0rem 2rem;
 }
 
 .up {
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
+  position: fixed;
+  bottom: 45px;
+  right: 15px;
   width: 50px;
   height: 50px;
   font-size: 2.5rem;
@@ -52,20 +48,15 @@
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .section {
-    padding: 2rem 0.1rem 1rem 1rem;
+    padding: 1rem 0 0 1rem;
   }
 
   .bookList {
-    height: 70rem;
+    height: calc(100vh - 110px);
   }
 
   .up {
     width: 35px;
     height: 35px;
-    right: 15px;
-  }
-
-  .search {
-    right: 18px;
   }
 }
