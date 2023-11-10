@@ -56,7 +56,11 @@ export default function ContactForm() {
             },
           })}
         />
-        {errors.email && <small role='alert'>{errors.email.message}</small>}
+        {errors.email && (
+          <small className={styles.error} role='alert'>
+            {errors.email.message}
+          </small>
+        )}
       </div>
       <div className={styles.inputBox}>
         <label className={styles.label} htmlFor='id'>
@@ -74,7 +78,11 @@ export default function ContactForm() {
             required: "이름은 필수 입력입니다.",
           })}
         />
-        {errors.id && <small role='alert'>{errors.id.message}</small>}
+        {errors.id && (
+          <small className={styles.error} role='alert'>
+            {errors.id.message}
+          </small>
+        )}
       </div>
       <div className={styles.inputBox}>
         <label className={styles.label} htmlFor='id'>
@@ -92,7 +100,11 @@ export default function ContactForm() {
             required: "제목은 필수 입력입니다.",
           })}
         />
-        {errors.subject && <small role='alert'>{errors.subject.message}</small>}
+        {errors.subject && (
+          <small className={styles.error} role='alert'>
+            {errors.subject.message}
+          </small>
+        )}
       </div>
       <div className={styles.inputBox}>
         <label className={styles.label} htmlFor='text'>
@@ -107,10 +119,14 @@ export default function ContactForm() {
             isSubmitted ? (errors.text ? "true" : "false") : undefined
           }
           {...register("text", {
-            required: "건의 내용은 필수 입력 사항입니다.",
+            required: "메세지는 필수 입력 사항입니다.",
           })}
         />
-        {errors.text && <small role='alert'>{errors.text.message}</small>}
+        {errors.text && (
+          <small className={styles.error} role='alert'>
+            {errors.text.message}
+          </small>
+        )}
       </div>
       <div className={styles.checkbox}>
         <input

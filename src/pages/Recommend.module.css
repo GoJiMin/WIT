@@ -10,8 +10,8 @@
   display: flex;
   flex-direction: column;
   margin-top: 4rem;
-  width: 700px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   padding: 1rem 1.5rem;
 }
 
@@ -77,25 +77,17 @@
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .section {
-    display: flex;
     flex-direction: column;
     justify-content: start;
-    height: calc(100vh - 160px);
     overflow: auto;
-    padding: 0;
-  }
-
-  .section::-webkit-scrollbar {
-    width: 0px;
+    padding-bottom: 3rem;
   }
 
   .textBox {
-    background-color: var(--background-color);
-    display: flex;
-    width: 370px;
-    height: 250px;
-    flex-direction: column;
-    margin: 5vh auto;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
   }
 
   .title {
@@ -110,17 +102,5 @@
 
   .contact {
     margin-left: auto;
-  }
-
-  @media all and (max-height: 800px) {
-    .section {
-      height: calc(100vh - 90px);
-      overflow: auto;
-    }
-
-    .section::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-    }
   }
 }
