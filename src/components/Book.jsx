@@ -75,12 +75,12 @@ export default function Book({
         <div className={styles.titleBox}>
           <div className={styles.header}>
             <span className={styles.title}>{unescapeTitle}</span>
-            {!hasBookMark && (
+            {uid && !hasBookMark && (
               <button className={styles.addFavor} onClick={handleAdd}>
                 <AiOutlineHeart />
               </button>
             )}
-            {hasBookMark && (
+            {uid && hasBookMark && (
               <button
                 className={
                   animation ? `${styles.delFavor}` : `${styles.delFavor__non}`
