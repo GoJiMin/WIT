@@ -221,18 +221,12 @@ button {
 
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
+    display: none;
   }
 
-  *::-webkit-scrollbar-track {
-    background: transparent;
-    border: none;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border: none;
+  * {
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
   }
 }
 
