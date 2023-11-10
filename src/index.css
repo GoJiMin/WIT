@@ -219,9 +219,20 @@ button {
     font-size: 72.5%;
   }
 
+  /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
     width: 0px;
     height: 0px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+    border: none;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: none;
   }
 }
 
