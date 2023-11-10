@@ -90,7 +90,7 @@
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .section {
-    padding-bottom: 20rem;
+    padding-bottom: 10rem;
   }
   .text__type {
     padding: 0 1rem;

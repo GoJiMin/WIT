@@ -86,7 +86,7 @@
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .form {
-    padding: 0rem 4rem;
+    padding: 0rem 2rem;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -122,11 +122,5 @@
 
   .checkbox button {
     font-size: 1.1rem;
-  }
-
-  @media all and (max-height: 800px) {
-    .form {
-      margin-top: 2rem;
-    }
   }
 }
