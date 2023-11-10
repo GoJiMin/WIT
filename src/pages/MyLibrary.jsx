@@ -18,7 +18,6 @@ import BookSkeleton from "./../components/BookSkeleton";
 
 export default function MyLibrary() {
   const { uid } = useAuthContext();
-  console.log(uid);
   const { isFetching, data: books } = useQuery(["books"], () =>
     getLibrary(uid)
   );

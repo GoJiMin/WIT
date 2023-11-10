@@ -105,13 +105,11 @@
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
   height: 1.5px;
 }
 
 *::-webkit-scrollbar-track {
-  /* background: #ffffff;
-   */
   background: var(--background-color);
   border: 1px solid var(--color-border);
   border-radius: 40px;
@@ -119,7 +117,7 @@
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--color-light-blue);
-  border: 2px solid var(--color-light-blue);
+  border: 3px solid var(--color-light-blue);
   border-radius: 40px;
 }
 
@@ -137,7 +135,6 @@ body {
 }
 
 body {
-  padding-right: 0.3rem;
   cursor: default;
   font-family: "Pretendard";
   background-color: var(--background-color);
@@ -212,19 +209,19 @@ button {
 @media all and (max-width: 479px) {
   :root {
     /* searchBox height */
-    --searchBox-height: 2.5rem;
-    --searchIcon-size: 2.5rem;
-    --searchBox-width: 80vw;
+    --searchBox-height: 1.7rem;
+    --searchIcon-size: 2.2rem;
+    --searchBox-width: 130%;
   }
 
   html,
   body {
-    font-size: 65%;
+    font-size: 72.5%;
   }
 
   *::-webkit-scrollbar {
-    width: 2px;
-    height: 1px;
+    width: 0px;
+    height: 0px;
   }
 }
 

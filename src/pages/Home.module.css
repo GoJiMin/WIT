@@ -32,8 +32,15 @@
   border-radius: var(--size-border-radius);
 }
 
-.text:nth-child(1) {
-  border-right: 3.5px solid var(--color-light-blue);
+.text__type {
+  font-family: "LOTTERIACHAB";
+  color: var(--color-light-blue);
+  font-size: 2rem;
+  border-right: 2.5px solid var(--color-light-blue);
+  height: var(--searchBox-height);
+  line-height: 2.6rem;
+  padding: 0 1.5rem;
+  margin: 0;
 }
 
 .text {
@@ -85,7 +92,13 @@
   .section {
     padding-bottom: 20rem;
   }
+  .text__type {
+    padding: 0 1rem;
+    line-height: 1.7rem;
+  }
   .text {
     padding: 0 1.2rem;
+    line-height: 1.7rem;
+    font-size: 1rem;
   }
 }

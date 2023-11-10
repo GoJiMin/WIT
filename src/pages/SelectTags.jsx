@@ -33,7 +33,7 @@ export default function SelectTags() {
     <section className={styles.section}>
       <div className={styles.searchBox}>
         <div className={styles.input}>
-          <p className={styles.text}>통합검색</p>
+          <p className={styles.text__type}>W</p>
           <p className={styles.text}>{category?.text}</p>
         </div>
         <p className={styles.search} onClick={handleSearch}>

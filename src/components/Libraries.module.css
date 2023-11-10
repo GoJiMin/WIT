@@ -49,6 +49,10 @@
   border-radius: 10px;
 }
 
+.text {
+  display: none;
+}
+
 .fail {
   font-size: var(--font-md);
   font-weight: var(--weight-semi-bold);
@@ -92,6 +96,7 @@
   }
 
   .text {
+    display: block;
     font-size: 1.5rem;
     position: absolute;
     top: 50%;

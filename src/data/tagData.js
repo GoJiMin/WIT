@@ -350,9 +350,9 @@ export const DETAIL_LIST = [
     { id: 52616, tagName: "#현대전/테러" },
     { id: 52589, tagName: "#조선사" },
     { id: 52594, tagName: "#중국사" },
-    { id: 1960, tagName: "#중국고대사(선사시대~진한시대)" },
-    { id: 3826, tagName: "#중국근세사(원~ 아편전쟁)" },
-    { id: 1961, tagName: "#중국근현대사(아편전쟁 이후)" },
+    { id: 1960, tagName: "#중국고대사" },
+    { id: 3826, tagName: "#중국근세사" },
+    { id: 1961, tagName: "#중국근현대사" },
   ],
   [
     { id: 50999, tagName: "#교육학" },

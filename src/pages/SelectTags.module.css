@@ -21,19 +21,21 @@
 }
 
 .section {
+  padding: 0 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 4rem;
+  width: 100%;
+  height: 100%;
   --searchBox-width-select: calc(var(--searchBox-width) + 5rem);
 }
 
 .searchBox {
   display: flex;
-  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 5vh;
   align-items: center;
   width: var(--searchBox-width-select);
-  margin: auto;
   animation: searchBoxMovingUp 600ms ease;
   transform: translateY(-15%);
 }
@@ -42,18 +44,24 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%;
   border: 3.5px solid var(--color-light-blue);
   border-radius: var(--size-border-radius);
 }
 
-.text:nth-child(1) {
-  border-right: 3.5px solid var(--color-light-blue);
+.text__type {
+  font-family: "LOTTERIACHAB";
+  color: var(--color-light-blue);
+  font-size: var(--searchBox-height);
+  border-right: 2.5px solid var(--color-light-blue);
+  height: var(--searchBox-height);
+  line-height: 2.6rem;
+  padding: 0 1.5rem;
+  margin: 0;
 }
 
 .text {
-  height: 2rem;
-  line-height: 2rem;
+  height: var(--searchBox-height);
+  line-height: var(--searchBox-height);
   padding: 0 1.5rem;
   font-weight: var(--weight-regular);
   font-size: 1.1rem;
@@ -78,7 +86,6 @@
 .tagBox {
   display: flex;
   padding: 0 5rem;
-  transform: translateY(0%);
 }
 
 .tagList {
@@ -99,7 +106,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 27rem;
+  height: 50vh;
   gap: 1.5rem;
   animation: dropDown 600ms ease;
 }
@@ -119,6 +126,10 @@
   .section {
     padding: 0 1rem;
   }
+  .tagBox {
+    padding: 0 3rem;
+    transform: translateY(-7%);
+  }
   .tagList {
     gap: 2.5rem;
   }
@@ -134,14 +145,15 @@
 
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
+  /* Animation */
   @keyframes searchBoxMovingUp {
     0% {
       transform: translateY(130%);
-      width: calc(var(--searchBox-width) - 5rem);
+      width: 100%;
     }
     100% {
       transform: translateY(-15%);
-      width: calc(var(--searchBox-width) + 5rem);
+      width: 92%;
     }
   }
 
@@ -167,55 +179,72 @@
     }
   }
 
+  /* Style */
   .section {
-    --searchBox-width-select: calc(var(--searchBox-width) + 5rem);
-    --searchIcon-size: 3rem;
-    padding-top: 2rem;
+    padding: 0;
   }
 
+  .searchBox {
+    width: 92%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .text__type {
+    padding: 0 1rem;
+    line-height: 1.7rem;
+  }
   .text {
-    font-size: 1.2rem;
+    padding: 0;
+    margin-left: 1.2rem;
+    line-height: 1.7rem;
+    font-size: 1rem;
   }
 
   .tagBox {
+    width: 100%;
+    height: 100%;
+    margin-top: 5vh;
     flex-direction: column;
-    padding: 0;
+    padding: 0 1vh;
     transform: translateY(-6%);
   }
 
   .tagList {
     flex-direction: row;
     width: 100%;
-    gap: 1rem;
+    gap: 1.2rem;
     justify-content: space-between;
     border: none;
     white-space: nowrap;
-    padding: 1rem;
+    padding: 0 1vh;
     padding-bottom: 1.5rem;
-    margin-bottom: 3rem;
+    margin: 0;
+    margin-bottom: 1.5rem;
     border-bottom: 1px solid var(--color-border);
   }
 
   .tag button {
     font-weight: var(--weight-semi-bold);
   }
-  .detailSection {
-    height: 55vh;
-    overflow: auto;
-  }
 
-  .detailSection::-webkit-scrollbar {
-    width: 0px;
+  .detailSection {
+    height: 70%;
+    overflow: auto;
   }
 
   .detailList {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 55rem;
+    height: 110vh;
     gap: 1rem;
+    margin-left: 1vh;
     animation: dropDownDetail 600ms ease;
-    margin-left: 2rem;
   }
 
   .tag__sub {
@@ -226,20 +255,5 @@
   .tag__sub button {
     font-size: 1.2rem;
     line-height: 1px;
-  }
-
-  @media all and (max-height: 800px) {
-    .detailSection {
-      height: 60vh;
-      overflow: auto;
-    }
-
-    .detailSection::-webkit-scrollbar {
-      width: 0px;
-    }
-
-    .tagList {
-      gap: 1.5rem;
-    }
   }
 }

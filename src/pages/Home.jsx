@@ -9,7 +9,7 @@ export default function Home() {
       <p className={styles.title}>오늘 뭐 읽지?</p>
       <div className={styles.searchBox}>
         <div className={styles.input}>
-          <p className={styles.text}>통합검색</p>
+          <p className={styles.text__type}>W</p>
           <p className={styles.text}>태그를 선택해보세요!</p>
         </div>
         <Link to='/select'>
