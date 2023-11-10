@@ -10,7 +10,7 @@ const client = axios.create({
 
 export async function libraryLocation({ isbn, region, dtl_region }) {
   return await client
-    .get("http://data4library.kr/api/libSrchByBook", {
+    .get("/book/libSrchByBook", {
       params: {
         isbn,
         region,

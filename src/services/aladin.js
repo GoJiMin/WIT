@@ -20,7 +20,7 @@ const randomDate = () => {
 export async function searchToTag(CategoryId) {
   const date = randomDate();
   return await aladinClient
-    .get("http://www.aladin.co.kr/ttb/api/ItemList.aspx", {
+    .get("/api/ItemList.aspx", {
       params: {
         year: date[0],
         month: date[1],
