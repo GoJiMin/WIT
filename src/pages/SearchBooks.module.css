@@ -6,18 +6,20 @@
 }
 
 .bookList {
-  height: calc(100vh - 170px);
+  height: 100%;
   overflow: auto;
   padding: 0;
 }
 
 .search {
   width: 100%;
+  height: 5%;
   display: flex;
   justify-content: space-between;
+  background-color: var(--background-color);
   position: fixed;
-  bottom: 10px;
-  right: 0px;
+  bottom: 0;
+  right: 0;
   padding: 0rem 2rem;
 }
 
@@ -48,11 +50,7 @@
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .section {
-    padding: 1rem 0 0 1rem;
-  }
-
-  .bookList {
-    height: calc(100vh - 110px);
+    padding: 1rem 0 10% 1rem;
   }
 
   .up {
