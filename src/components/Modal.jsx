@@ -4,7 +4,6 @@ import Confirm from "./Confirm.jsx";
 import Alert from "./Alert.jsx";
 import Description from "./Description";
 import { useOutletContext } from "react-router-dom";
-import { useEffect } from "react";
 
 export default function Modal({
   title,

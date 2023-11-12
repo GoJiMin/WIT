@@ -156,12 +156,11 @@
     font-size: 1rem;
     opacity: 1;
     transform: translateY(-20%);
-    max-width: calc(100% - 1vh);
+    width: 200px;
+    max-height: 100%;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
   }
 
   .description {
