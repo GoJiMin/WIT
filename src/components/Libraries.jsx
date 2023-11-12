@@ -3,13 +3,17 @@ import Library from "./Library.jsx";
 import styles from "./Libraries.module.css";
 import KakaoMap from "./KakaoMap.jsx";
 import Button from "./Button.jsx";
+import { useOutletContext } from "react-router-dom";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 export default function Libraries({ library, setLibrary }) {
   const clicked = useRef();
   const [location, setLocation] = useState([]);
+  const { setSizing } = useOutletContext();
   const handleReset = () => {
     setLibrary([]);
     setLocation([]);
+    setSizing(true);
   };
 
   return (
@@ -30,16 +34,18 @@ export default function Libraries({ library, setLibrary }) {
           </li>
         ))}
         <div className={styles.reset}>
-          <Button text={"초기화"} handleFunction={handleReset} />
+          <Button text={<RiArrowGoBackFill />} handleFunction={handleReset} />
         </div>
       </ul>
-      <p className={styles.text}>도서관을 선택해주세요 📚</p>
+
       <div className={styles.mapContainer}>
         {location.length > 0 && library.resultNum > 0 && (
           <KakaoMap location={location} />
         )}
       </div>
-
+      {library.resultNum !== 0 && (
+        <p className={styles.text}>도서관을 선택해주세요 📚</p>
+      )}
       {library.resultNum === 0 && (
         <div className={styles.fail}>소장 중인 도서관이 없습니다. 😥</div>
       )}

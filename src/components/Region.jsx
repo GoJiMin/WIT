@@ -1,55 +1,73 @@
 import React, { useState } from "react";
 import { REGION_DEPTH_LIST, REGION_LIST } from "./../data/regionData";
-import Button from "./Button.jsx";
 import styles from "./Region.module.css";
 import Libraries from "./Libraries.jsx";
+import Select from "react-select";
 
 export default function Region({ regionCode, library, setLibrary }) {
-  const [depth, setDepth] = useState(null);
   const [depth2, setDepth2] = useState(null);
+  const [regionData, setRegionData] = useState(null);
 
-  const selectDepth1 = (e) => {
-    setDepth2(null);
-    setDepth(e.target.parentElement.id);
-    regionCode.region = e.target.id;
+  const options__depth1 = REGION_LIST.map(({ idx, id, region }) => ({
+    value: id,
+    label: region,
+    idx,
+  }));
+
+  const options__depth2 = regionData
+    ? regionData.map(({ id, depth_2 }) => ({
+        value: id,
+        label: depth_2,
+      }))
+    : null;
+
+  const handleSelect = (e) => {
+    setRegionData(REGION_DEPTH_LIST[e.idx]);
+    regionCode.region = e.value;
     regionCode.dtl_region = null;
+    setDepth2(null);
   };
 
-  const selectDepth2 = (e) => {
-    setDepth2(e.target.id);
-    regionCode.dtl_region = e.target.id;
+  const handleDepth2Select = (e) => {
+    setDepth2(e);
+    regionCode.dtl_region = e.value;
   };
 
   return (
     <>
       {library.length === 0 && (
-        <section className={styles.region}>
-          <ul className={styles.region__depth1}>
-            {REGION_LIST.map(({ idx, region, id }) => (
-              <li key={idx} id={idx}>
-                <Button
-                  text={region}
-                  id={id}
-                  handleFunction={selectDepth1}
-                  active={depth === idx + "" ? true : false}
-                />
-              </li>
-            ))}
-          </ul>
-          {depth && (
-            <ul key={depth} className={styles.region__depth2}>
-              {REGION_DEPTH_LIST[depth].map(({ id, depth_2 }) => (
-                <li key={id}>
-                  <Button
-                    text={depth_2}
-                    id={id}
-                    active={depth2 / 1 === id / 1 ? true : false}
-                    handleFunction={selectDepth2}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
+        <section className={styles.section}>
+          <div className={styles.selectBox}>
+            <Select
+              className={styles.select}
+              options={options__depth1}
+              menuPortalTarget={document.body}
+              styles={{
+                menuPortal: (base) => ({
+                  ...base,
+                  fontSize: "1.1rem",
+                  zIndex: 9999,
+                }),
+              }}
+              onChange={handleSelect}
+              placeholder={"지역 선택"}
+            />
+            <Select
+              className={styles.select}
+              value={depth2}
+              options={options__depth2}
+              menuPortalTarget={document.body}
+              styles={{
+                menuPortal: (base) => ({
+                  ...base,
+                  fontSize: "1.1rem",
+                  zIndex: 9999,
+                }),
+              }}
+              onChange={handleDepth2Select}
+              placeholder={"세부 지역 선택"}
+            />
+          </div>
         </section>
       )}
       {library.length !== 0 && (

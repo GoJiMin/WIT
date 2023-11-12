@@ -92,7 +92,7 @@ export default function Book({
             )}
           </div>
           <p className={styles.author}>{author}</p>
-          <p className={styles.showDes}>
+          <div className={styles.showDes}>
             <Modal
               text={<AiOutlineQuestionCircle />}
               type={"description"}
@@ -100,7 +100,7 @@ export default function Book({
               author={author}
               content={unescapeDes}
             />
-          </p>
+          </div>
         </div>
         <p className={styles.description}>{unescapeDes}</p>
         <div className={styles.libraryLocation}>

@@ -4,6 +4,7 @@ import styles from "./App.module.css";
 import { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { AuthContextProvier } from "./context/AuthContext";
+import { useState } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,6 +15,8 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  const [sizing, setSizing] = useState(false);
+
   return (
     <AuthContextProvier>
       <section className={styles.main}>
@@ -22,7 +25,7 @@ function App() {
         </header>
         <section className={styles.App__body}>
           <QueryClientProvider client={queryClient}>
-            <Outlet />
+            <Outlet context={{ sizing, setSizing }} />
           </QueryClientProvider>
         </section>
       </section>

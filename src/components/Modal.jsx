@@ -3,11 +3,13 @@ import styles from "./Modal.module.css";
 import Confirm from "./Confirm.jsx";
 import Alert from "./Alert.jsx";
 import Description from "./Description";
+import { useOutletContext } from "react-router-dom";
 
 export default function Modal({
   title,
   text,
   type,
+  library,
   component,
   handleConfirm,
   region,
@@ -16,6 +18,7 @@ export default function Modal({
   author,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { setSizing } = useOutletContext();
 
   const open = () => {
     setIsOpen(true);
@@ -26,6 +29,9 @@ export default function Modal({
     if (region) {
       region.region = null;
       region.dtl_region = null;
+    }
+    if (setSizing) {
+      setSizing(false);
     }
   };
 
@@ -40,6 +46,7 @@ export default function Modal({
       </button>
       {isOpen && type === "confirm" && (
         <Confirm
+          library={library}
           title={title}
           content={component}
           close={close}
