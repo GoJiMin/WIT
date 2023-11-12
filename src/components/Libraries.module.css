@@ -27,6 +27,7 @@
 .reset {
   position: absolute;
   color: black;
+  font-size: 1.2rem;
   top: 3%;
   right: 3%;
 }

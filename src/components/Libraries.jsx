@@ -32,8 +32,8 @@ export default function Libraries({ library, setLibrary }) {
             />
           </li>
         ))}
-        <div className={styles.reset}>
-          <Button text={"초기화"} handleFunction={handleReset} />
+        <div className={styles.reset} onClick={handleReset}>
+          초기화
         </div>
       </ul>
 
