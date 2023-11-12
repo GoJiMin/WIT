@@ -21,12 +21,12 @@ export default function Modal({
   const { setSizing } = useOutletContext();
 
   const open = () => {
-    // enableScrollLock();
+    enableScrollLock();
     setIsOpen(true);
   };
 
   const close = () => {
-    // disableScrollLock();
+    disableScrollLock();
     setIsOpen(false);
     if (region) {
       region.region = null;
