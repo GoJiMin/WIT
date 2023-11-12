@@ -25,12 +25,13 @@
 }
 
 .reset {
-  /* position: absolute; */
+  position: absolute;
   color: black;
   font-weight: var(--weight-bold);
   font-size: 1.2rem;
-  /* top: 3%; */
-  /* right: 3%; */
+  top: 3%;
+  right: 3%;
+  z-index: 999;
 }
 
 .reset button {
@@ -97,9 +98,9 @@
   }
 
   .reset {
-    /* position: absolute; */
-    /* top: 2.5%; */
-    /* right: 7%; */
+    position: absolute;
+    top: 2.5%;
+    right: 7%;
   }
 
   .text {
@@ -114,7 +115,7 @@
   }
   @media all and (max-height: 800px) {
     .reset {
-      /* top: 3%; */
+      top: 3%;
     }
   }
 }
