@@ -36,6 +36,8 @@
 
 .reset button {
   opacity: 1;
+  color: black;
+  z-index: 999;
 }
 
 .libList::-webkit-scrollbar {
