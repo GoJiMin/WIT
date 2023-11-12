@@ -11,7 +11,6 @@
   align-items: start;
   overflow: scroll;
   height: 400px;
-  z-index: 999;
 }
 
 .mapContainer {
@@ -29,6 +28,7 @@
   color: black;
   font-weight: var(--weight-bold);
   font-size: 1.2rem;
+  height: 30px;
   top: 3%;
   right: 3%;
   z-index: 999;
