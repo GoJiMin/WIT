@@ -26,13 +26,15 @@
 
 .reset {
   position: absolute;
+  color: black;
+  background-color: red;
+  z-index: 999;
   top: 3%;
   right: 3%;
 }
 
-.reset svg {
-  color: black;
-  font-size: 1.8rem;
+.reset button {
+  opacity: 1;
 }
 
 .libList::-webkit-scrollbar {
