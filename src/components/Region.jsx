@@ -45,6 +45,7 @@ export default function Region({ regionCode, library, setLibrary }) {
               value={depth1}
               options={options__depth1}
               menuPortalTarget={document.body}
+              isSearchable={false}
               styles={{
                 menuPortal: (base) => ({
                   ...base,
@@ -60,6 +61,7 @@ export default function Region({ regionCode, library, setLibrary }) {
               value={depth2}
               options={options__depth2}
               menuPortalTarget={document.body}
+              isSearchable={false}
               styles={{
                 menuPortal: (base) => ({
                   ...base,
