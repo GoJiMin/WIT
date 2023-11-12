@@ -27,8 +27,6 @@
 .reset {
   position: absolute;
   color: black;
-  background-color: red;
-  z-index: 999;
   top: 3%;
   right: 3%;
 }
