@@ -7,6 +7,8 @@
     {
       "source": "/book/:path*",
       "destination": "http://data4library.kr/api/:path*"
-    }
-  ]
+    },
+    { "source": "/(.*)", "destination": "/" }
+  ],
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
 }
