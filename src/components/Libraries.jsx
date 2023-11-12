@@ -34,7 +34,9 @@ export default function Libraries({ library, setLibrary }) {
           </li>
         ))}
         <div className={styles.reset}>
-          <Button text={<RiArrowGoBackFill />} handleFunction={handleReset} />
+          <button onClick={handleReset}>
+            <RiArrowGoBackFill />
+          </button>
         </div>
       </ul>
 
