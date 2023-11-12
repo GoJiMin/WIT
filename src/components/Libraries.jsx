@@ -4,6 +4,7 @@ import styles from "./Libraries.module.css";
 import KakaoMap from "./KakaoMap.jsx";
 import Button from "./Button.jsx";
 import { useOutletContext } from "react-router-dom";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 export default function Libraries({ library, setLibrary }) {
   const clicked = useRef();
@@ -33,7 +34,7 @@ export default function Libraries({ library, setLibrary }) {
           </li>
         ))}
         <div className={styles.reset}>
-          <Button text={"초기화"} handleFunction={handleReset} />
+          <Button text={<RiArrowGoBackFill />} handleFunction={handleReset} />
         </div>
       </ul>
 

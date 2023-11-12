@@ -27,11 +27,13 @@
   position: absolute;
   color: black;
   font-weight: var(--weight-bold);
-  font-size: 1.2rem;
   height: 30px;
-  top: 3%;
-  right: 3%;
+  top: 2.5%;
+  right: 2%;
   z-index: 999;
+}
+.reset svg {
+  font-size: 1.8rem;
 }
 
 .reset button {
@@ -101,8 +103,12 @@
 
   .reset {
     position: absolute;
-    top: 2.5%;
+    top: 1.8%;
     right: 7%;
+  }
+
+  .reset svg {
+    font-size: 1.8rem;
   }
 
   .text {
@@ -117,7 +123,7 @@
   }
   @media all and (max-height: 800px) {
     .reset {
-      top: 3%;
+      top: 2.5%;
     }
   }
 }
