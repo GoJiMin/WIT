@@ -5,6 +5,7 @@ import Libraries from "./Libraries.jsx";
 import Select from "react-select";
 
 export default function Region({ regionCode, library, setLibrary }) {
+  const [depth1, setDepth1] = useState(null);
   const [depth2, setDepth2] = useState(null);
   const [regionData, setRegionData] = useState(null);
 
@@ -22,6 +23,7 @@ export default function Region({ regionCode, library, setLibrary }) {
     : null;
 
   const handleSelect = (e) => {
+    setDepth1(e);
     setRegionData(REGION_DEPTH_LIST[e.idx]);
     regionCode.region = e.value;
     regionCode.dtl_region = null;
@@ -40,12 +42,13 @@ export default function Region({ regionCode, library, setLibrary }) {
           <div className={styles.selectBox}>
             <Select
               className={styles.select}
+              value={depth1}
               options={options__depth1}
               menuPortalTarget={document.body}
               styles={{
                 menuPortal: (base) => ({
                   ...base,
-                  fontSize: "1.1rem",
+                  fontSize: "16px !important",
                   zIndex: 9999,
                 }),
               }}
@@ -60,7 +63,7 @@ export default function Region({ regionCode, library, setLibrary }) {
               styles={{
                 menuPortal: (base) => ({
                   ...base,
-                  fontSize: "1.1rem",
+                  fontSize: "16px !important",
                   zIndex: 9999,
                 }),
               }}
