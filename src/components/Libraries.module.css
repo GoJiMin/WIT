@@ -11,6 +11,7 @@
   align-items: start;
   overflow: scroll;
   height: 400px;
+  z-index: 999;
 }
 
 .mapContainer {
