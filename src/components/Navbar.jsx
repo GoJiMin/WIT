@@ -9,7 +9,7 @@ export default function Navbar() {
     <header className={styles.header}>
       <div className={styles.titleBox}>
         <Link to='/' className={styles.title}>
-          <img className={styles.logo} src='Logo.png' alt='' />
+          <img className={styles.logo} src='/Logo.png' alt='' />
           <span className={styles.title__text}>WIT</span>
         </Link>
       </div>
