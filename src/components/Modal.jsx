@@ -4,6 +4,7 @@ import Confirm from "./Confirm.jsx";
 import Alert from "./Alert.jsx";
 import Description from "./Description";
 import { useOutletContext } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Modal({
   title,
@@ -21,10 +22,12 @@ export default function Modal({
   const { setSizing } = useOutletContext();
 
   const open = () => {
+    enableScrollLock();
     setIsOpen(true);
   };
 
   const close = () => {
+    disableScrollLock();
     setIsOpen(false);
     if (region) {
       region.region = null;
@@ -37,6 +40,42 @@ export default function Modal({
 
   const confirm = () => {
     handleConfirm();
+  };
+
+  // 스크롤 잠금
+  const enableScrollLock = () => {
+    const { body } = document;
+
+    if (!body.getAttribute("scrollY")) {
+      const pageY = window.pageYOffset;
+
+      body.setAttribute("scrollY", pageY.toString());
+
+      body.style.overflow = "hidden";
+      body.style.position = "fixed";
+      body.style.left = "0px";
+      body.style.right = "0px";
+      body.style.bottom = "0px";
+      body.style.top = `-${pageY}px`;
+    }
+  };
+
+  // 스크롤 잠금 해제
+  const disableScrollLock = () => {
+    const { body } = document;
+
+    if (body.getAttribute("scrollY")) {
+      body.style.removeProperty("overflow");
+      body.style.removeProperty("position");
+      body.style.removeProperty("top");
+      body.style.removeProperty("left");
+      body.style.removeProperty("right");
+      body.style.removeProperty("bottom");
+
+      window.scrollTo(0, Number(body.getAttribute("scrollY")));
+
+      body.removeAttribute("scrollY");
+    }
   };
 
   return (
