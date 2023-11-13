@@ -48,7 +48,7 @@ export default function SelectTags() {
                 text={tagName}
                 id={id}
                 handleFunction={handleClick}
-                active={clicked.current / 1 === id / 1 ? true : false}
+                active={tag / 1 === id / 1 ? true : false}
               />
             </li>
           ))}
