@@ -1,47 +1,21 @@
-import React, { useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { searchToTag } from "../services/aladin";
+import React from "react";
 import Book from "../components/Book.jsx";
 import styles from "./SearchBooks.module.css";
 import Button from "../components/Button.jsx";
 import { HiArrowUp } from "react-icons/hi2";
-import { useQueries } from "@tanstack/react-query";
-import { useAuthContext } from "../context/AuthContext";
-import { getBookMarks } from "../services/firebase";
 import BookSkeleton from "../components/BookSkeleton";
+import { useSearchBooks } from "../hooks/useSearchBooks";
 
 export default function SearchBooks() {
-  const { uid } = useAuthContext();
-  const listBox = useRef();
-  const { categoryId } = useParams();
-  const navigate = useNavigate();
-
-  const [{ data: books, refetch, isFetching }, { data: bookMarks }] =
-    useQueries({
-      queries: [
-        {
-          queryKey: ["bookData", categoryId],
-          queryFn: () => searchToTag(categoryId),
-        },
-        {
-          queryKey: ["bookMarks"],
-          queryFn: () => getBookMarks(uid),
-        },
-      ],
-    });
-
-  const handleSearch = () => {
-    refetch();
-    scrollToTop();
-  };
-
-  const scrollToTop = () => {
-    listBox.current?.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleClick = () => {
-    navigate(-1);
-  };
+  const {
+    handleSearch,
+    handleClick,
+    books,
+    bookMarks,
+    isFetching,
+    scrollToTop,
+    listBox,
+  } = useSearchBooks();
 
   if (isFetching)
     return (
