@@ -3,18 +3,11 @@ import Library from "./Library.jsx";
 import styles from "./Libraries.module.css";
 import KakaoMap from "./KakaoMap.jsx";
 import Button from "./Button.jsx";
-import { useOutletContext } from "react-router-dom";
 import { RiArrowGoBackFill } from "react-icons/ri";
 
-export default function Libraries({ library, setLibrary }) {
+export default function Libraries({ library, handleReset }) {
   const clicked = useRef();
   const [location, setLocation] = useState([]);
-  const { setSizing } = useOutletContext();
-  const handleReset = () => {
-    setLibrary([]);
-    setLocation([]);
-    setSizing(true);
-  };
 
   return (
     <section className={styles.section}>

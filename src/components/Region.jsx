@@ -4,8 +4,6 @@ import Libraries from "./Libraries.jsx";
 import Select from "react-select";
 
 export default function Region({
-  library,
-  setLibrary,
   regionData: {
     handleSelect,
     handleDepth2Select,
@@ -13,6 +11,8 @@ export default function Region({
     options__depth2,
     region,
   },
+  library,
+  handleReset,
 }) {
   return (
     <>
@@ -55,7 +55,7 @@ export default function Region({
         </section>
       )}
       {library.length !== 0 && (
-        <Libraries library={library} setLibrary={setLibrary} />
+        <Libraries library={library} handleReset={handleReset} />
       )}
     </>
   );

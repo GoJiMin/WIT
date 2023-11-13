@@ -30,9 +30,7 @@ export default function Modal({
     disableScrollLock();
     setIsOpen(false);
     setRegion && setRegion({ region: null, dtl_region: null });
-    if (setSizing) {
-      setSizing(false);
-    }
+    setSizing && setSizing(false);
   };
 
   const confirm = () => {

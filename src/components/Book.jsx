@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Book.module.css";
 import Modal from "./Modal.jsx";
-import { libraryLocation } from "../services/library";
-import { unescapeHtml } from "./../services/unescape";
 import Region from "./Region.jsx";
 import {
   AiFillHeart,
   AiOutlineHeart,
   AiOutlineQuestionCircle,
 } from "react-icons/ai";
+import { unescapeHtml } from "./../services/unescape";
 import { useRegion } from "../hooks/useRegion";
 import { useBookMark } from "./../hooks/useBookMark";
+import { useLibrary } from "../hooks/useLibrary";
 
 export default function Book({
   data: { title, description, author, cover, isbn13 },
@@ -26,6 +26,11 @@ export default function Book({
     setRegion,
   } = useRegion();
 
+  const { library, handleConfirm, handleReset } = useLibrary({
+    region,
+    isbn13,
+  });
+
   const { handleAdd, handleDelete, uid } = useBookMark({
     title,
     description,
@@ -33,19 +38,6 @@ export default function Book({
     cover,
     isbn13,
   });
-
-  const [library, setLibrary] = useState([]);
-
-  const handleConfirm = () => {
-    if (region.region === null) {
-      return;
-    }
-    libraryLocation({
-      isbn: isbn13,
-      region: region?.region?.value,
-      dtl_region: region?.dtl_region?.value,
-    }).then((res) => setLibrary(res.data.response));
-  };
 
   const unescapeTitle = unescapeHtml(title);
   const unescapeDes = unescapeHtml(description);
@@ -93,6 +85,7 @@ export default function Book({
             text={"소장 도서관"}
             title={"위치 선택"}
             library={library}
+            options={options__depth2}
             handleConfirm={handleConfirm}
             region={region}
             setRegion={setRegion}
@@ -106,7 +99,7 @@ export default function Book({
                   region,
                 }}
                 library={library}
-                setLibrary={setLibrary}
+                handleReset={handleReset}
               />
             }
           />
