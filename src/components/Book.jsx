@@ -12,17 +12,24 @@ import {
 import { useAuthContext } from "../context/AuthContext";
 import { addUpdateToLibrary, removeFromLibrary } from "../services/firebase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useRegion } from "../hooks/useRegion";
 
 export default function Book({
   data: { title, description, author, cover, isbn13 },
   animation,
   hasBookMark,
 }) {
+  const {
+    handleSelect,
+    handleDepth2Select,
+    options__depth1,
+    options__depth2,
+    region,
+    setRegion,
+  } = useRegion();
+
   const queryClient = useQueryClient();
-  const [region, setRegion] = useState({
-    region: null,
-    dtl_region: null,
-  });
+
   const [library, setLibrary] = useState([]);
   const { uid } = useAuthContext();
 
@@ -117,8 +124,13 @@ export default function Book({
             setRegion={setRegion}
             component={
               <Region
-                setRegion={setRegion}
-                region={region}
+                regionData={{
+                  handleSelect,
+                  handleDepth2Select,
+                  options__depth1,
+                  options__depth2,
+                  region,
+                }}
                 library={library}
                 setLibrary={setLibrary}
               />
