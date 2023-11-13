@@ -13,6 +13,7 @@ export default function Modal({
   component,
   handleConfirm,
   region,
+  setRegion,
   btnText,
   content,
   author,
@@ -28,10 +29,7 @@ export default function Modal({
   const close = () => {
     disableScrollLock();
     setIsOpen(false);
-    if (region) {
-      region.region = null;
-      region.dtl_region = null;
-    }
+    setRegion && setRegion({ region: null, dtl_region: null });
     if (setSizing) {
       setSizing(false);
     }
@@ -86,6 +84,7 @@ export default function Modal({
         <Confirm
           library={library}
           title={title}
+          region={region.region}
           content={component}
           close={close}
           confirm={confirm}

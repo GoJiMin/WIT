@@ -4,9 +4,7 @@ import styles from "./Region.module.css";
 import Libraries from "./Libraries.jsx";
 import Select from "react-select";
 
-export default function Region({ regionCode, library, setLibrary }) {
-  const [depth1, setDepth1] = useState(null);
-  const [depth2, setDepth2] = useState(null);
+export default function Region({ setRegion, library, setLibrary, region }) {
   const [regionData, setRegionData] = useState(null);
 
   const options__depth1 = REGION_LIST.map(({ idx, id, region }) => ({
@@ -23,16 +21,12 @@ export default function Region({ regionCode, library, setLibrary }) {
     : null;
 
   const handleSelect = (e) => {
-    setDepth1(e);
     setRegionData(REGION_DEPTH_LIST[e.idx]);
-    regionCode.region = e.value;
-    regionCode.dtl_region = null;
-    setDepth2(null);
+    setRegion((prev) => ({ ...prev, region: e, dtl_region: null }));
   };
 
   const handleDepth2Select = (e) => {
-    setDepth2(e);
-    regionCode.dtl_region = e.value;
+    setRegion((prev) => ({ ...prev, dtl_region: e }));
   };
 
   return (
@@ -42,7 +36,7 @@ export default function Region({ regionCode, library, setLibrary }) {
           <div className={styles.selectBox}>
             <Select
               className={styles.select}
-              value={depth1}
+              value={region.region}
               options={options__depth1}
               menuPortalTarget={document.body}
               isSearchable={false}
@@ -58,7 +52,7 @@ export default function Region({ regionCode, library, setLibrary }) {
             />
             <Select
               className={styles.select}
-              value={depth2}
+              value={region.dtl_region}
               options={options__depth2}
               menuPortalTarget={document.body}
               isSearchable={false}

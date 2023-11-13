@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Book.module.css";
 import Modal from "./Modal.jsx";
 import { libraryLocation } from "../services/library";
@@ -19,18 +19,21 @@ export default function Book({
   hasBookMark,
 }) {
   const queryClient = useQueryClient();
-  const regionCode = useRef({ region: null, dtl_region: null });
+  const [region, setRegion] = useState({
+    region: null,
+    dtl_region: null,
+  });
   const [library, setLibrary] = useState([]);
   const { uid } = useAuthContext();
 
   const handleConfirm = () => {
-    if (regionCode.current.region === null) {
+    if (region.region === null) {
       return;
     }
     libraryLocation({
       isbn: isbn13,
-      region: regionCode?.current?.region,
-      dtl_region: regionCode?.current?.dtl_region,
+      region: region?.region?.value,
+      dtl_region: region?.dtl_region?.value,
     }).then((res) => setLibrary(res.data.response));
   };
 
@@ -110,10 +113,12 @@ export default function Book({
             title={"위치 선택"}
             library={library}
             handleConfirm={handleConfirm}
-            region={regionCode.current}
+            region={region}
+            setRegion={setRegion}
             component={
               <Region
-                regionCode={regionCode.current}
+                setRegion={setRegion}
+                region={region}
                 library={library}
                 setLibrary={setLibrary}
               />

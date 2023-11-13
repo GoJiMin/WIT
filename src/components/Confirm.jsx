@@ -2,21 +2,22 @@ import React from "react";
 import styles from "./Confirm.module.css";
 import { useOutletContext } from "react-router-dom";
 
-export default function Confirm({ title, content, close, confirm, library }) {
+export default function Confirm({
+  title,
+  content,
+  close,
+  confirm,
+  library,
+  region,
+}) {
   const { sizing } = useOutletContext();
+  console.log(region);
   return (
     <section className={styles.section}>
       <div className={styles.background} onClick={close}></div>
       <div className={styles.contentBox}>
         <header className={styles.header}>
-          <p
-            // className={
-            //   library.length !== 0
-            //     ? `${styles.title} ${styles.hide}`
-            //     : `${styles.title}`
-            // }
-            className={styles.title}
-          >
+          <p className={styles.title}>
             {library.length !== 0 ? "도서관 선택" : title}
           </p>
         </header>
@@ -37,13 +38,15 @@ export default function Confirm({ title, content, close, confirm, library }) {
               ? `${styles.btnContainer} ${styles.hide}`
               : `${styles.btnContainer}`
           }
-          // className={styles.btnContainer}
         >
           <button className={styles.cancelBtn} onClick={close}>
             취소
           </button>
           <button
-            className={styles.confirmBtn}
+            className={
+              region !== null ? `${styles.confirmBtn}` : `${styles.disabledBtn}`
+            }
+            disabled={region === null}
             onClick={() => {
               confirm && confirm();
             }}

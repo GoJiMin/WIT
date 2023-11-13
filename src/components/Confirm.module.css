@@ -109,10 +109,20 @@
   height: 30px;
   text-align: center;
   color: var(--background-color);
-  background-color: var(--color-light-blue);
   border-radius: 4px;
   cursor: pointer;
+  background-color: var(--color-light-blue);
   transition: all var(--animation-duration) ease;
+}
+
+.disabledBtn {
+  flex: 1;
+  height: 30px;
+  text-align: center;
+  color: var(--background-color);
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--color-border);
 }
 
 .confirmBtn:hover {
