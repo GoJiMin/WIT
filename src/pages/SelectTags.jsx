@@ -1,33 +1,19 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { DETAIL_LIST, TAG_LIST } from "../data/tagData";
 import Button from "../components/Button.jsx";
 import styles from "./SelectTags.module.css";
-import { useNavigate } from "react-router-dom";
 import { MdSearch } from "react-icons/md";
+import { useSelectTags } from "../hooks/useSelectTags";
 
 export default function SelectTags() {
-  const navigate = useNavigate();
-  const tagList = useRef();
-  const [tag, setTag] = useState();
-  const [category, setCategory] = useState({ categoryId: null, text: "" });
-
-  const clicked = useRef();
-  const handleClick = (e) => {
-    setTag(e.target.id);
-    setCategory(null);
-    clicked.current = e.target.id;
-    tagList?.current.scrollTo({
-      top: 0,
-    });
-  };
-
-  const handleSearch = () => {
-    if (category.categoryId === null) {
-      setCategory((prev) => ({ ...prev, text: "먼저 태그를 선택해주세요!" }));
-      return;
-    }
-    navigate(`/search/${category?.categoryId}`);
-  };
+  const {
+    category,
+    handleSearch,
+    handleClick,
+    tag,
+    handleSetCategory,
+    tagList,
+  } = useSelectTags();
 
   return (
     <section className={styles.section}>
@@ -62,12 +48,7 @@ export default function SelectTags() {
                     text={tagName}
                     id={id}
                     active={id / 1 === category?.categoryId / 1 ? true : false}
-                    handleFunction={() =>
-                      setCategory({
-                        categoryId: id,
-                        text: tagName,
-                      })
-                    }
+                    handleFunction={() => handleSetCategory(id, tagName)}
                   />
                 </li>
               ))}
