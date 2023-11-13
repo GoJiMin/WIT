@@ -9,10 +9,8 @@ import {
   AiOutlineHeart,
   AiOutlineQuestionCircle,
 } from "react-icons/ai";
-import { useAuthContext } from "../context/AuthContext";
-import { addUpdateToLibrary, removeFromLibrary } from "../services/firebase";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRegion } from "../hooks/useRegion";
+import { useBookMark } from "./../hooks/useBookMark";
 
 export default function Book({
   data: { title, description, author, cover, isbn13 },
@@ -28,10 +26,15 @@ export default function Book({
     setRegion,
   } = useRegion();
 
-  const queryClient = useQueryClient();
+  const { handleAdd, handleDelete, uid } = useBookMark({
+    title,
+    description,
+    author,
+    cover,
+    isbn13,
+  });
 
   const [library, setLibrary] = useState([]);
-  const { uid } = useAuthContext();
 
   const handleConfirm = () => {
     if (region.region === null) {
@@ -42,35 +45,6 @@ export default function Book({
       region: region?.region?.value,
       dtl_region: region?.dtl_region?.value,
     }).then((res) => setLibrary(res.data.response));
-  };
-
-  const addToUpdate = useMutation(
-    ({ uid, book }) => addUpdateToLibrary(uid, book),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries(["books"]);
-        queryClient.invalidateQueries(["bookMarks"]);
-      },
-    }
-  );
-
-  const removeBookMark = useMutation(
-    ({ uid, isbn13 }) => removeFromLibrary(uid, isbn13),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries(["books"]);
-        queryClient.invalidateQueries(["bookMarks"]);
-      },
-    }
-  );
-
-  const handleAdd = () => {
-    const book = { title, description, author, cover, isbn13 };
-    addToUpdate.mutate({ uid, book });
-  };
-
-  const handleDelete = () => {
-    removeBookMark.mutate({ uid, isbn13 });
   };
 
   const unescapeTitle = unescapeHtml(title);
