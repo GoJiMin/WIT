@@ -1,40 +1,32 @@
 import React from "react";
-import { useAuthContext } from "../context/AuthContext";
-import { useQuery } from "@tanstack/react-query";
-import { getLibrary } from "../services/firebase";
-import Book from "./../components/Book.jsx";
+import { useMyLibrary } from "../hooks/useMyLibrary";
 import { useEffect } from "react";
-import { useState } from "react";
 import {
   MdFirstPage,
   MdLastPage,
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
-import Pagination from "react-js-pagination";
-import "./pagination.css";
-import styles from "./MyLibrary.module.css";
+import Book from "./../components/Book.jsx";
 import BookSkeleton from "./../components/BookSkeleton";
+import Pagination from "react-js-pagination";
+import styles from "./MyLibrary.module.css";
+import "./pagination.css";
 
 export default function MyLibrary() {
-  const { uid } = useAuthContext();
-  const { isFetching, data: books } = useQuery(["books"], () =>
-    getLibrary(uid)
-  );
-
-  const [currentPage, setCurrentPage] = useState(books); // 목록에 보여줄 게시글
-  const [page, setPage] = useState(1); // 현재 페이지 번호
-
-  const postPerPage = 5; // 페이지 당 게시글 개수
-  const indexOfLastPage = page * postPerPage;
-  const indexOfFirstPage = indexOfLastPage - postPerPage;
-
-  const handlePageChange = (page) => {
-    setPage(page);
-  };
+  const {
+    handlePageChange,
+    handleSetCurrentPage,
+    currentPage,
+    books,
+    page,
+    postPerPage,
+    hasBooks,
+    isFetching,
+  } = useMyLibrary();
 
   useEffect(() => {
-    setCurrentPage(books?.slice(indexOfFirstPage, indexOfLastPage));
+    handleSetCurrentPage();
   }, [books, page]);
 
   if (isFetching)
@@ -50,11 +42,8 @@ export default function MyLibrary() {
       </section>
     );
 
-  const hasBooks = books && books.length > 0;
-
   return (
     <section className={styles.section}>
-      {/* <p>나의 서재</p> */}
       {!hasBooks && <p>서재에 추가된 책이 없습니다.</p>}
       {currentPage && (
         <section className={styles.bookMarkSection}>
