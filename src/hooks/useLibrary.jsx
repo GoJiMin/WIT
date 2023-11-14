@@ -25,3 +25,12 @@ export function useLibrary({ region, isbn13 }) {
 
   return { library, setLibrary, handleConfirm, handleReset };
 }
+
+export function useLocation() {
+  const [location, setLocation] = useState([]);
+  const handleClick = (latitude, longitude, id) => {
+    setLocation([latitude / 1, longitude / 1, id]);
+  };
+
+  return { location, handleClick };
+}

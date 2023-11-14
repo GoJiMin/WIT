@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import Library from "./Library.jsx";
 import styles from "./Libraries.module.css";
 import KakaoMap from "./KakaoMap.jsx";
 import Button from "./Button.jsx";
 import { RiArrowGoBackFill } from "react-icons/ri";
+import { useLocation } from "../hooks/useLibrary.jsx";
 
 export default function Libraries({ library, handleReset }) {
-  const clicked = useRef();
-  const [location, setLocation] = useState([]);
+  const { location, handleClick } = useLocation();
 
   return (
     <section className={styles.section}>
@@ -21,8 +21,8 @@ export default function Libraries({ library, handleReset }) {
             <Library
               data={lib}
               id={idx}
-              setLocation={setLocation}
-              clicked={clicked}
+              location={location}
+              handleClick={handleClick}
             />
           </li>
         ))}

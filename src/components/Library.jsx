@@ -3,21 +3,17 @@ import Button from "./Button.jsx";
 
 export default function Library({
   data: { libName, latitude, longitude },
-  setLocation,
   id,
-  clicked,
+  location,
+  handleClick,
 }) {
-  const handleClick = (e) => {
-    setLocation([latitude / 1, longitude / 1]);
-    clicked.current = e.target.id;
-  };
   return (
     <section>
       <Button
-        handleFunction={handleClick}
+        handleFunction={() => handleClick(latitude, longitude, id)}
         id={id}
         text={libName}
-        active={clicked.current / 1 === id / 1 ? true : false}
+        active={location[2] === id ? true : false}
       />
     </section>
   );

@@ -11,7 +11,6 @@ export default function Confirm({
   region,
 }) {
   const { sizing } = useOutletContext();
-  console.log(region);
   return (
     <section className={styles.section}>
       <div className={styles.background} onClick={close}></div>
