@@ -30,6 +30,11 @@
   width: 100%;
   border: 3.5px solid var(--color-light-blue);
   border-radius: var(--size-border-radius);
+  transition: all 50ms ease-in;
+}
+
+.input:hover {
+  border-color: var(--color-blue);
 }
 
 .text__type {
@@ -54,6 +59,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.link {
+  width: 100%;
 }
 
 .search {

@@ -37,11 +37,7 @@
 
 .header {
   display: flex;
-}
-
-.addFavor {
-  font-size: 25px;
-  color: var(--color-light-blue);
+  align-items: baseline;
 }
 
 @keyframes addBookMark {
@@ -51,6 +47,15 @@
   to {
     transform: scale(115%);
   }
+}
+
+.header button {
+  transform: translateY(12%);
+}
+
+.addFavor {
+  font-size: 25px;
+  color: var(--color-light-blue);
 }
 
 .delFavor {

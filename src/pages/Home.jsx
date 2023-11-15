@@ -8,10 +8,12 @@ export default function Home() {
     <section className={styles.section}>
       <p className={styles.title}>오늘 뭐 읽지?</p>
       <div className={styles.searchBox}>
-        <div className={styles.input}>
-          <p className={styles.text__type}>W</p>
-          <p className={styles.text}>태그를 선택해보세요!</p>
-        </div>
+        <Link className={styles.link} to='/select'>
+          <div className={styles.input}>
+            <p className={styles.text__type}>W</p>
+            <p className={styles.text}>태그를 선택해보세요!</p>
+          </div>
+        </Link>
         <Link to='/select'>
           <p className={styles.search}>
             <MdSearch />
