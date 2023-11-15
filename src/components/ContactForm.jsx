@@ -1,41 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./ContactForm.module.css";
-import { useForm } from "react-hook-form";
-import axios from "axios";
 import Modal from "./Modal.jsx";
 import PersonalInformation from "./PersonalInformation.jsx";
+import { useContact } from "../hooks/useContact";
 
 export default function ContactForm() {
-  const [check, setChecked] = useState(false);
-  const handleCheck = () => {
-    setChecked(true);
-  };
-
-  const onSubmit = async (data) => {
-    await new Promise((r) => setTimeout(r, 2000));
-    axios({
-      url: import.meta.env.VITE_EMAIL_URL,
-      method: "post",
-      headers: { "Content-Type": "multipart/form-data" },
-      data: data,
-    });
-  };
-
   const {
-    reset,
     register,
+    handleReset,
+    handleUnCheck,
+    handleCheck,
     handleSubmit,
-    formState: { isSubmitting, isSubmitted, errors, isSubmitSuccessful },
-  } = useForm();
+    onSubmit,
+    check,
+    isSubmitting,
+    isSubmitted,
+    errors,
+    isSubmitSuccessful,
+  } = useContact();
 
   useEffect(() => {
     if (isSubmitSuccessful) {
-      reset({ email: "", id: "", subject: "", text: "" });
+      handleReset();
     }
-  }, [isSubmitSuccessful, reset]);
+  }, [handleReset, isSubmitSuccessful]);
+
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      {/* <p className={styles.title}>Contact</p> */}
       <div className={styles.inputBox}>
         <label className={styles.label} htmlFor='email'>
           이메일
@@ -132,7 +123,7 @@ export default function ContactForm() {
         <input
           className={styles.checkbox_input}
           type='checkbox'
-          onChange={() => setChecked(false)}
+          onChange={handleUnCheck}
           checked={check}
         />
         <Modal
