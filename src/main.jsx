@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound.jsx";
 import Recommend from "./pages/Recommend";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import MyLibrary from "./pages/MyLibrary.jsx";
+import SearchKeyword from "./pages/SearchKeyword.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, path: "/", element: <Home /> },
       { path: "select", element: <SelectTags /> },
-      { path: "search/:categoryId", element: <SearchBooks /> },
+      { path: "search/category/:categoryId", element: <SearchBooks /> },
+      { path: "search/keyword/:keyword", element: <SearchKeyword /> },
       { path: "recommend", element: <Recommend /> },
       {
         path: "library",

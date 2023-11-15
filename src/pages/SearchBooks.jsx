@@ -4,7 +4,7 @@ import styles from "./SearchBooks.module.css";
 import Button from "../components/Button.jsx";
 import { HiArrowUp } from "react-icons/hi2";
 import BookSkeleton from "../components/BookSkeleton";
-import { useSearchBooks } from "../hooks/useSearchBooks";
+import { useSearchToTag } from "../hooks/useSearchBooks";
 
 export default function SearchBooks() {
   const {
@@ -15,7 +15,7 @@ export default function SearchBooks() {
     isFetching,
     scrollToTop,
     listBox,
-  } = useSearchBooks();
+  } = useSearchToTag();
 
   if (isFetching)
     return (
@@ -29,6 +29,8 @@ export default function SearchBooks() {
         </ul>
       </section>
     );
+
+  console.log(books);
 
   return (
     <>

@@ -11,15 +11,24 @@ export default function SelectTags() {
     handleClick,
     handleSetCategory,
     handleCheck,
+    handleKeywordSearch,
+    handleChange,
+    keyword,
     checked,
     category,
     tag,
     tagList,
   } = useSelectTags();
 
+  console.log(keyword);
   return (
     <section className={styles.section}>
-      {checked && <div>직접검색</div>}
+      {checked && (
+        <div>
+          <input type='text' value={keyword} onChange={handleChange} />
+          <button onClick={handleKeywordSearch}>검색</button>
+        </div>
+      )}
       {!checked && (
         <>
           <div className={styles.searchBox}>

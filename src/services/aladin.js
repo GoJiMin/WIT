@@ -5,6 +5,7 @@ const aladinClient = axios.create({
     ttbkey: import.meta.env.VITE_ALADIN_API_KEY,
     Output: "JS",
     Cover: "Big",
+    Version: 20131101,
   },
 });
 
@@ -21,7 +22,7 @@ export async function searchToTag(CategoryId) {
     .get("/api/ItemList.aspx", {
       params: {
         QueryType: "Bestseller",
-        Version: 20131101,
+
         MaxResults: 15,
         year: date[0],
         month: date[1],
@@ -33,13 +34,14 @@ export async function searchToTag(CategoryId) {
     .catch((error) => console.log(error));
 }
 
-export async function searchToKeyword(Query) {
+export async function searchToKeyword(Query, page) {
   return await aladinClient
     .get("/api/ItemSearch.aspx", {
       params: {
         Query,
         QueryType: "Keyword",
-        MaxResults: 25,
+        MaxResults: 10,
+        start: page,
       },
     })
     .then((res) => res.data)
