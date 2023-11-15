@@ -7,9 +7,11 @@ export default function Confirm({
   content,
   close,
   confirm,
+  loading,
   library,
   region,
 }) {
+  console.log(loading);
   const { sizing } = useOutletContext();
   return (
     <section className={styles.section}>
@@ -50,7 +52,15 @@ export default function Confirm({
               confirm && confirm();
             }}
           >
-            검색
+            {loading ? (
+              <img
+                src='/Spinner.gif'
+                width='15%'
+                style={{ paddingTop: "2px" }}
+              />
+            ) : (
+              "검색"
+            )}
           </button>
         </div>
       </div>

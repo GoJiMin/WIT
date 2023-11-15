@@ -80,9 +80,8 @@
 }
 
 .title {
-  margin-left: 16px;
+  margin-left: 1.5%;
   font-weight: var(--weight-bold);
-  /* color: var(--color-light-blue); */
 }
 
 .btnContainer {

@@ -4,6 +4,7 @@ import { libraryLocation } from "../services/library";
 
 export function useLibrary({ region, isbn13 }) {
   const [library, setLibrary] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const { setSizing } = useOutletContext();
 
@@ -11,11 +12,14 @@ export function useLibrary({ region, isbn13 }) {
     if (region.region === null) {
       return;
     }
+    setLoading(true);
     libraryLocation({
       isbn: isbn13,
       region: region?.region?.value,
       dtl_region: region?.dtl_region?.value,
-    }).then((res) => setLibrary(res.data.response));
+    })
+      .then((res) => setLibrary(res.data.response))
+      .finally(() => setLoading(false));
   };
 
   const handleReset = () => {
@@ -23,7 +27,7 @@ export function useLibrary({ region, isbn13 }) {
     setSizing(true);
   };
 
-  return { library, setLibrary, handleConfirm, handleReset };
+  return { library, loading, handleConfirm, handleReset };
 }
 
 export function useLocation() {

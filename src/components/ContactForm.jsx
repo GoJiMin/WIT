@@ -130,13 +130,14 @@ export default function ContactForm() {
       </div>
       <div className={styles.checkbox}>
         <input
+          className={styles.checkbox_input}
           type='checkbox'
           onChange={() => setChecked(false)}
           checked={check}
         />
         <Modal
           type={"alert"}
-          text={"개인 정보 수집 및 이용동의"}
+          text={"(확인) 개인 정보 수집 및 이용동의"}
           handleConfirm={handleCheck}
           btnText={"개인정보 보호를 위한 이용자 동의사항에 동의합니다."}
           component={<PersonalInformation />}

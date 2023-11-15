@@ -9,6 +9,7 @@ export default function Modal({
   title,
   text,
   type,
+  loading,
   library,
   component,
   handleConfirm,
@@ -83,6 +84,7 @@ export default function Modal({
           library={library}
           title={title}
           region={region.region}
+          loading={loading}
           content={component}
           close={close}
           confirm={confirm}

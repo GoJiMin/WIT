@@ -26,7 +26,7 @@ export default function Book({
     setRegion,
   } = useRegion();
 
-  const { library, handleConfirm, handleReset } = useLibrary({
+  const { library, loading, handleConfirm, handleReset } = useLibrary({
     region,
     isbn13,
   });
@@ -85,6 +85,7 @@ export default function Book({
             text={"소장 도서관"}
             title={"위치 선택"}
             library={library}
+            loading={loading}
             options={options__depth2}
             handleConfirm={handleConfirm}
             region={region}
