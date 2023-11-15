@@ -256,4 +256,8 @@
     font-size: 1.2rem;
     line-height: 1px;
   }
+
+  .search:hover {
+    background-color: var(--color-light-blue);
+  }
 }

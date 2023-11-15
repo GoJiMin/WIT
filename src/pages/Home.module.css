@@ -110,4 +110,10 @@
     line-height: 1.7rem;
     font-size: 1rem;
   }
+  .search:hover {
+    background-color: var(--color-light-blue);
+  }
+  .input:hover {
+    border-color: var(--color-light-blue);
+  }
 }

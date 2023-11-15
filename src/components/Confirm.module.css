@@ -192,6 +192,11 @@
   .btnContainer button {
     font-size: 14px;
   }
+
+  .confirmBtn:hover {
+    background-color: var(--color-light-blue);
+  }
+
   @media all and (max-height: 800px) {
     .content {
       height: 15vh;
