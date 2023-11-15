@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 export function useSelectTags() {
   const navigate = useNavigate();
   const tagList = useRef();
+  const [checked, setChecked] = useState(false);
   const [tag, setTag] = useState();
   const [category, setCategory] = useState({ categoryId: null, text: "" });
 
@@ -31,12 +32,20 @@ export function useSelectTags() {
     });
   };
 
+  const handleCheck = () => {
+    setChecked((prev) => !prev);
+    setTag(null);
+    setCategory(null);
+  };
+
   return {
-    category,
     handleSearch,
     handleClick,
-    tag,
     handleSetCategory,
+    handleCheck,
+    category,
+    checked,
+    tag,
     tagList,
   };
 }
