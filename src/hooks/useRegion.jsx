@@ -30,12 +30,16 @@ export function useRegion() {
     setRegion((prev) => ({ ...prev, dtl_region: e }));
   };
 
+  const handleResetRegion = () => {
+    setRegion({ region: null, dtl_region: null });
+  };
+
   return {
     handleSelect,
     handleDepth2Select,
     options__depth1,
     options__depth2,
     region,
-    setRegion,
+    handleResetRegion,
   };
 }

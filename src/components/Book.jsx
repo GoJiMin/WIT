@@ -20,10 +20,10 @@ export default function Book({
   const {
     handleSelect,
     handleDepth2Select,
+    handleResetRegion,
     options__depth1,
     options__depth2,
     region,
-    setRegion,
   } = useRegion();
 
   const { library, loading, handleConfirm, handleReset } = useLibrary({
@@ -89,7 +89,7 @@ export default function Book({
             options={options__depth2}
             handleConfirm={handleConfirm}
             region={region}
-            setRegion={setRegion}
+            handleResetRegion={handleResetRegion}
             component={
               <Region
                 regionData={{

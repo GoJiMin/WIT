@@ -11,7 +11,6 @@ export default function Confirm({
   library,
   region,
 }) {
-  console.log(loading);
   const { sizing } = useOutletContext();
   return (
     <section className={styles.section}>

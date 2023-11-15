@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Modal.module.css";
 import Confirm from "./Confirm.jsx";
 import Alert from "./Alert.jsx";
 import Description from "./Description";
-import { useOutletContext } from "react-router-dom";
 import { useScrollLock } from "../hooks/useScrollLock";
+import { useModal } from "./../hooks/useModal";
 
 export default function Modal({
   title,
@@ -15,31 +15,19 @@ export default function Modal({
   component,
   handleConfirm,
   region,
-  setRegion,
+  handleResetRegion,
   btnText,
   content,
   author,
 }) {
   const { enableScrollLock, disableScrollLock } = useScrollLock();
 
-  const [isOpen, setIsOpen] = useState(false);
-  const { setSizing } = useOutletContext();
-
-  const open = () => {
-    enableScrollLock();
-    setIsOpen(true);
-  };
-
-  const close = () => {
-    disableScrollLock();
-    setIsOpen(false);
-    setRegion && setRegion({ region: null, dtl_region: null });
-    setSizing && setSizing(false);
-  };
-
-  const confirm = () => {
-    handleConfirm();
-  };
+  const { isOpen, open, confirm, close } = useModal({
+    enableScrollLock,
+    disableScrollLock,
+    handleResetRegion,
+    handleConfirm,
+  });
 
   return (
     <section className={styles.section}>
