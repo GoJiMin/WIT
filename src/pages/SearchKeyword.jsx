@@ -5,8 +5,8 @@ import BookSkeleton from "../components/BookSkeleton";
 import Book from "../components/Book";
 
 export default function SearchKeyword() {
-  const { books, isFetching, bookMarks } = useSearchToKeyword();
-  console.log(books);
+  const { books, isFetching, pageNumber, bookMarks, setNextPage, setPrevPage } =
+    useSearchToKeyword();
   if (isFetching)
     return (
       <section className={styles.section}>
@@ -36,6 +36,11 @@ export default function SearchKeyword() {
               </li>
             ))}
         </ul>
+        <section className={styles.pagination}>
+          <button onClick={setPrevPage}>prev</button>
+          <p>{pageNumber}</p>
+          <button onClick={setNextPage}>next</button>
+        </section>
       </section>
     </>
   );

@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useQueries } from "@tanstack/react-query";
 import { searchToTag, searchToKeyword } from "../services/aladin";
 import { getBookMarks } from "../services/firebase";
+import { useState } from "react";
 
 export function useSearchToTag() {
   const listBox = useRef();
@@ -52,13 +53,16 @@ export function useSearchToTag() {
 export function useSearchToKeyword() {
   const { keyword } = useParams();
   const { uid } = useAuthContext();
+  const [pageNumber, setPageNumber] = useState(1);
   // const naviate = useNavigate();
 
   const [{ data: books, isFetching }, { data: bookMarks }] = useQueries({
     queries: [
       {
-        queryKey: ["bookData"],
-        queryFn: () => searchToKeyword(keyword),
+        queryKey: ["bookData", pageNumber],
+        queryFn: () => searchToKeyword(keyword, pageNumber),
+        keepPreviousData: true,
+        staleTime: Infinity,
       },
       {
         queryKey: ["bookMarks"],
@@ -67,5 +71,13 @@ export function useSearchToKeyword() {
     ],
   });
 
-  return { books, isFetching, bookMarks };
+  const setNextPage = () => {
+    setPageNumber((prev) => prev + 1);
+  };
+
+  const setPrevPage = () => {
+    setPageNumber((prev) => prev - 1);
+  };
+
+  return { books, isFetching, pageNumber, bookMarks, setNextPage, setPrevPage };
 }
