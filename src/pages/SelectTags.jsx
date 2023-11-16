@@ -4,6 +4,7 @@ import Button from "../components/Button.jsx";
 import styles from "./SelectTags.module.css";
 import { MdSearch } from "react-icons/md";
 import { useSelectTags } from "../hooks/useSelectTags";
+import { useContact } from "./../hooks/useContact";
 
 export default function SelectTags() {
   const {
@@ -12,21 +13,48 @@ export default function SelectTags() {
     handleSetCategory,
     handleCheck,
     handleKeywordSearch,
-    handleChange,
-    keyword,
     checked,
     category,
     tag,
     tagList,
   } = useSelectTags();
 
-  console.log(keyword);
+  const { isSubmitted, errors, register, handleSubmit } = useContact();
+
   return (
     <section className={styles.section}>
       {checked && (
         <div>
-          <input type='text' value={keyword} onChange={handleChange} />
-          <button onClick={handleKeywordSearch}>검색</button>
+          <form
+            className={styles.inputBox}
+            onSubmit={handleSubmit(handleKeywordSearch)}
+          >
+            <label className={styles.label} htmlFor='text'>
+              제목+저자
+            </label>
+            <input
+              className={styles.inputText}
+              id='text'
+              type='text'
+              autoComplete='off'
+              aria-invalid={
+                isSubmitted ? (errors.text ? "true" : "false") : undefined
+              }
+              {...register("text", {
+                required: "검색어는 필수 입력 사항입니다.",
+                minLength: {
+                  value: 2,
+                  message: "검색어는 2자 이상이여야 합니다,",
+                },
+              })}
+            />
+            {errors.text && (
+              <small className={styles.error} role='alert'>
+                {errors.text.message}
+              </small>
+            )}
+            <button type='submit'>검색</button>
+          </form>
         </div>
       )}
       {!checked && (

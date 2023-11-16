@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SearchKeyword.module.css";
-import { useSearchToKeyword, useSearchToTag } from "../hooks/useSearchBooks";
+import { useSearchToKeyword } from "../hooks/useSearchBooks";
 import {
   MdFirstPage,
   MdLastPage,
@@ -11,7 +11,6 @@ import { HiArrowUp, HiArrowUturnLeft } from "react-icons/hi2";
 import BookSkeleton from "../components/BookSkeleton";
 import Book from "../components/Book";
 import Pagination from "react-js-pagination";
-import { ref } from "firebase/database";
 
 export default function SearchKeyword() {
   const {

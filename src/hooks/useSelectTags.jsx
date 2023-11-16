@@ -6,7 +6,6 @@ export function useSelectTags() {
   const navigate = useNavigate();
   const tagList = useRef();
   const [checked, setChecked] = useState(false);
-  const [keyword, setKeyword] = useState(null);
   const [tag, setTag] = useState();
   const [category, setCategory] = useState({ categoryId: null, text: "" });
 
@@ -26,12 +25,10 @@ export function useSelectTags() {
     navigate(`/search/category/${category?.categoryId}`);
   };
 
-  const handleKeywordSearch = () => {
-    if (keyword === null) {
-      setKeyword("먼저 키워드를 입력해주세요!");
-      return;
+  const handleKeywordSearch = (data) => {
+    if (data !== null) {
+      navigate(`/search/keyword/${data.text}`);
     }
-    navigate(`/search/keyword/${keyword}`);
   };
 
   const handleSetCategory = (id, tagName) => {
@@ -47,18 +44,12 @@ export function useSelectTags() {
     setCategory(null);
   };
 
-  const handleChange = (e) => {
-    setKeyword(e.target.value);
-  };
-
   return {
     handleSearch,
     handleClick,
     handleSetCategory,
     handleCheck,
     handleKeywordSearch,
-    handleChange,
-    keyword,
     category,
     checked,
     tag,
