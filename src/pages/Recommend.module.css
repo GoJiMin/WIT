@@ -3,7 +3,7 @@
   width: 100%;
   height: 100%;
   justify-content: center;
-  padding: 1rem 8rem;
+  padding: 1rem 22rem;
 }
 
 .textBox {
@@ -69,6 +69,13 @@
 
 .link__icon__ins {
   color: #ff5f9e;
+}
+
+/* 고해상도 (해상도 ~1480px)*/
+@media all and (max-width: 1480px) {
+  .section {
+    padding: 1rem 12rem;
+  }
 }
 
 /* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/
