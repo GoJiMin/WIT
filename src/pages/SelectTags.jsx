@@ -24,16 +24,16 @@ export default function SelectTags() {
   return (
     <section className={styles.section}>
       {checked && (
-        <div>
-          <form
-            className={styles.inputBox}
-            onSubmit={handleSubmit(handleKeywordSearch)}
-          >
+        <form
+          className={styles.keywordBox}
+          onSubmit={handleSubmit(handleKeywordSearch)}
+        >
+          <div className={styles.container}>
             <label className={styles.label} htmlFor='text'>
-              제목+저자
+              W
             </label>
             <input
-              className={styles.inputText}
+              className={styles.inputKeyword}
               id='text'
               type='text'
               autoComplete='off'
@@ -48,14 +48,16 @@ export default function SelectTags() {
                 },
               })}
             />
-            {errors.text && (
-              <small className={styles.error} role='alert'>
-                {errors.text.message}
-              </small>
-            )}
-            <button type='submit'>검색</button>
-          </form>
-        </div>
+          </div>
+          {errors.text && (
+            <small className={styles.error} role='alert'>
+              {errors.text.message}
+            </small>
+          )}
+          <button className={styles.search} type='submit'>
+            <MdSearch />
+          </button>
+        </form>
       )}
       {!checked && (
         <>

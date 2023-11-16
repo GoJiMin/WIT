@@ -42,16 +42,15 @@
   color: var(--color-light-blue);
   font-size: 2rem;
   border-right: 2.5px solid var(--color-light-blue);
-  height: var(--searchBox-height);
   line-height: 2.6rem;
   padding: 0 1.5rem;
   margin: 0;
 }
 
 .text {
-  height: var(--searchBox-height);
   line-height: 2.6rem;
   padding: 0 1.5rem;
+  font-size: 1.2rem;
 }
 
 .textBox {
@@ -103,12 +102,13 @@
   }
   .text__type {
     padding: 0 1rem;
-    line-height: 1.7rem;
+    line-height: var(--searchBox-line-height);
   }
   .text {
     padding: 0 1.2rem;
-    line-height: 1.7rem;
+    line-height: calc(var(--searchBox-height) + 0.6rem);
     font-size: 1rem;
+    height: calc(var(--searchBox-height) + 0.6rem);
   }
   .search:hover {
     background-color: var(--color-light-blue);

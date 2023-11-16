@@ -41,7 +41,7 @@
   --screen-color: #454545;
 
   /* searchBox height */
-  --searchBox-height: 2.5rem;
+  --searchBox-height: 2rem;
   --searchIcon-size: 3rem;
   --searchBox-width: 50rem;
 }
@@ -225,8 +225,9 @@ button {
 @media all and (max-width: 479px) {
   :root {
     /* searchBox height */
-    --searchBox-height: 1.7rem;
-    --searchIcon-size: 2.2rem;
+    --searchBox-height: 1.5rem;
+    --searchIcon-size: 2.5rem;
+    --searchBox-line-height: var(--searchBox-height);
     --searchBox-width: 130%;
   }
 
