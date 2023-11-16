@@ -139,6 +139,10 @@
     font-size: 1.1rem;
   }
 
+  .header button {
+    transform: translateY(0%);
+  }
+
   .addFavor {
     font-size: 17px;
     color: var(--color-light-blue);

@@ -1,13 +1,21 @@
 import React from "react";
 import styles from "./SearchKeyword.module.css";
 import { useSearchToKeyword } from "../hooks/useSearchBooks";
+import {
+  MdFirstPage,
+  MdLastPage,
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 import BookSkeleton from "../components/BookSkeleton";
 import Book from "../components/Book";
+import Pagination from "react-js-pagination";
 
 export default function SearchKeyword() {
-  const { books, isFetching, pageNumber, bookMarks, setNextPage, setPrevPage } =
+  const { books, isLoading, pageNumber, bookMarks, handlePageChange } =
     useSearchToKeyword();
-  if (isFetching)
+
+  if (isLoading)
     return (
       <section className={styles.section}>
         <ul className={styles.bookList}>
@@ -36,11 +44,17 @@ export default function SearchKeyword() {
               </li>
             ))}
         </ul>
-        <section className={styles.pagination}>
-          <button onClick={setPrevPage}>prev</button>
-          <p>{pageNumber}</p>
-          <button onClick={setNextPage}>next</button>
-        </section>
+        <Pagination
+          activePage={pageNumber}
+          itemsCountPerPage={10}
+          totalItemsCount={books?.totalResults}
+          pageRangeDisplayed={5}
+          prevPageText={<MdOutlineKeyboardArrowLeft />}
+          firstPageText={<MdFirstPage />}
+          nextPageText={<MdOutlineKeyboardArrowRight />}
+          lastPageText={<MdLastPage />}
+          onChange={handlePageChange}
+        />
       </section>
     </>
   );

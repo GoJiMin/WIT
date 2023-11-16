@@ -56,13 +56,13 @@ export function useSearchToKeyword() {
   const [pageNumber, setPageNumber] = useState(1);
   // const naviate = useNavigate();
 
-  const [{ data: books, isFetching }, { data: bookMarks }] = useQueries({
+  const [{ data: books, isLoading }, { data: bookMarks }] = useQueries({
     queries: [
       {
         queryKey: ["bookData", pageNumber],
         queryFn: () => searchToKeyword(keyword, pageNumber),
         keepPreviousData: true,
-        staleTime: Infinity,
+        // staleTime: 5000,
       },
       {
         queryKey: ["bookMarks"],
@@ -71,13 +71,9 @@ export function useSearchToKeyword() {
     ],
   });
 
-  const setNextPage = () => {
-    setPageNumber((prev) => prev + 1);
+  const handlePageChange = (page) => {
+    setPageNumber(page);
   };
 
-  const setPrevPage = () => {
-    setPageNumber((prev) => prev - 1);
-  };
-
-  return { books, isFetching, pageNumber, bookMarks, setNextPage, setPrevPage };
+  return { books, isLoading, pageNumber, bookMarks, handlePageChange };
 }

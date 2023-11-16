@@ -1,30 +1,16 @@
 .section {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   padding: 1rem 3.5rem;
   padding-right: 0;
   height: 100%;
 }
 
 .bookList {
+  flex: 1;
   height: 100%;
   overflow: auto;
   padding: 0;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  transform: translateY(-50%);
-}
-
-.pagination button {
-  font-size: 1.1rem;
-}
-
-.pagination p {
-  font-size: 2rem;
 }
 
 /* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/
@@ -34,6 +20,6 @@
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .section {
-    padding: 1rem 0 10% 1rem;
+    padding: 1rem 0 0 1rem;
   }
 }
