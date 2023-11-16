@@ -60,10 +60,14 @@ ul.pagination li.active {
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
   .pagination {
-    gap: 7px;
+    gap: 4px;
   }
   ul.pagination li a svg {
     padding-top: 5px;
     font-size: 1.9rem;
+  }
+  ul.pagination li {
+    width: 30px;
+    height: 30px;
   }
 }
