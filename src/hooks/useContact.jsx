@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useCallback } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -30,9 +32,15 @@ export function useContact() {
     });
   };
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     reset({ email: "", id: "", subject: "", text: "" });
-  };
+  }, []);
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      handleReset();
+    }
+  }, [handleReset, isSubmitSuccessful]);
 
   return {
     reset,

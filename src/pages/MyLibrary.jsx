@@ -1,6 +1,5 @@
 import React from "react";
 import { useMyLibrary } from "../hooks/useMyLibrary";
-import { useEffect } from "react";
 import {
   MdFirstPage,
   MdLastPage,
@@ -16,7 +15,6 @@ import "./pagination.css";
 export default function MyLibrary() {
   const {
     handlePageChange,
-    handleSetCurrentPage,
     currentPage,
     books,
     page,
@@ -24,10 +22,6 @@ export default function MyLibrary() {
     hasBooks,
     isFetching,
   } = useMyLibrary();
-
-  useEffect(() => {
-    handleSetCurrentPage();
-  }, [books, page]);
 
   if (isFetching)
     return (

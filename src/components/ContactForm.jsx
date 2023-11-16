@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./ContactForm.module.css";
 import Modal from "./Modal.jsx";
 import PersonalInformation from "./PersonalInformation.jsx";
@@ -7,7 +7,6 @@ import { useContact } from "../hooks/useContact";
 export default function ContactForm() {
   const {
     register,
-    handleReset,
     handleUnCheck,
     handleCheck,
     handleSubmit,
@@ -16,14 +15,7 @@ export default function ContactForm() {
     isSubmitting,
     isSubmitted,
     errors,
-    isSubmitSuccessful,
   } = useContact();
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      handleReset();
-    }
-  }, [handleReset, isSubmitSuccessful]);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

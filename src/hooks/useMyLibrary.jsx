@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useAuthContext } from "../context/AuthContext";
 import { getLibrary } from "../services/firebase";
+import { useEffect } from "react";
 
 export function useMyLibrary() {
   const { uid } = useAuthContext();
@@ -25,9 +26,12 @@ export function useMyLibrary() {
     setCurrentPage(books?.slice(indexOfFirstPage, indexOfLastPage));
   };
 
+  useEffect(() => {
+    handleSetCurrentPage();
+  }, [books, page]);
+
   return {
     handlePageChange,
-    handleSetCurrentPage,
     currentPage,
     books,
     page,
