@@ -1,10 +1,11 @@
 import { useRef } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import { useParams, useNavigate } from "react-router-dom";
-import { useQueries } from "@tanstack/react-query";
+import { useQueries, useQueryClient } from "@tanstack/react-query";
 import { searchToTag, searchToKeyword } from "../services/aladin";
 import { getBookMarks } from "../services/firebase";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export function useSearchToTag() {
   const listBox = useRef();
@@ -51,10 +52,11 @@ export function useSearchToTag() {
 }
 
 export function useSearchToKeyword() {
+  const queryClient = useQueryClient();
   const { keyword } = useParams();
   const { uid } = useAuthContext();
   const [pageNumber, setPageNumber] = useState(1);
-  // const naviate = useNavigate();
+  const navigate = useNavigate();
 
   const [{ data: books, isLoading }, { data: bookMarks }] = useQueries({
     queries: [
@@ -62,7 +64,6 @@ export function useSearchToKeyword() {
         queryKey: ["bookData", pageNumber],
         queryFn: () => searchToKeyword(keyword, pageNumber),
         keepPreviousData: true,
-        // staleTime: 5000,
       },
       {
         queryKey: ["bookMarks"],
@@ -75,5 +76,30 @@ export function useSearchToKeyword() {
     setPageNumber(page);
   };
 
-  return { books, isLoading, pageNumber, bookMarks, handlePageChange };
+  const preFetching = () => {
+    const nextPage = pageNumber + 1;
+    const maxPage = Math.ceil(books?.totalResults / 10);
+    if (pageNumber < maxPage) {
+      queryClient.prefetchQuery(["bookData", nextPage], () =>
+        searchToKeyword(keyword, nextPage)
+      );
+    }
+  };
+
+  const backspace = () => {
+    navigate(-1);
+  };
+
+  useEffect(() => {
+    preFetching();
+  }, [queryClient, pageNumber]);
+
+  return {
+    books,
+    isLoading,
+    pageNumber,
+    bookMarks,
+    handlePageChange,
+    backspace,
+  };
 }

@@ -12,8 +12,14 @@ import Book from "../components/Book";
 import Pagination from "react-js-pagination";
 
 export default function SearchKeyword() {
-  const { books, isLoading, pageNumber, bookMarks, handlePageChange } =
-    useSearchToKeyword();
+  const {
+    books,
+    isLoading,
+    pageNumber,
+    bookMarks,
+    handlePageChange,
+    backspace,
+  } = useSearchToKeyword();
 
   if (isLoading)
     return (
