@@ -20,7 +20,7 @@
   flex-direction: column;
   gap: 7px;
   bottom: 45px;
-  right: 15px;
+  right: 25px;
 }
 
 .btn {
@@ -48,6 +48,10 @@
 @media all and (max-width: 479px) {
   .section {
     padding: 1rem 0 0 1rem;
+  }
+
+  .btnContainer {
+    right: 10px;
   }
 
   .btn {

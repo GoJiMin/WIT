@@ -6,6 +6,7 @@ import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
+import { HiArrowUp } from "react-icons/hi2";
 import Book from "./../components/Book.jsx";
 import BookSkeleton from "./../components/BookSkeleton";
 import Pagination from "react-js-pagination";
@@ -15,12 +16,14 @@ import "./pagination.css";
 export default function MyLibrary() {
   const {
     handlePageChange,
+    scrollToTop,
     currentPage,
     books,
     page,
     postPerPage,
     hasBooks,
     isFetching,
+    listBox,
   } = useMyLibrary();
 
   if (isFetching)
@@ -41,7 +44,7 @@ export default function MyLibrary() {
       {!hasBooks && <p>서재에 추가된 책이 없습니다.</p>}
       {currentPage && (
         <section className={styles.bookMarkSection}>
-          <ul className={styles.bookMarkList}>
+          <ul className={styles.bookMarkList} ref={listBox}>
             {currentPage &&
               currentPage.map((book) => (
                 <Book
@@ -52,6 +55,9 @@ export default function MyLibrary() {
                 />
               ))}
           </ul>
+          <button className={styles.btn} onClick={scrollToTop}>
+            <HiArrowUp />
+          </button>
           <Pagination
             activePage={page}
             itemsCountPerPage={postPerPage}

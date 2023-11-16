@@ -20,13 +20,17 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  padding: 0rem 2rem;
+  padding: 0rem 4rem;
+}
+
+.search button {
+  font-size: 1.4rem;
 }
 
 .up {
   position: fixed;
-  bottom: 45px;
-  right: 15px;
+  bottom: 70px;
+  right: 25px;
   width: 50px;
   height: 50px;
   font-size: 2.5rem;
@@ -54,7 +58,17 @@
   }
 
   .up {
+    right: 15px;
+    bottom: 50px;
     width: 35px;
     height: 35px;
+  }
+
+  .search {
+    padding: 0 2rem;
+  }
+
+  .search button {
+    font-size: 1.2rem;
   }
 }
