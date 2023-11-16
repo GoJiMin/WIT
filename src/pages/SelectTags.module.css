@@ -58,7 +58,7 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   padding: 0 1rem;
   margin-top: 6vh;
@@ -99,8 +99,8 @@
   border-radius: var(--size-border-radius);
   border: none;
   outline: none;
-  font-size: 16px !important;
-  margin-left: 1cqb;
+  font-size: var(--font-md);
+  margin-left: 1.5rem;
 }
 
 .input {
@@ -304,6 +304,10 @@
     margin-top: 2.8vh;
   }
 
+  .inputKeyword {
+    font-size: 16px !important;
+  }
+
   .search {
     font-size: var(--searchIcon-size);
   }
@@ -391,9 +395,7 @@
   }
 
   .info {
-    font-size: 1.6rem;
-    text-align: center;
+    font-size: 1.8rem;
     margin-top: 30vh;
-    animation: dropDownKeyword 600ms ease;
   }
 }
