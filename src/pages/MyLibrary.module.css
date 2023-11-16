@@ -11,6 +11,7 @@
 .bookMarkList {
   flex: 1;
   padding: 1rem;
+  padding-bottom: 0;
   height: 100%;
   overflow: auto;
 }
