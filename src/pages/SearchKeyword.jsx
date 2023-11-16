@@ -1,15 +1,17 @@
 import React from "react";
 import styles from "./SearchKeyword.module.css";
-import { useSearchToKeyword } from "../hooks/useSearchBooks";
+import { useSearchToKeyword, useSearchToTag } from "../hooks/useSearchBooks";
 import {
   MdFirstPage,
   MdLastPage,
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
+import { HiArrowUp, HiArrowUturnLeft } from "react-icons/hi2";
 import BookSkeleton from "../components/BookSkeleton";
 import Book from "../components/Book";
 import Pagination from "react-js-pagination";
+import { ref } from "firebase/database";
 
 export default function SearchKeyword() {
   const {
@@ -17,6 +19,8 @@ export default function SearchKeyword() {
     isLoading,
     pageNumber,
     bookMarks,
+    listBox,
+    scrollToTop,
     handlePageChange,
     backspace,
   } = useSearchToKeyword();
@@ -37,7 +41,7 @@ export default function SearchKeyword() {
   return (
     <>
       <section className={styles.section}>
-        <ul className={styles.bookList}>
+        <ul className={styles.bookList} ref={listBox}>
           {books &&
             books.item.map((book) => (
               <li key={book.itemId}>
@@ -50,6 +54,14 @@ export default function SearchKeyword() {
               </li>
             ))}
         </ul>
+        <div className={styles.btnContainer}>
+          <button className={styles.btn} onClick={backspace}>
+            <HiArrowUturnLeft />
+          </button>
+          <button className={styles.btn} onClick={scrollToTop}>
+            <HiArrowUp />
+          </button>
+        </div>
         <Pagination
           activePage={pageNumber}
           itemsCountPerPage={10}

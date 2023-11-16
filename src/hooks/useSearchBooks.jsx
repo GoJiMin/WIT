@@ -53,6 +53,7 @@ export function useSearchToTag() {
 
 export function useSearchToKeyword() {
   const queryClient = useQueryClient();
+  const listBox = useRef();
   const { keyword } = useParams();
   const { uid } = useAuthContext();
   const [pageNumber, setPageNumber] = useState(1);
@@ -73,6 +74,7 @@ export function useSearchToKeyword() {
   });
 
   const handlePageChange = (page) => {
+    scrollToTop();
     setPageNumber(page);
   };
 
@@ -90,6 +92,10 @@ export function useSearchToKeyword() {
     navigate(-1);
   };
 
+  const scrollToTop = () => {
+    listBox.current?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     preFetching();
   }, [queryClient, pageNumber]);
@@ -99,6 +105,8 @@ export function useSearchToKeyword() {
     isLoading,
     pageNumber,
     bookMarks,
+    listBox,
+    scrollToTop,
     handlePageChange,
     backspace,
   };
