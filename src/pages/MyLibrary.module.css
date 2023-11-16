@@ -1,5 +1,7 @@
 .section {
   height: 100%;
+  padding: 0 2.5rem;
+  padding-right: 0;
 }
 
 .bookMarkSection {
@@ -42,6 +44,10 @@
 
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
+  .section {
+    padding: 0;
+  }
+
   .btn {
     right: 15px;
     width: 35px;
