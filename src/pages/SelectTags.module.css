@@ -43,6 +43,7 @@
 
 .searchBox {
   display: flex;
+  position: relative;
   margin: 0 auto;
   width: 100%;
   margin-top: 5vh;
@@ -54,13 +55,23 @@
 
 .keywordBox {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 50%;
   margin: 0 auto;
   padding: 0 1rem;
-  margin-top: 8vh;
+  margin-top: 6vh;
+  margin-bottom: 5vh;
   animation: dropDownKeyword 600ms ease;
+}
+
+.error {
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
 }
 
 .container {
@@ -90,9 +101,6 @@
   outline: none;
   font-size: 16px !important;
   margin-left: 1cqb;
-}
-
-.inputKeyword:focus {
 }
 
 .input {
@@ -175,40 +183,39 @@
   line-height: 1px;
 }
 
-.link {
+.check {
   position: absolute;
-  font-size: var(--font-md);
-  bottom: 1vh;
-  right: 1vh;
-}
-
-.checkBox {
-  position: absolute;
-  bottom: 1vh;
+  bottom: 2vh;
   right: 2vh;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 2px;
+  gap: 10px;
+  width: 10rem;
+  height: 3.5rem;
+  padding-left: 10px;
+  border: 2px solid var(--color-light-blue);
+  border-radius: 5px;
+  color: var(--color-light-blue);
+  font-size: 1.3rem;
+  transition: all var(--animation-duration) ease;
 }
 
-.check {
-  border: 1.5px solid var(--color-border);
-  border-radius: 0.35rem;
-  width: 1.5rem;
-  height: 1.5rem;
+.icon svg {
+  padding-top: 4px;
+  font-size: 1.8rem;
 }
 
-.check:checked {
-  border-color: transparent;
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
-  background-size: 150% 150%;
-  background-position: 50%;
-  background-repeat: no-repeat;
+.enabled {
   background-color: var(--color-light-blue);
+  color: var(--background-color);
 }
 
-.checkBox__text {
-  font-size: var(--font-md);
+.info {
+  font-size: 1.7rem;
+  text-align: center;
+  margin-top: 25vh;
+  animation: dropDownKeyword 600ms ease;
 }
 
 /* 고해상도 (해상도 ~1480px)*/
@@ -216,13 +223,24 @@
   .section {
     padding: 0 1rem;
   }
+
+  .searchBox {
+    margin-top: 1vh;
+  }
+
+  .keywordBox {
+    margin-top: 4vh;
+  }
+
   .tagBox {
-    padding: 0 3rem;
+    padding: 0 5rem;
     transform: translateY(-7%);
   }
+
   .tagList {
     gap: 2.5rem;
   }
+
   .tag__sub {
     margin-bottom: 2rem;
     margin-right: 3rem;
@@ -272,6 +290,7 @@
   /* Style */
   .section {
     padding: 0;
+    position: static;
   }
 
   .searchBox {
@@ -282,7 +301,7 @@
 
   .keywordBox {
     width: 100%;
-    margin-top: 3.5vh;
+    margin-top: 2.8vh;
   }
 
   .search {
@@ -358,5 +377,23 @@
 
   .search:hover {
     background-color: var(--color-light-blue);
+  }
+
+  .check {
+    position: absolute;
+    gap: 3px;
+    width: 9rem;
+    height: 3.5rem;
+    padding-left: 7px;
+    border-width: 1px;
+    bottom: 1vh;
+    right: 1vh;
+  }
+
+  .info {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 30vh;
+    animation: dropDownKeyword 600ms ease;
   }
 }

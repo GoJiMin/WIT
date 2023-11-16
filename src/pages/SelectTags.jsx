@@ -3,6 +3,7 @@ import { DETAIL_LIST, TAG_LIST } from "../data/tagData";
 import Button from "../components/Button.jsx";
 import styles from "./SelectTags.module.css";
 import { MdSearch } from "react-icons/md";
+import { SlMagnifier } from "react-icons/sl";
 import { useSelectTags } from "../hooks/useSelectTags";
 import { useContact } from "./../hooks/useContact";
 
@@ -24,40 +25,46 @@ export default function SelectTags() {
   return (
     <section className={styles.section}>
       {checked && (
-        <form
-          className={styles.keywordBox}
-          onSubmit={handleSubmit(handleKeywordSearch)}
-        >
-          <div className={styles.container}>
-            <label className={styles.label} htmlFor='text'>
-              W
-            </label>
-            <input
-              className={styles.inputKeyword}
-              id='text'
-              type='text'
-              autoComplete='off'
-              aria-invalid={
-                isSubmitted ? (errors.text ? "true" : "false") : undefined
-              }
-              {...register("text", {
-                required: "검색어는 필수 입력 사항입니다.",
-                minLength: {
-                  value: 2,
-                  message: "검색어는 2자 이상이여야 합니다,",
-                },
-              })}
-            />
-          </div>
-          {errors.text && (
-            <small className={styles.error} role='alert'>
-              {errors.text.message}
-            </small>
-          )}
-          <button className={styles.search} type='submit'>
-            <MdSearch />
-          </button>
-        </form>
+        <div>
+          <form
+            className={styles.keywordBox}
+            onSubmit={handleSubmit(handleKeywordSearch)}
+          >
+            <div className={styles.container}>
+              <label className={styles.label} htmlFor='text'>
+                W
+              </label>
+              <input
+                className={styles.inputKeyword}
+                id='text'
+                type='text'
+                autoComplete='off'
+                aria-invalid={
+                  isSubmitted ? (errors.text ? "true" : "false") : undefined
+                }
+                {...register("text", {
+                  required: "검색어는 필수 입력 사항입니다.",
+                  minLength: {
+                    value: 2,
+                    message: "검색어는 2자 이상이여야 합니다,",
+                  },
+                })}
+              />
+            </div>
+            {errors.text && (
+              <small className={styles.error} role='alert'>
+                {errors.text.message}
+              </small>
+            )}
+            <button className={styles.search} type='submit'>
+              <MdSearch />
+            </button>
+          </form>
+
+          <p className={styles.info}>
+            제목 또는 저자를 입력해 검색할 수 있어요!
+          </p>
+        </div>
       )}
       {!checked && (
         <>
@@ -104,16 +111,17 @@ export default function SelectTags() {
         </>
       )}
       <div className={styles.checkBox}>
-        <input
-          id='check'
-          type='checkbox'
-          value={checked}
-          className={styles.check}
+        <button
+          className={
+            checked ? `${styles.check} ${styles.enabled}` : `${styles.check}`
+          }
           onClick={handleCheck}
-        />
-        <label htmlFor='check' className={styles.checkBox__text}>
-          책 제목 검색
-        </label>
+        >
+          직접 검색
+          <span className={styles.icon}>
+            <SlMagnifier />
+          </span>
+        </button>
       </div>
     </section>
   );

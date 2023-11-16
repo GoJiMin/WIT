@@ -226,7 +226,7 @@ button {
   :root {
     /* searchBox height */
     --searchBox-height: 1.5rem;
-    --searchIcon-size: 2.5rem;
+    --searchIcon-size: 2.8rem;
     --searchBox-line-height: var(--searchBox-height);
     --searchBox-width: 130%;
   }
