@@ -56,9 +56,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 50%;
+  margin: 0 auto;
   padding: 0 1rem;
-  margin-top: 3.5vh;
+  margin-top: 8vh;
   animation: dropDownKeyword 600ms ease;
 }
 
@@ -88,7 +89,7 @@
   border: none;
   outline: none;
   font-size: 16px !important;
-  margin-left: 0.5rem;
+  margin-left: 1cqb;
 }
 
 .inputKeyword:focus {
@@ -277,6 +278,11 @@
     width: 92%;
     margin: 0 auto;
     margin-top: 1.5vh;
+  }
+
+  .keywordBox {
+    width: 100%;
+    margin-top: 3.5vh;
   }
 
   .search {
