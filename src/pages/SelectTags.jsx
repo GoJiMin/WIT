@@ -51,19 +51,21 @@ export default function SelectTags() {
                 })}
               />
             </div>
+
+            <button className={styles.search} type='submit'>
+              <MdSearch />
+            </button>
+          </form>
+          <div className={styles.textBox}>
+            <p className={styles.info}>
+              제목 또는 저자를 입력해 검색할 수 있어요!
+            </p>
             {errors.text && (
               <small className={styles.error} role='alert'>
                 {errors.text.message}
               </small>
             )}
-            <button className={styles.search} type='submit'>
-              <MdSearch />
-            </button>
-          </form>
-
-          <p className={styles.info}>
-            제목 또는 저자를 입력해 검색할 수 있어요!
-          </p>
+          </div>
         </div>
       )}
       {!checked && (
