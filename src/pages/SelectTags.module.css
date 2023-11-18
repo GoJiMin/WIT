@@ -453,6 +453,7 @@
   }
 
   .checkBox__description {
+    font-size: 1.2rem;
     top: -5px;
     margin-bottom: 0px;
   }
