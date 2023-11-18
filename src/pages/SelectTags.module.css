@@ -454,7 +454,8 @@
 
   .checkBox__description {
     font-size: 1.2rem;
-    top: -5px;
+    top: 0;
+    padding-left: 1px;
     margin-bottom: 0px;
   }
 
