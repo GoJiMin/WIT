@@ -137,6 +137,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -166,6 +167,16 @@ input,
 textarea {
   font-family: "Pretendard";
   opacity: 0.8;
+}
+
+textarea:focus {
+  outline: none;
+}
+button:focus {
+  outline: none;
+}
+input:focus {
+  outline: none;
 }
 
 button {
