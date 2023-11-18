@@ -3,7 +3,6 @@ import { DETAIL_LIST, TAG_LIST } from "../data/tagData";
 import Button from "../components/Button.jsx";
 import styles from "./SelectTags.module.css";
 import { MdSearch } from "react-icons/md";
-import { SlMagnifier } from "react-icons/sl";
 import { useSelectTags } from "../hooks/useSelectTags";
 import { useContact } from "./../hooks/useContact";
 
@@ -31,7 +30,7 @@ export default function SelectTags() {
             onSubmit={handleSubmit(handleKeywordSearch)}
           >
             <div className={styles.container}>
-              <label className={styles.label} htmlFor='text'>
+              <label className={styles.logo} htmlFor='text'>
                 W
               </label>
               <input
@@ -113,17 +112,15 @@ export default function SelectTags() {
         </>
       )}
       <div className={styles.checkBox}>
-        <button
-          className={
-            checked ? `${styles.check} ${styles.enabled}` : `${styles.check}`
-          }
+        <p className={styles.checkBox__description}>키워드 검색</p>
+        <input
+          className={styles.check}
+          type='checkbox'
+          id='check'
+          checked={checked}
           onClick={handleCheck}
-        >
-          직접 검색
-          <span className={styles.icon}>
-            <SlMagnifier />
-          </span>
-        </button>
+        />
+        <label className={styles.label} htmlFor='check'></label>
       </div>
     </section>
   );
