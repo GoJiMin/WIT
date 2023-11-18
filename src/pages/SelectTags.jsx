@@ -112,7 +112,7 @@ export default function SelectTags() {
         </>
       )}
       <div className={styles.checkBox}>
-        <p className={styles.checkBox__description}>키워드 검색</p>
+        <span className={styles.checkBox__description}>키워드 검색</span>
         <input
           className={styles.check}
           type='checkbox'
