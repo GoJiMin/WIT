@@ -448,8 +448,8 @@
 
   .checkBox {
     position: absolute;
-    bottom: 3vh;
-    right: 3vh;
+    bottom: 2vh;
+    right: 2vh;
   }
 
   .checkBox__description {
