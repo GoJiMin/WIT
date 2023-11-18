@@ -63,7 +63,7 @@
   padding: 0 1rem;
   margin-top: 6vh;
   margin-bottom: 5vh;
-  animation: dropDownKeyword 600ms ease;
+  animation: dropDownKeyword 300ms ease;
 }
 
 .container {
@@ -211,23 +211,31 @@
   right: 5vh;
 }
 
+.check {
+  margin: 0;
+  padding: 0;
+}
+
 .checkBox__description {
   display: inline-block;
   font-size: 1.4rem;
   font-weight: var(--weight-semi-bold);
   padding: 0;
   margin: 0;
+  margin-bottom: 5px;
 }
 
 .label {
   display: block;
   cursor: pointer;
   position: relative;
+  margin: 0;
+  padding: 0;
   width: 110px;
   height: 45px;
   background: #d3d3d3;
   border-radius: 60px;
-  transition: background 0.4s;
+  transition: background 0.2s;
 }
 
 .label::after {
@@ -241,7 +249,7 @@
   background-color: var(--background-color);
   transform: translateY(-50%);
   box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s;
+  transition: all 0.2s;
 }
 
 .label::before {
@@ -252,7 +260,7 @@
   left: 50px;
   top: 50%;
   transform: translateY(-50%);
-  transition: all 0.4s;
+  transition: all 0.2s;
 }
 
 .check:checked + .label {
@@ -441,6 +449,10 @@
     right: 1vh;
   }
 
+  .checkBox__description {
+    margin-bottom: 2px;
+  }
+
   .label {
     display: block;
     position: relative;
@@ -467,7 +479,7 @@
   }
 
   .textBox {
-    margin-top: 5vh;
+    margin-top: 15vh;
   }
 
   .info {

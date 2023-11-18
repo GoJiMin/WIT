@@ -118,7 +118,7 @@ export default function SelectTags() {
           type='checkbox'
           id='check'
           checked={checked}
-          onClick={handleCheck}
+          onChange={handleCheck}
         />
         <label className={styles.label} htmlFor='check'></label>
       </div>
