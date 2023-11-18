@@ -210,6 +210,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
+  height: 60px;
   bottom: 5vh;
   right: 5vh;
 }
@@ -221,7 +222,7 @@
 
 .checkBox__description {
   position: absolute;
-  top: -32px;
+  top: -22px;
   z-index: 999;
   font-size: 1.4rem;
   font-weight: var(--weight-semi-bold);
@@ -452,7 +453,7 @@
   }
 
   .checkBox__description {
-    top: -22px;
+    top: -10px;
     margin-bottom: 0px;
   }
 
