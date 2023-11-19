@@ -4,12 +4,13 @@
   margin-right: 8rem;
   padding-right: 8rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .img {
   width: 10rem;
   margin-right: 2rem;
+  border: 2px solid var(--color-border);
   border-radius: var(--size-border-radius);
 }
 
