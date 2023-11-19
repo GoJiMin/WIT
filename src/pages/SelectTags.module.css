@@ -162,19 +162,18 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 50vh;
+  height: 60vh;
   gap: 1.5rem;
   animation: dropDown 600ms ease;
 }
 
 .tag__sub {
   margin-bottom: 2.5rem;
-  margin-right: 4rem;
+  margin-right: 5rem;
 }
 
 .tag__sub button {
   font-size: var(--font-sm);
-  line-height: 1px;
 }
 
 .icon svg {
