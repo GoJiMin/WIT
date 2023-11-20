@@ -90,6 +90,7 @@ export function useSearchToKeyword() {
 
   const backspace = () => {
     navigate(-1);
+    queryClient.removeQueries({ queryKey: "bookData" });
   };
 
   const scrollToTop = () => {

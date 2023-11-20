@@ -37,6 +37,21 @@ export default function SearchKeyword() {
       </section>
     );
 
+  if (books?.totalResults === 0)
+    return (
+      <section className={styles.bookList}>
+        <div className={styles.errorBox}>
+          <p className={styles.error}>검색된 도서가 없어요.</p>
+          <p className={styles.error__text}>
+            제목 또는 저자를 다시 한번 정확히 입력해주세요!
+          </p>
+          <button className={styles.error__backspace} onClick={backspace}>
+            다시 검색하기
+          </button>
+        </div>
+      </section>
+    );
+
   return (
     <>
       <section className={styles.section}>
