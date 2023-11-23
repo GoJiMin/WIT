@@ -4,18 +4,13 @@ import styles from "./SearchBooks.module.css";
 import Button from "../components/Button.jsx";
 import { HiArrowUp } from "react-icons/hi2";
 import BookSkeleton from "../components/BookSkeleton";
-import { useSearchToTag } from "../hooks/useSearchBooks";
+import { useScrollToTop, useSearchToTag } from "../hooks/useSearchBooks";
 
 export default function SearchBooks() {
-  const {
-    handleSearch,
-    handleClick,
-    books,
-    bookMarks,
-    isFetching,
-    scrollToTop,
-    listBox,
-  } = useSearchToTag();
+  const { listBox, scrollToTopBehavior, scrollToTop } = useScrollToTop();
+
+  const { handleSearch, handleClick, books, bookMarks, isFetching } =
+    useSearchToTag({ scrollToTop });
 
   if (isFetching)
     return (
@@ -29,8 +24,6 @@ export default function SearchBooks() {
         </ul>
       </section>
     );
-
-  console.log(books);
 
   return (
     <>
@@ -56,7 +49,7 @@ export default function SearchBooks() {
               handleFunction={handleSearch}
             />
           </div>
-          <button className={styles.up} onClick={scrollToTop}>
+          <button className={styles.up} onClick={scrollToTopBehavior}>
             <HiArrowUp />
           </button>
         </section>

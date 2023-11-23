@@ -7,8 +7,7 @@ import { getBookMarks } from "../services/firebase";
 import { useState } from "react";
 import { useEffect } from "react";
 
-export function useSearchToTag() {
-  const listBox = useRef();
+export function useSearchToTag({ scrollToTop }) {
   const { uid } = useAuthContext();
   const navigate = useNavigate();
   const { categoryId } = useParams();
@@ -32,10 +31,6 @@ export function useSearchToTag() {
     scrollToTop();
   };
 
-  const scrollToTop = () => {
-    listBox.current?.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   const handleClick = () => {
     navigate(-1);
   };
@@ -43,17 +38,14 @@ export function useSearchToTag() {
   return {
     handleSearch,
     handleClick,
-    scrollToTop,
     books,
     bookMarks,
     isFetching,
-    listBox,
   };
 }
 
-export function useSearchToKeyword() {
+export function useSearchToKeyword({ scrollToTop }) {
   const queryClient = useQueryClient();
-  const listBox = useRef();
   const { keyword } = useParams();
   const { uid } = useAuthContext();
   const [pageNumber, setPageNumber] = useState(1);
@@ -93,10 +85,6 @@ export function useSearchToKeyword() {
     queryClient.removeQueries({ queryKey: "bookData" });
   };
 
-  const scrollToTop = () => {
-    listBox.current?.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   useEffect(() => {
     preFetching();
   }, [queryClient, pageNumber]);
@@ -106,9 +94,21 @@ export function useSearchToKeyword() {
     isLoading,
     pageNumber,
     bookMarks,
-    listBox,
-    scrollToTop,
     handlePageChange,
     backspace,
   };
+}
+
+export function useScrollToTop() {
+  const listBox = useRef();
+
+  const scrollToTop = () => {
+    listBox.current?.scrollTo({ top: 0 });
+  };
+
+  const scrollToTopBehavior = () => {
+    listBox.current?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return { listBox, scrollToTop, scrollToTopBehavior };
 }

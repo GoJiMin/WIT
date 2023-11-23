@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SearchKeyword.module.css";
-import { useSearchToKeyword } from "../hooks/useSearchBooks";
+import { useScrollToTop, useSearchToKeyword } from "../hooks/useSearchBooks";
 import {
   MdFirstPage,
   MdLastPage,
@@ -13,16 +13,16 @@ import Book from "../components/Book";
 import Pagination from "react-js-pagination";
 
 export default function SearchKeyword() {
+  const { listBox, scrollToTopBehavior, scrollToTop } = useScrollToTop();
+
   const {
     books,
     isLoading,
     pageNumber,
     bookMarks,
-    listBox,
-    scrollToTop,
     handlePageChange,
     backspace,
-  } = useSearchToKeyword();
+  } = useSearchToKeyword({ scrollToTop });
 
   if (isLoading)
     return (
@@ -72,7 +72,7 @@ export default function SearchKeyword() {
           <button className={styles.btn} onClick={backspace}>
             <HiArrowUturnLeft />
           </button>
-          <button className={styles.btn} onClick={scrollToTop}>
+          <button className={styles.btn} onClick={scrollToTopBehavior}>
             <HiArrowUp />
           </button>
         </div>

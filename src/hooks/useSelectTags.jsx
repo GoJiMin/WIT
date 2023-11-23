@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function useSelectTags() {
@@ -43,6 +42,17 @@ export function useSelectTags() {
     setTag(null);
     setCategory(null);
   };
+
+  useEffect(() => {
+    const myChecked = localStorage.getItem("checked") === "true";
+    if (myChecked) {
+      setChecked(myChecked);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("checked", checked);
+  }, [checked]);
 
   return {
     handleSearch,
