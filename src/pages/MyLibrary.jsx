@@ -16,7 +16,7 @@ import "./pagination.css";
 export default function MyLibrary() {
   const {
     handlePageChange,
-    scrollToTop,
+    scrollToTopBehavior,
     currentPage,
     books,
     page,
@@ -55,7 +55,7 @@ export default function MyLibrary() {
                 />
               ))}
           </ul>
-          <button className={styles.btn} onClick={scrollToTop}>
+          <button className={styles.btn} onClick={scrollToTopBehavior}>
             <HiArrowUp />
           </button>
           <Pagination

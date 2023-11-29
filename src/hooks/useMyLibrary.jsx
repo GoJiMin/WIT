@@ -21,6 +21,7 @@ export function useMyLibrary() {
   const indexOfFirstPage = indexOfLastPage - postPerPage;
 
   const handlePageChange = (page) => {
+    scrollToTop();
     setPage(page);
   };
 
@@ -29,10 +30,11 @@ export function useMyLibrary() {
   };
 
   const scrollToTop = () => {
-    listBox?.current.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    listBox.current?.scrollTo({ top: 0 });
+  };
+
+  const scrollToTopBehavior = () => {
+    listBox.current?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -41,7 +43,7 @@ export function useMyLibrary() {
 
   return {
     handlePageChange,
-    scrollToTop,
+    scrollToTopBehavior,
     currentPage,
     books,
     page,
