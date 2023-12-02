@@ -12,6 +12,7 @@ import BookSkeleton from "./../components/BookSkeleton";
 import Pagination from "react-js-pagination";
 import styles from "./MyLibrary.module.css";
 import "./pagination.css";
+import { Link } from "react-router-dom";
 
 export default function MyLibrary() {
   const {
@@ -39,9 +40,23 @@ export default function MyLibrary() {
       </section>
     );
 
+  if (!hasBooks)
+    return (
+      <section className={styles.section}>
+        <div className={styles.errorBox}>
+          <p className={styles.error}>서재가 비어있어요.</p>
+          <p className={styles.error__text}>
+            책을 검색하고 마음에 드는 책을 나의 서재에 추가해 보세요!
+          </p>
+          <Link to='/select'>
+            <button className={styles.error__btn}>검색하기</button>
+          </Link>
+        </div>
+      </section>
+    );
+
   return (
     <section className={styles.section}>
-      {!hasBooks && <p>서재에 추가된 책이 없습니다.</p>}
       {currentPage && (
         <section className={styles.bookMarkSection}>
           <ul className={styles.bookMarkList} ref={listBox}>
